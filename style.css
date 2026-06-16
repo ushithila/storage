@@ -31,6 +31,7 @@ button {
     margin: 0;
     height: 4.5rem;
     color: #43525C;
+    font-size: 24px;
 }
 
 .storage-header {
@@ -45,7 +46,7 @@ button {
 .file-title {
     display: flex;
     font-size: 20px;
-    font-weight: 520;
+    font-weight: 500;
     align-items: center;
     color: #3E5462;
 }
@@ -83,7 +84,6 @@ button {
     height: 42px;
 }
 
-
 .add-button:hover{
     background-color: #004FAA;
     cursor: pointer;
@@ -96,4 +96,20 @@ button {
 .add-new{
     font-size: 14px;
     color: #FFFFFF;
+}
+
+.file-table{
+    display: grid;
+    border-bottom: 1px solid #ECEFF2;
+}
+
+th{
+    font-size: 16px ;
+    font-weight: 500;
+}
+
+.checkbox-table{
+    height: 16px;
+    width: 16px;
+    border-color: #3E5462;
 }
