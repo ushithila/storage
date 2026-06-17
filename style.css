@@ -1,5 +1,10 @@
 @import url('fonts.googleapis.com/css?family=Open+Sans');
 
+/* *{
+    margin: 0;
+    padding: 0;
+} */
+
 html {
     background: #F6F7F9;
 }
@@ -24,7 +29,7 @@ button {
     margin: 24px;
 }
 
-.header{
+.header {
     display: flex;
     padding-left: 16px;
     align-items: center;
@@ -51,13 +56,13 @@ button {
     color: #3E5462;
 }
 
-.search-container{
+.search-container {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.search-bar{
+.search-bar {
     width: 224px;
     height: 40px;
     border-radius: 6px;
@@ -65,11 +70,11 @@ button {
     border: 1px solid #DBE1E5;
 }
 
-.search-bar:hover{
+.search-bar:hover {
     border-color: #1976D2;
 }
 
-.search-bar:active{
+.search-bar:active {
     box-shadow: 0 0 0 4px #D9EBFF;
 }
 
@@ -84,32 +89,47 @@ button {
     height: 42px;
 }
 
-.add-button:hover{
+.add-button:hover {
     background-color: #004FAA;
     cursor: pointer;
 }
 
-.add-button:active{
+.add-button:active {
     background-color: #003B71;
 }
 
-.add-new{
+.add-new {
     font-size: 14px;
     color: #FFFFFF;
 }
 
-.file-table{
+.file-table {
     display: grid;
     border-bottom: 1px solid #ECEFF2;
 }
 
-th{
-    font-size: 16px ;
-    font-weight: 500;
+
+th {
+    font-size: 16px;
+    font-weight: 400;
+    color: #3E5462;
+    height: 48px;
 }
 
-.checkbox-table{
+.checkbox-header {
+    /* display: flex;
+    align-items: center;
+    justify-content: right; */
+    padding-right: 12px;
+
     height: 16px;
     width: 16px;
-    border-color: #3E5462;
+    -webkit-appearance: none;
+    border: 1px solid #3E5462;
+    border-radius: 3px;
+}
+
+.checkbox-header:hover {
+    border-color: #1976D2;
+    cursor: pointer;
 }
