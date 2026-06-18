@@ -102,26 +102,39 @@ button {
     font-size: 14px;
     color: #FFFFFF;
 }
-
+/* 
 .file-table {
-    display: grid;
+
     border-bottom: 1px solid #ECEFF2;
 }
 
-
-th {
+.file-table th { 
+    display: grid; 
     font-size: 16px;
     font-weight: 400;
     color: #3E5462;
     height: 48px;
 }
+*/
+
+
+
+.grid-table{
+    display: grid;
+    padding: 10px;
+    grid-template-columns: 48px 1fr 200px 100px 100px 100px;
+    border-bottom: 1px solid #ECEFF2;
+}
+
+.grid-table span{
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 400;
+    color: #3E5462;
+}
 
 .checkbox-header {
-    /* display: flex;
-    align-items: center;
-    justify-content: right; */
-    padding-right: 12px;
-
     height: 16px;
     width: 16px;
     -webkit-appearance: none;
@@ -132,4 +145,4 @@ th {
 .checkbox-header:hover {
     border-color: #1976D2;
     cursor: pointer;
-}
+} 
