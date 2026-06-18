@@ -121,9 +121,10 @@ button {
 
 .grid-table{
     display: grid;
-    padding: 10px;
-    grid-template-columns: 48px 1fr 200px 100px 100px 100px;
-    border-bottom: 1px solid #ECEFF2;
+    grid-template-columns: 60px 1fr 200px 150px 100px 100px;
+    /* grid-template-columns: 1fr 15fr 200px 150px 100px 100px; */
+    /* border-bottom: 1px solid #ECEFF2;
+    padding: 10px 13px; */
 }
 
 .grid-table span{
@@ -132,6 +133,9 @@ button {
     font-size: 16px;
     font-weight: 400;
     color: #3E5462;
+    border-bottom: 1px solid #ECEFF2;
+    padding: 10px 13px;
+    overflow: hidden;
 }
 
 .checkbox-header {
