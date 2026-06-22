@@ -30,43 +30,20 @@ padding, padding vs margin, gap
             <span class="file-title">My files</span>
             <div class="search-container">
                 <input type="text" placeholder="Filter by name" class="search-bar">
-                <button class="add-button"><span class="add-new"> Add new</span></button>
+                <button class="add-button add-new">Add new</button>
             </div>
         </div>
 
-        <!-- <div class="file-table">
-            <table>
-                <thead>
-                    <tr>
-                    <th>
-                        <input type="checkbox" class="checkbox-header">
-                    </th>
-                    <th>Name</th>
-                    <th>Uploaded to US</th>
-                    <th>Sharing</th>
-                    <th>Size</th>
-                    <th>Actions</th>
-                    </tr>
-                </thead>
-            </table>
-        </div> -->
-
-        <div class="grid-table">
-                <span><input type="checkbox" class="checkbox-header"></span>
-                <span>Name</span>
-                <span>Uploaded to US</span>
-                <span>Sharing</span>
-                <span>Size</span>
-                <span>Actions</span>
-
-                <!-- Sample data entry -->
-                <span><input type="checkbox" class="checkbox-header"></span>
-                <span>1</span>
-                <span>June 17, 2026</span>
-                <span>Private</span>
-                <span>--</span>
-                <span>.</span>
-        </div>
+        <table class="file-table">
+            <thead>
+                <th class="check"><input type="checkbox" class="checkbox"></th>
+                <th class="name">Name</th>
+                <th class="uploaded">Uploaded Date</th>
+                <th class="sharing">Sharing</th>
+                <th class="size">Size</th>
+                <th class="action">Actions</th>
+            </thead>
+        </table>
     </main>
 
 </body>
