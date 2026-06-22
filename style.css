@@ -25,7 +25,7 @@ button {
 
 .header {
     display: flex;
-    padding-left: 16px;
+    padding: 0 24px;
     align-items: center;
     margin: 0;
     height: 72px;
@@ -37,7 +37,7 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
+    padding: 16px 24px;
     border-top: .0625rem solid #ECEFF2;
     border-bottom: .0625rem solid #ECEFF2;
 }
@@ -97,11 +97,10 @@ button {
     color: #FFFFFF;
 }
 
-.file-table{
-    /* display: grid; */ /* works the same as border-spacing*/
+.file-table {
     font-size: 16px;
     color: #3E5462;
-    border-spacing: 0px; 
+    border-spacing: 0px;
 }
 
 tr {
@@ -116,13 +115,12 @@ tr {
 .check {
     display: flex;
     align-items: center;
-    padding: 0 16px 0 12px;
+    padding: 0 16px 0 24px;
     height: 100%;
 }
 
 .checkbox {
     appearance: none;
-    -webkit-appearance: none;
     border-radius: 3px;
     height: 18px;
     width: 18px;
