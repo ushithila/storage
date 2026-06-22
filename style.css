@@ -96,58 +96,44 @@ button {
     font-size: 14px;
     color: #FFFFFF;
 }
+
 .file-table{
+    font-size: 16px;
+    color: #3E5462;
 }
 
-th,
-td {
+tr {
+    display: grid;
+    grid-template-columns: 40px 1fr 200px 176px 128px 112px;
     text-align: left;
-    font-size: 16px;
-    font-weight: 400;
-    color: #3E5462;
+    align-items: center;
     height: 3rem;
     border-bottom: 1px solid #ECEFF2;
 }
 
+th{
+    font-weight: 400;
+
+}
+
 .check {
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding: 0 8px 0 0;
+    height: 100%;
 }
 
 .checkbox {
+    appearance: none;
+    -webkit-appearance: none;
     border-radius: 4px;
     height: 18px;
     width: 18px;
-    appearance: none;
     border: .0625rem solid #3E5462;
-    -webkit-appearance: none;
 }
 
 .checkbox:hover {
     border-color: #1976D2;
     cursor: pointer;
-}
-
-.name {
-    max-width: 700px;
-}
-
-.uploaded {
-    width: 200px;
-    padding: 0 24px;
-}
-
-.sharing {
-    width: 176px;
-    padding: 0 24px;
-}
-
-.size {
-    width: 128px;
-    padding: 0 24px;
-}
-
-.action {
-    width: 112px;
 }
