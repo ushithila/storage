@@ -128,7 +128,9 @@ tr {
     border: .0625rem solid #3E5462;
 
     display: flex;
-    place-content: center;
+    align-items: center;
+    color: white;
+    background-color: white;
 }
 
 .checkbox:hover {
@@ -155,9 +157,15 @@ tr {
     height: 18px;
     width: 18px;
     transform: scale(0);
+    color: white;
     box-shadow: inset 18px 18px #1976D2;
+    mask-image: image(url("checkmark.svg"), white);
 }
 
 .checkbox:checked::before {
     transform: scale(1);
+}
+
+.checkbox:checked:active::before {
+    box-shadow: inset 18px 18px #003B71;
 }
