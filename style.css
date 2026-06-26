@@ -153,7 +153,7 @@ tr {
 }
 
 .checkbox:checked::after{
-    content: url('check.svg');
+    content: url('assets/check.svg');
 }
 
 .checkbox:checked:active {
@@ -172,11 +172,14 @@ tr {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid red;
+    /* border: 1px solid red; */
+    width: 40px;
+    height: 40px;
     padding-inline: 10px;
-
+    border-radius: 4px;
 }
 
 .action-content:hover{
     background-color: #DBE1E5;
 }
+
