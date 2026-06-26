@@ -8,7 +8,8 @@
     <title>Storage System</title>
 
     <link rel="stylesheet" href="style.css" />
-    <script src="service.storage.js" defer></script>
+    <script src="script.js" defer></script>
+
 </head>
 
 <!--
@@ -27,7 +28,7 @@ padding, padding vs margin, gap
     <main class="storage-container">
         <h1 class="header">Storage</h1>
         <div class="storage-header">
-            <span class="file-title">My files</span>
+            <b class="file-title">My files</b>
             <div class="search-container">
                 <input type="text" placeholder="Filter by name" class="search-bar">
                 <button class="add-button add-new">Add new</button>
@@ -38,7 +39,7 @@ padding, padding vs margin, gap
             <thead>
                 <tr>
                     <th class="checkbox-th">
-                        <input type="checkbox" class="checkbox" checked="True">
+                        <input type="checkbox" class="checkbox">
                     </th>
                     <th>Name</th>
                     <th>Uploaded Date</th>
@@ -48,7 +49,15 @@ padding, padding vs margin, gap
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr class="table-content">
+                    <td class="checkbox-th">
+                        <input type="checkbox" class="checkbox" checked="True">
+                    </td>
+                    <td>Folder name</td>
+                    <td>Jun 19, 2026</td>
+                    <td>Private</td>
+                    <td>--</td>
+                    <td class="action-content"><img src="more.svg"></td>
                 </tr>
             </tbody>
         </table>

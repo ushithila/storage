@@ -1,4 +1,4 @@
-@import url('fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Open Sans');
 
 html {
     background: #F6F7F9;
@@ -25,11 +25,12 @@ button {
 
 .header {
     display: flex;
-    padding: 0 24px;
     align-items: center;
+    padding: 0 24px;
     margin: 0;
     height: 72px;
     color: #43525C;
+    font-family: sans-serif;
     font-size: 1.5rem;
 }
 
@@ -44,10 +45,11 @@ button {
 
 .file-title {
     display: flex;
-    font-size: 1.25rem;
-    font-weight: 500;
+    font-size: 20px;
+    font-weight: 600;
     align-items: center;
     color: #3E5462;
+    font-weight: 700;
 }
 
 .search-container {
@@ -112,7 +114,6 @@ tr {
     border-bottom: 1px solid #ECEFF2;
 }
 
-
 .checkbox-th {
     display: flex;
     align-items: center;
@@ -121,11 +122,14 @@ tr {
 }
 
 .checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     -webkit-appearance: none;
     appearance: none;
     border-radius: 4px;
-    height: 18px;
-    width: 18px;
+    height: 16px;
+    width: 16px;
     border: 1px solid #3E5462;
     cursor: pointer;
 }
@@ -143,27 +147,36 @@ tr {
     outline-color: #D9EBFF;
 }
 
-.checkbox::before {
+.checkbox:checked {
+    background-color: #1976D2;
+    border: 1px solid #1976D2;
+}
+
+.checkbox:checked::after{
     content: url('check.svg');
+}
+
+.checkbox:checked:active {
+    background-color: #003B71;
+    border: 1px solid #003B71;
+}
+
+
+.table-content:hover {
+    cursor: pointer;
+    background-color: #F6F7F9;
+    border-radius: 4px;
+}
+
+.action-content {
     display: flex;
     align-items: center;
     justify-content: center;
-    
-    position: relative;
-    bottom: 1px;
-    right: 1px;
+    border: 1px solid red;
+    padding-inline: 10px;
 
-    background-color: #1976D2;
-    border-radius: 4px;
-    height: 18px;
-    width: 18px;
-    transform: scale(0);
 }
 
-.checkbox:checked::before {
-    transform: scale(1);
-}
-
-.checkbox:checked:active::before {
-    background-color: #003B71;
+.action-content:hover{
+    background-color: #DBE1E5;
 }
