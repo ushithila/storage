@@ -81,8 +81,8 @@ button {
     color: #FFFFFF;
     align-items: center;
     justify-content: center;
-    transition: 0.3s;
     height: 2.625rem;
+    transition: 0.3s;
 }
 
 .add-button:hover {
@@ -172,11 +172,10 @@ tr {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* border: 1px solid red; */
-    width: 40px;
-    height: 40px;
-    padding-inline: 10px;
+    width: 20px;
     border-radius: 4px;
+    transition: .3s;
+    padding: 8px;
 }
 
 .action-content:hover{
