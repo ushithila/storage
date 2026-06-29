@@ -186,15 +186,24 @@ tr {
     display: flex;
     justify-content: right;
     padding: 16px 24px;
-    border: 1px solid #ECEFF2;
+    border-top: 1px solid #ECEFF2;
 }
 
 ul{
     display: flex;
     margin: 0;
     padding: 0;
+    color: #3E5462;
+    font-size: 14px;
+    font-weight: 400;
 }
 
 li{
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    margin: 0;
+    margin-right: 4px;
 }
