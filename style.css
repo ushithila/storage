@@ -185,6 +185,7 @@ tr {
 .pagination-container{
     display: flex;
     justify-content: right;
-    padding: auto;
+    padding: 16px 24px;
+    border: 1px solid #ECEFF2;
 }
 
