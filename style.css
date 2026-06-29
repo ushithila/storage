@@ -207,3 +207,7 @@ li{
     margin: 0;
     margin-right: 4px;
 }
+
+.number-page   {
+ width: max-content;
+}
