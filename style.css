@@ -168,17 +168,13 @@ tr {
     border-radius: 4px;
 }
 
-.action-content {
+.action-content{
     display: flex;
     justify-content: center;
-    width: 40px;
-    padding: 8px;
+    border: 1px solid pink;
+    width: 32px;
+    height: 32px;
     border-radius: 4px;
-    transition: .3s;
-}
-
-.action-content:hover{
-    background-color: #DBE1E5;
 }
 
 .pagination-container{
@@ -193,7 +189,6 @@ ul{
     margin: 0;
     color: #3E5462;
     font-size: 14px;
-    font-weight: 400;
 }
 
 li{
