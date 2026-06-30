@@ -170,12 +170,11 @@ tr {
 
 .action-content {
     display: flex;
-    align-items: center;
     justify-content: center;
-    width: 20px;
+    width: 40px;
+    padding: 8px;
     border-radius: 4px;
     transition: .3s;
-    padding: 8px;
 }
 
 .action-content:hover{
@@ -192,7 +191,6 @@ tr {
 ul{
     display: flex;
     margin: 0;
-    padding: 0;
     color: #3E5462;
     font-size: 14px;
     font-weight: 400;
@@ -204,7 +202,6 @@ li{
     align-items: center;
     width: 24px;
     height: 24px;
-    margin: 0;
     margin-right: 4px;
 }
 
