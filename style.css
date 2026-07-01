@@ -166,7 +166,7 @@ tr {
     border: 1px solid #003B71;
 }
 
-.table-content:hover {
+.table-row:hover {
     cursor: pointer;
     background-color: #F6F7F9;
 }
