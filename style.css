@@ -176,6 +176,10 @@ tr {
     border-radius: 4px;
 }
 
+.action-content:hover{
+    background-color: #DBE1E5;
+}
+
 .pagination-container{
     display: flex;
     justify-content: right;
