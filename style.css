@@ -105,6 +105,11 @@ button {
     border-spacing: 0px;
 }
 
+.action-td {
+    display: flex;
+    border: 1px solid;
+}
+
 tr {
     display: grid;
     grid-template-columns: auto 1fr 200px 176px 128px 112px;
@@ -152,7 +157,7 @@ tr {
     border: 1px solid #1976D2;
 }
 
-.checkbox:checked::after{
+.checkbox:checked::after {
     content: url('assets/check.svg');
 }
 
@@ -166,7 +171,7 @@ tr {
     background-color: #F6F7F9;
 }
 
-.action-content{
+.action-content {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -176,25 +181,25 @@ tr {
     transition: .3s;
 }
 
-.action-content:hover{
+.action-content:hover {
     background-color: #DBE1E5;
 }
 
-.pagination-container{
+.pagination-container {
     display: flex;
     justify-content: right;
     padding: 16px 24px;
     border-top: 1px solid #ECEFF2;
 }
 
-ul{
+ul {
     display: flex;
     margin: 0;
     color: #3E5462;
     font-size: 14px;
 }
 
-li{
+li {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -203,6 +208,6 @@ li{
     margin-right: 4px;
 }
 
-.number-page   {
- width: max-content;
+.number-page {
+    width: max-content;
 }
