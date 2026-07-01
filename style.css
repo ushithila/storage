@@ -111,7 +111,7 @@ tr {
     text-align: left;
     align-items: center;
     height: 48px;
-    border-bottom: 1px solid #ECEFF2;
+    border-bottom: .0625rem solid #ECEFF2;
 }
 
 .checkbox-th {
@@ -161,7 +161,6 @@ tr {
     border: 1px solid #003B71;
 }
 
-
 .table-content:hover {
     cursor: pointer;
     background-color: #F6F7F9;
@@ -171,10 +170,10 @@ tr {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* border: 1px solid red; */
     width: 32px;
     height: 32px;
     border-radius: 4px;
+    transition: .3s;
 }
 
 .action-content:hover{
