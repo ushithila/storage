@@ -105,18 +105,17 @@ button {
     border-spacing: 0px;
 }
 
-.action-td {
-    display: flex;
-    border: 1px solid;
-}
-
 tr {
     display: grid;
-    grid-template-columns: auto 1fr 200px 176px 128px 112px;
+    grid-template-columns: auto 1fr 12.5rem 11rem 8rem 7rem; 
     text-align: left;
     align-items: center;
     height: 48px;
     border-bottom: .0625rem solid #ECEFF2;
+}
+
+.action-header{
+    padding: 0 24px;
 }
 
 .checkbox-th {
@@ -171,18 +170,14 @@ tr {
     background-color: #F6F7F9;
 }
 
-.action-content {
+.action-td {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 32px;
+    border: 1px solid;
     height: 32px;
+    width: 32px;
     border-radius: 4px;
-    transition: .3s;
-}
-
-.action-content:hover {
-    background-color: #DBE1E5;
 }
 
 .pagination-container {
