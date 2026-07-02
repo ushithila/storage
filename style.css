@@ -21,6 +21,8 @@ button {
     background: #FFF;
     height: calc(100vh - 80px);
     margin: 24px;
+    padding-bottom: 10px;
+    overflow: auto;
 }
 
 .header {
