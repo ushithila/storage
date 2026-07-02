@@ -176,18 +176,18 @@ tr {
     display: flex;
     justify-content: center;
     align-items: center;
+    justify-self: center;
     height: 32px;
     width: 32px;
     border-radius: 4px;
     transition: .3s;
-    
 }
 
 .action-td:hover{
     background-color: #DBE1E5;
 }
 
-.action-content{
+.action-button{
     background-color: transparent;
     color: #3E5462;
 }
