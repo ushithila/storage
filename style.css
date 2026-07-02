@@ -194,14 +194,14 @@ tr:has(.checkbox:checked) {
 }
 
 .pagination-container {
-    display: flex;
-    justify-content: right;
     padding: 16px 24px;
     border-top: 1px solid #ECEFF2;
+    margin-top: auto;
 }
 
 ul {
     display: flex;
+    justify-content: right;
     margin: 0;
     color: #3E5462;
     font-size: 14px;
