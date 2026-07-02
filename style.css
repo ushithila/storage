@@ -57,7 +57,7 @@ button {
 .search-container {
     display: flex;
     align-items: center;
-    gap: .625rem;
+    gap: .5rem;
 }
 
 .search-bar {
@@ -176,7 +176,7 @@ tr {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid;
+    justify-self: center;
     height: 32px;
     width: 32px;
     border-radius: 4px;
@@ -188,7 +188,8 @@ tr {
 }
 
 .action-content{
-    background-color: none;
+    background-color: transparent;
+    color: #3E5462;
 }
 
 .pagination-container {
@@ -206,6 +207,7 @@ ul {
 }
 
 li {
+    list-style: none;
     display: flex;
     justify-content: center;
     align-items: center;
