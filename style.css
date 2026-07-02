@@ -107,6 +107,11 @@ button {
     border-spacing: 0px;
 }
 
+th{
+    position: sticky;
+    top: 0;
+}
+
 tr {
     display: grid;
     grid-template-columns: auto 1fr 12.5rem 11rem 8rem 7rem; 
