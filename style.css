@@ -81,8 +81,6 @@ button {
     border-radius: .375rem;
     padding: .625rem;
     color: #FFFFFF;
-    align-items: center;
-    justify-content: center;
     height: 2.625rem;
     transition: 0.3s;
 }
@@ -94,6 +92,11 @@ button {
 
 .add-button:active {
     background-color: #003B71;
+}
+
+.add-button-content{
+    display: flex;
+    gap: .5rem;
 }
 
 .add-new {
