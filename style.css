@@ -121,10 +121,7 @@ tr {
 }
 
 .checkbox-th {
-    display: flex;
-    align-items: center;
     padding: 0 16px 0 24px;
-    height: 100%;
 }
 
 .checkbox {
@@ -160,6 +157,10 @@ tr {
 
 .checkbox:checked::after {
     content: url('assets/check.svg');
+}
+
+tr:has(.checkbox:checked) {
+    background-color: #ECF5FF;
 }
 
 .checkbox:checked:active {
