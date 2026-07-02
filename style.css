@@ -190,19 +190,19 @@ tr:has(.checkbox:checked) {
     display: flex;
     justify-content: center;
     align-items: center;
-    justify-self: center;
-    height: 32px;
-    width: 32px;
+    /* justify-self: center; */
     border-radius: 4px;
     transition: .3s;
 }
 
-.action-td:hover{
+.action-button:hover{
     background-color: #DBE1E5;
 }
 
 .action-button{
     color: #3E5462;
+        height: 32px;
+    width: 32px;
 }
 
 .pagination-container {
