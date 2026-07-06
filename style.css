@@ -58,7 +58,6 @@ button {
 
 .search-container{
     display: flex;
-    align-items: center;
     gap: 0.5rem;
     width: 14rem;
     height: 2.5rem;
@@ -69,7 +68,7 @@ button {
 }
 
 .search-container:hover{
-    border-color: #1976D2;
+    border-color: #1976D2
 }
 
 .search-container:active{
@@ -80,7 +79,7 @@ button {
 .search-input{
     font-family: 'Open Sans', sans-serif;
     border-radius: inherit;
-    height: 90%;
+    height: 95%;
     width: 100%;
 
     border: none;
@@ -245,7 +244,6 @@ ul{
 }
 
 li{
-    list-style: none;
     display: flex;
     align-items: center;
     justify-content: center;
