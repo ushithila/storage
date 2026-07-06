@@ -79,10 +79,13 @@ button {
 .search-icon{
     color: #3E5462;
     border-radius: .25rem;
+    padding-block: .25rem;
+    padding-inline: .25rem;
 }
 
 .search-icon:hover{
-
+    background-color: #F6F7F9;
+    color: #004FAA;
 }
 
 .search-icon:active{
