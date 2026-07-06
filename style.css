@@ -40,7 +40,6 @@ button {
 .storage-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     padding: 16px 24px;
     border-top: .0625rem solid #ECEFF2;
     border-bottom: .0625rem solid #ECEFF2;
@@ -53,6 +52,7 @@ button {
     align-items: center;
     color: #3E5462;
     font-weight: 700;
+    margin-right: auto;
 }
 
 .search-container{
@@ -73,6 +73,8 @@ button {
     display: inline;
     outline: none;
     border: none;
+    font-size: 14px;
+    color: #3E5462;
 }
 
 .add-button {
