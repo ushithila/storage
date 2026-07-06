@@ -68,9 +68,14 @@ button {
     border: 1px solid #DBE1E5;
 }
 
+.search-container:hover{
+    border-color: #1976D2;
+}
+
 /* COME BACK TO THIS */
 .search-input{
     font-family: 'Open Sans', sans-serif;
+    border-radius: inherit;
     height: 100%;
     width: 100%;
     font-size: 14px;
