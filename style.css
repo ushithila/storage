@@ -55,6 +55,26 @@ button {
     font-weight: 700;
 }
 
+.search-container{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 14rem;
+    height: 2.5rem;
+    padding: 0 .5rem;
+    margin-right: 1rem;
+    border-radius: .5rem;
+    border: 1px solid #DBE1E5;
+}
+
+.search-input{
+    height: 100%;
+    width: 100%;
+    display: inline;
+    outline: none;
+    border: none;
+}
+
 .add-button {
     background-color: #1976D2;
     border-radius: .375rem;
