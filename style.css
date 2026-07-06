@@ -220,9 +220,10 @@ ul{
 }
 
 li{
+    list-style: none;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     width: 1.5rem;
     height: 1.5rem;
     margin: 0;
@@ -230,6 +231,9 @@ li{
 }
 
 .number-page{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: max-content;
     margin-left: .75rem;
     margin-right: .75rem;
@@ -240,6 +244,9 @@ li{
 }
 
 .btn-pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 0;
     height: auto;
     border-radius: .25rem;
