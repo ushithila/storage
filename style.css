@@ -256,3 +256,7 @@ li{
 .btn-pagination:hover{
     background-color: #ECEEEF;
 }
+
+.btn-pagination:active{
+    background-color: #DBE1E5;
+}
