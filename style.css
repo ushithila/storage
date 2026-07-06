@@ -70,9 +70,6 @@ button {
 .search-input{
     height: 100%;
     width: 100%;
-    display: inline;
-    outline: none;
-    border: none;
     font-size: 14px;
     color: #3E5462;
 }
