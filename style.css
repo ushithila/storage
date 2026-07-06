@@ -260,3 +260,7 @@ li{
 .btn-pagination:active{
     background-color: #DBE1E5;
 }
+
+.test-disabled{
+    fill: #BAC5CD;
+}
