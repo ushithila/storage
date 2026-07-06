@@ -12,6 +12,7 @@ body {
 button {
     border: none;
     background-color: transparent;
+    cursor: pointer;
 }
 
 .storage-container {
@@ -104,7 +105,6 @@ button {
 
 .add-button:hover {
     background-color: #004FAA;
-    cursor: pointer;
 }
 
 .add-button:active {
@@ -210,7 +210,6 @@ tr {
     width: 32px;
     border-radius: 4px;
     transition: .3s;
-    cursor: pointer;
 }
 
 .action-button:hover{
@@ -272,8 +271,4 @@ li{
 
 .btn-pagination:active{
     background-color: #DBE1E5;
-}
-
-.test-disabled{
-    fill: #BAC5CD;
 }
