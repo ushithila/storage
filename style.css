@@ -210,24 +210,6 @@ tr:has(.checkbox:checked) {
     margin-top: auto;
 }
 
-ul {
-    display: flex;
-    justify-content: right;
-    margin: 0;
-    color: #3E5462;
-    font-size: 14px;
-}
-
-li {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 24px;
-    height: 24px;
-    margin-right: 4px;
-}
-
-.number-page {
-    width: max-content;
+.forward{
+    transform: rotate(180deg);
 }
