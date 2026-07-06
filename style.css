@@ -80,12 +80,12 @@ button {
 .search-input{
     font-family: 'Open Sans', sans-serif;
     border-radius: inherit;
-    height: 80%;
+    height: 90%;
     width: 100%;
 
     border: none;
     outline: none;
-    
+
     font-size: 14px;
     color: #3E5462;
 }
