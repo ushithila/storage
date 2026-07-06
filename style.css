@@ -89,7 +89,8 @@ button {
 }
 
 .search-icon:active{
-
+    background-color: #D9EBFF;
+    color: #003B71;
 }
 
 .add-button {
