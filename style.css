@@ -79,6 +79,12 @@ button {
 
 .search-icon{
     color:#3E5462;
+    border-radius: .25rem;
+}
+
+.search-icon:hover{
+    color: #004FAA;
+    background-color: #F6F7F9;
 }
 
 .add-button {
