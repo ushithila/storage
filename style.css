@@ -68,6 +68,7 @@ button {
 }
 
 .search-input{
+    font-family: 'Open Sans', sans-serif;
     height: 100%;
     width: 100%;
     font-size: 14px;
