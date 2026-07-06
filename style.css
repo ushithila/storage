@@ -37,7 +37,7 @@ button {
     font-size: 1.5rem;
 }
 
-.storage-header {
+.file-header {
     display: flex;
     justify-content: space-between;
     padding: 16px 24px;
