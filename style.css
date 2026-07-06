@@ -77,7 +77,8 @@ button {
 }
 
 .search-icon{
-
+    color: #3E5462;
+    border-radius: .25rem;
 }
 
 .search-icon:hover{
@@ -85,7 +86,7 @@ button {
 }
 
 .search-icon:active{
-    
+
 }
 
 .add-button {
