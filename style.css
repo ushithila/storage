@@ -67,12 +67,25 @@ button {
     border: 1px solid #DBE1E5;
 }
 
+/* COME BACK TO THIS */
 .search-input{
     font-family: 'Open Sans', sans-serif;
     height: 100%;
     width: 100%;
     font-size: 14px;
     color: #3E5462;
+}
+
+.search-icon{
+
+}
+
+.search-icon:hover{
+
+}
+
+.search-icon:active{
+    
 }
 
 .add-button {
