@@ -55,38 +55,6 @@ button {
     font-weight: 700;
 }
 
-.search-container {
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-}
-
-.search-bar {
-    width: 14rem;
-    height: 2.5rem;
-    border-radius: .375rem;
-    padding: 0 .5rem;
-    border: .0625rem solid #DBE1E5;
-}
-
-.search-bar:hover {
-    border-color: #1976D2;
-}
-
-.search-bar:active {
-    box-shadow: 0 0 0 .25rem #D9EBFF;
-}
-
-.search-icon{
-    color:#3E5462;
-    border-radius: .25rem;
-}
-
-.search-icon:hover{
-    color: #004FAA;
-    background-color: #F6F7F9;
-}
-
 .add-button {
     background-color: #1976D2;
     border-radius: .375rem;
