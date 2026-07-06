@@ -172,9 +172,9 @@ tr {
     content: url('assets/check.svg');
 }
 
-tr:has(.checkbox:checked) {
+/* tr:has(.checkbox:checked) {
     background-color: #ECF5FF;
-}
+} */
 
 .checkbox:checked:active {
     background-color: #003B71;
@@ -215,7 +215,6 @@ tr:has(.checkbox:checked) {
 ul{
     display: flex;
     margin: 0;
-    padding: 0;
     color: #3E5462;
     font-size: .875rem;
 }
@@ -230,6 +229,23 @@ li{
     margin-right: .25rem;
 }
 
+.number-page{
+    width: max-content;
+    margin-left: .75rem;
+    margin-right: .75rem;
+}
+
 .forward{
     transform: rotate(180deg);
+}
+
+.btn-pagination{
+    padding: 0;
+    height: auto;
+    border-radius: .25rem;
+    transition: .3s;
+}
+
+.btn-pagination:hover{
+    background-color: #ECEEEF;
 }
