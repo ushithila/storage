@@ -231,7 +231,7 @@ tr {
     background-color: #DBE1E5;
 }
 
-.dropdown-content{
+.dropdown-menu{
     position: absolute;
     
     display: flex;
