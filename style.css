@@ -223,10 +223,25 @@ tr {
     width: 32px;
     border-radius: 4px;
     transition: .3s;
+    position: relative;
 }
 
 .action-button:hover{
     background-color: #DBE1E5;
+}
+
+.dropdown-content{
+    position: absolute;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: .5rem 0;
+    width: 9.5rem;
+    background-color: #FFFFFF;
+    border: 1px solid #BAC5CD;
+    border-radius: .5rem;
+    box-shadow: 0 .25rem .625rem #0000000d;
 }
 
 .pagination-container {
@@ -283,13 +298,4 @@ li{
 
 .btn-pagination:active{
     background-color: #DBE1E5;
-}
-
-.dropdown-container{
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content{
-
 }
