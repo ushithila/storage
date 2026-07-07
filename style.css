@@ -223,6 +223,7 @@ tr {
     width: 32px;
     border-radius: 4px;
     transition: .3s;
+
     position: relative;
 }
 
@@ -244,6 +245,10 @@ tr {
     box-shadow: 0 .25rem .625rem #0000000d;
 }
 
+ol li{
+    display: contents;
+}
+
 .pagination-container {
     display: flex;
     justify-content: right;
@@ -259,7 +264,7 @@ ul{
     font-size: .875rem;
 }
 
-li{
+ul li{
     display: flex;
     align-items: center;
     justify-content: center;
