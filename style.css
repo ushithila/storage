@@ -58,7 +58,6 @@ button {
 
 .search-container{
     display: flex;
-    justify-content: center;
     align-items: center;
     gap: 0.5rem;
     width: 14rem;
@@ -87,16 +86,15 @@ button {
     outline: none;
     font-size: 14px;
     color: #3E5462;
+    padding-block: 1px;
+    padding-inline: 2px;
 }
 
 .search-icon{
-    display: flex;
-    align-items: center;
-    justify-content: center;
     color: #3E5462;
     border-radius: .25rem;
-    width: 24px;
-    height: 24px;
+    padding-inline: .25rem; /*t b*/
+    padding-block: .25rem; /*l r*/
 }
 
 .search-icon:hover{
