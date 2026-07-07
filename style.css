@@ -58,6 +58,8 @@ button {
 
 .search-container{
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 0.5rem;
     width: 14rem;
     height: 2.5rem;
@@ -81,19 +83,20 @@ button {
     border-radius: inherit;
     height: 95%;
     width: 100%;
-
     border: none;
     outline: none;
-
     font-size: 14px;
     color: #3E5462;
 }
 
 .search-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: #3E5462;
     border-radius: .25rem;
-    padding-block: .25rem;
-    padding-inline: .25rem;
+    width: 24px;
+    height: 24px;
 }
 
 .search-icon:hover{
