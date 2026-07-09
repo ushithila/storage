@@ -252,6 +252,11 @@ tr {
     list-style: none;
 }
 
+.dropdown-container li {
+    display: contents;
+    transition: .3s;
+}
+
 .dropdown-container li :hover{
     background-color: #ECEFF2;
 }
