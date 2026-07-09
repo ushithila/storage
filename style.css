@@ -160,7 +160,7 @@ td{
     height: 48px;
     display: flex;
     align-items: center;
-    padding: 0;
+    padding: 0 24px;
 }
 
 .action-header{
@@ -232,12 +232,32 @@ td{
     width: 32px;
     border-radius: 4px;
     transition: .3s;
-
-    position: relative;
 }
 
 .action-button:hover{
     background-color: #DBE1E5;
+}
+
+.dropdown-btn{
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-container{
+    position: absolute;
+    top: 0;
+    left: -154px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 0;
+    margin: 0;
+    width: 9.5rem;
+    background-color: #FFFFFF;
+    border: 1px solid #BAC5CD;
+    border-radius: .5rem;
+    box-shadow: 0 .25rem .625rem #0000000d;
 }
 
 .pagination-container {
