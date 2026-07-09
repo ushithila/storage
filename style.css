@@ -154,6 +154,15 @@ tr {
     border-bottom: .0625rem solid #ECEFF2;
 }
 
+
+/*TEMP REMOVE*/
+td{
+    height: 48px;
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
 .action-header{
     padding: 0 30px;
 }
@@ -229,24 +238,6 @@ tr {
 
 .action-button:hover{
     background-color: #DBE1E5;
-}
-
-.dropdown-menu{
-    position: absolute;
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: .5rem 0;
-    width: 9.5rem;
-    background-color: #FFFFFF;
-    border: 1px solid #BAC5CD;
-    border-radius: .5rem;
-    box-shadow: 0 .25rem .625rem #0000000d;
-}
-
-ol li{
-    display: contents;
 }
 
 .pagination-container {
