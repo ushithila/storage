@@ -258,12 +258,9 @@ tr {
     font-size: .875rem;
     font-family: 'Open Sans', sans-serif;
     color: #3E5462;
-}
-
-.dropdown-container li{
     padding: 8px 16px 8px 8px;
-}
 
+}
 .dropdown-container li :hover{
     background-color: #ECEFF2;
 }
