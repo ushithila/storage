@@ -233,14 +233,17 @@ tr {
     position: relative;
 }
 
+/* remove when clickable hover is implemented */
+.dropdown-btn:hover .dropdown-container{
+    display: flex;
+}
+
 .dropdown-container{
-    /* display: none; */
+    display: none;
 
     position: absolute;
     top: 0;
     left: -154px;
-
-    display: flex;
     flex-direction: column;
     padding: 8px 0;
     margin: 0;
