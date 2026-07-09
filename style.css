@@ -252,10 +252,6 @@ tr {
     list-style: none;
 }
 
-.dropdown-container li {
-    /* padding: 8px 16px 8px 8px; */
-}
-
 .dropdown-container li :hover{
     background-color: #ECEFF2;
 }
@@ -266,19 +262,14 @@ tr {
 }
 
 .dropdown-content{
-    /* font-size: .875rem;
-    font-family: 'Open Sans', sans-serif;
-    color: #3E5462;
-    padding: 8px 16px 8px 8px;
-
     display: flex;
     align-items: center;
-    gap: 0.5rem; */
-
+    gap: 0.5rem;
     font-size: .875rem;
     font-family: 'Open Sans', sans-serif;
     color: #3E5462;
     padding: 8px 16px 8px 8px;
+    width: 100%;
 }
 
 .pagination-container {
