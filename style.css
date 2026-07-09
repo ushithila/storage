@@ -154,15 +154,6 @@ tr {
     border-bottom: .0625rem solid #ECEFF2;
 }
 
-
-/*TEMP REMOVE*/
-td{
-    height: 48px;
-    display: flex;
-    align-items: center;
-    padding: 0 24px;
-}
-
 .action-header{
     padding: 0 30px;
 }
@@ -258,6 +249,20 @@ td{
     border: 1px solid #BAC5CD;
     border-radius: .5rem;
     box-shadow: 0 .25rem .625rem #0000000d;
+    list-style: none;
+}
+
+.dropdown-container li{
+    display: contents;
+}
+
+.dropdown-content{
+    text-align: left;
+    justify-content: left;
+    color: #3E5462;
+    padding: 8px 16px 8px 8px;
+    font-size: .875rem;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .pagination-container {
