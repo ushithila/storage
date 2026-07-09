@@ -234,6 +234,8 @@ tr {
 }
 
 .dropdown-container{
+    /* display: none; */
+
     position: absolute;
     top: 0;
     left: -154px;
@@ -250,8 +252,8 @@ tr {
     list-style: none;
 }
 
-.dropdown-container li{
-    gap: 0.5rem;
+.dropdown-container li {
+    display: flex;
 }
 
 .dropdown-container li :hover{
@@ -282,7 +284,8 @@ ul{
     display: flex;
     margin: 0;
     color: #3E5462;
-    font-size: .875rem;
+    font-size: .875rem;    
+    list-style: none;
 }
 
 ul li{
