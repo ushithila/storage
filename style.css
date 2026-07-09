@@ -265,6 +265,10 @@ tr {
     font-family: 'Open Sans', sans-serif;
 }
 
+.dropdown-content:hover{
+    background-color: #ECEFF2;
+}
+
 .pagination-container {
     display: flex;
     justify-content: right;
