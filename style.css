@@ -254,20 +254,19 @@ tr {
     list-style: none;
 }
 
-.dropdown-container li{
-    display: contents;
-}
-
 .dropdown-content{
-    color: #3E5462;
-    padding: 8px 16px 8px 8px;
     font-size: .875rem;
     font-family: 'Open Sans', sans-serif;
+    color: #3E5462;
 }
 
-/* ol li:hover{
+.dropdown-container li{
+    padding: 8px 16px 8px 8px;
+}
+
+.dropdown-container li :hover{
     background-color: #ECEFF2;
-} */
+}
 
 .pagination-container {
     display: flex;
