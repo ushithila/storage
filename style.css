@@ -231,7 +231,6 @@ tr {
 
 .dropdown-btn{
     position: relative;
-    display: inline-block;
 }
 
 .dropdown-container{
@@ -259,10 +258,6 @@ tr {
     font-family: 'Open Sans', sans-serif;
     color: #3E5462;
     padding: 8px 16px 8px 8px;
-
-}
-.dropdown-container li :hover{
-    background-color: #ECEFF2;
 }
 
 .pagination-container {
