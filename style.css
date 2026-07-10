@@ -94,9 +94,7 @@ button {
     color: #3E5462;
     border-radius: .25rem;
     padding-inline: .25rem;
-    /*t b*/
     padding-block: .25rem;
-    /*l r*/
 }
 
 .search-icon:hover {
