@@ -206,7 +206,7 @@ tr {
 }
 
 /* :not() */
-tr:has(.checkbox:checked) {
+.table-row:has(.checkbox:checked) {
     background-color: #ECF5FF;
 }
 
