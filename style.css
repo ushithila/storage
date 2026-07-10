@@ -24,7 +24,6 @@ button {
     height: calc(100vh - 80px);
     margin: 24px;
     padding-bottom: 10px;
-    overflow: auto;
 }
 
 .header {
@@ -204,6 +203,7 @@ tr {
 .checkbox:checked::after {
     content: url('assets/check.svg');
 }
+
 
 .table-row:has(.checkbox:checked) {
     background-color: #ECF5FF;
