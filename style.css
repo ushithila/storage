@@ -314,7 +314,7 @@ ul li {
     /* gap: 1rem; */
 }
 
-.number-page {
+.page-number {
     display: flex;
     align-items: center;
     justify-content: center;
