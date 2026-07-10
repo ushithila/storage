@@ -46,6 +46,7 @@ button {
     border-bottom: .0625rem solid #ECEFF2;
 }
 
+
 .file-title {
     display: flex;
     font-size: 20px;
@@ -132,6 +133,11 @@ button {
 .add-new {
     font-size: 14px;
     color: #FFFFFF;
+}
+
+.table-container{
+    display: grid;
+    height: calc(100% - 4.25rem);
 }
 
 .file-table {
