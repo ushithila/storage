@@ -219,6 +219,10 @@ tr {
     background-color: #F6F7F9;
 }
 
+.table-row:active{
+    cursor: grabbing;
+}
+
 .action-td {
     display: flex;
     justify-content: center;
