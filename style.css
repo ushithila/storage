@@ -143,6 +143,7 @@ button {
 th{
     position: sticky;
     top: 0;
+    z-index: 2;
 }
 
 tr {
@@ -240,14 +241,15 @@ tr {
 
 .dropdown-container{
     display: none;
-
+    /* display: flex; */
     position: absolute;
     top: 0;
     left: -154px;
     flex-direction: column;
     padding: 8px 0;
     margin: 0;
-    width: 9.5rem;
+    height: fit-content;
+    /* width: 9.5rem; */
     background-color: #FFFFFF;
     border: 1px solid #BAC5CD;
     border-radius: .5rem;
