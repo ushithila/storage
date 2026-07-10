@@ -205,7 +205,6 @@ tr {
     content: url('assets/check.svg');
 }
 
-/* :not() */
 .table-row:has(.checkbox:checked) {
     background-color: #ECF5FF;
 }
