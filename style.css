@@ -303,8 +303,20 @@ ul li {
     margin: 0 .75rem;
 }
 
-.btn-pagination::before{
+.left-forward::before{
     content: url("assets/left_forward.svg");
+}
+
+.left-arrow::before{
+    content: url("assets/left_arrow.svg");
+}
+
+.right-arrow::before{
+    content: url("assets/right_arrow.svg");
+}
+
+.right-forward::before{
+    content: url("assets/right_forward.svg");
 }
 
 .btn-pagination {
