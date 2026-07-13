@@ -297,7 +297,6 @@ ul {
     color: var(--text-color);
     font-size: .875rem;
     list-style: none;
-    gap: 0.25rem;
 }
 
 ul li {
