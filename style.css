@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Open Sans');
 
+:root{
+    --section-border: #ECEFF2;
+}
+
 html {
     background: #F6F7F9;
 }
@@ -40,8 +44,8 @@ button {
 .file-header {
     display: flex;
     padding: 1rem 1.5rem;
-    border-top: .0625rem solid #ECEFF2;
-    border-bottom: .0625rem solid #ECEFF2;
+    border-top: .0625rem solid var(--section-border);
+    border-bottom: .0625rem solid var(--section-border);
 }
 
 
@@ -149,7 +153,7 @@ tr {
     text-align: left;
     align-items: center;
     height: 3rem;
-    border-bottom: .0625rem solid #ECEFF2;
+    border-bottom: .0625rem solid var(--section-border);
 }
 
 .action-header {
@@ -252,7 +256,7 @@ tr {
 }
 
 .dropdown-container li :hover {
-    background-color: #ECEFF2;
+    background-color: var(--section-border);
 }
 
 .dropdown-container li :active {
@@ -275,7 +279,7 @@ tr {
     display: flex;
     justify-content: right;
     padding: 1rem 1.5rem;
-    border-top: .0625rem solid #ECEFF2;
+    border-top: .0625rem solid var(--section-border);
     margin-top: auto;
 }
 
