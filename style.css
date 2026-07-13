@@ -5,6 +5,9 @@
     --section-border: #ECEFF2;
     --button-color: #1976D2;
     --text-color: #3E5462;
+    --hover-color: #004FAA;
+    --active-color: #003B71;
+    --shadow-color: #D9EBFF;
 }
 
 html {
@@ -76,7 +79,7 @@ button {
 }
 
 .search-container:active {
-    box-shadow: 0 0 0 .25rem #D9EBFF;
+    box-shadow: 0 0 0 .25rem var(--shadow-color);
 }
 
 .search-input {
@@ -96,12 +99,12 @@ button {
 
 .search-icon:hover {
     background-color: #F6F7F9;
-    color: #004FAA;
+    color: var(--hover-color);
 }
 
 .search-icon:active {
-    background-color: #D9EBFF;
-    color: #003B71;
+    background-color: var(--shadow-color);
+    color: var(--active-color);
 }
 
 .add-button {
@@ -114,11 +117,11 @@ button {
 }
 
 .add-button:hover {
-    background-color: #004FAA;
+    background-color: var(--hover-color);
 }
 
 .add-button:active {
-    background-color: #003B71;
+    background-color: var(--active-color);
 }
 
 .add-button-content {
@@ -184,13 +187,13 @@ tr {
     border-color: var(--button-color);
     outline-style: solid;
     outline-width: .125rem;
-    outline-color: #D9EBFF;
+    outline-color: var(--shadow-color);
 }
 
 .checkbox:active {
     border-color: var(--button-color);
     outline-width: .25rem;
-    outline-color: #D9EBFF;
+    outline-color: var(--shadow-color);
 }
 
 .checkbox:checked {
@@ -207,8 +210,8 @@ tr {
 }
 
 .checkbox:checked:active {
-    background-color: #003B71;
-    border: .0625rem solid #003B71;
+    background-color: var(--active-color);
+    border: .0625rem solid var(--active-color);
 }
 
 .table-row:hover {
