@@ -236,18 +236,16 @@ tr {
     background-color: #DBE1E5;
 }
 
-.dropdown-btn {
+/* .dropdown-btn {
     position: relative;
 }
 
-/* remove when clickable hover is implemented */
 .dropdown-btn:hover .dropdown-container {
     display: flex;
 }
 
 .dropdown-container {
     display: none;
-    /* display: flex; */
     position: absolute;
     top: 0;
     left: -154px;
@@ -281,7 +279,7 @@ tr {
     color: #3E5462;
     padding: 8px 16px 8px 8px;
     width: 100%;
-}
+} */
 
 .pagination-container {
     display: flex;
