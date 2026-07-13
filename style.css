@@ -22,8 +22,8 @@ button {
     border-radius: .625rem;
     background: #FFF;
     height: calc(100vh - 80px);
-    margin: 24px;
-    padding-bottom: 10px;
+    margin: 1.5rem;   
+    padding-bottom: .625rem;
 }
 
 .storage-header {
@@ -61,7 +61,7 @@ button {
     padding: 0 .5rem;
     margin: 0 1rem 0 0;
     border-radius: .5rem;
-    border: 1px solid #DBE1E5;
+    border: .0625rem solid #DBE1E5;
 }
 
 .search-container:hover {
@@ -74,21 +74,17 @@ button {
 
 .search-input {
     font-family: 'Open Sans', sans-serif;
-    border-radius: inherit;
     width: 100%;
     border: none;
     outline: none;
     font-size: 14px;
     color: #3E5462;
-    padding-block: 1px;
-    padding-inline: 2px;
 }
 
 .search-icon {
     color: #3E5462;
     border-radius: .25rem;
-    padding-inline: .25rem;
-    padding-block: .25rem;
+    padding: .25rem;
 }
 
 .search-icon:hover {
@@ -152,7 +148,7 @@ tr {
     grid-template-columns: auto 1fr 12.5rem 11rem 8rem 7rem;
     text-align: left;
     align-items: center;
-    height: 48px;
+    height: 3rem;
     border-bottom: .0625rem solid #ECEFF2;
 }
 
@@ -216,7 +212,6 @@ tr {
 .action-td {
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .action-button {
@@ -240,7 +235,7 @@ tr {
 }
 
 .dropdown-container {
-    display: none;
+    display: flex;
     position: absolute;
     top: 0;
     left: -154px;
@@ -310,7 +305,6 @@ ul li {
 
 .btn-pagination {
     padding: 0;
-    height: auto;
     border-radius: .25rem;
     transition: .3s;
 }
