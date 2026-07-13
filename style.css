@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Open Sans');
 
-:root{
-    --background-color: #FFFFFF;
+:root {
+    --background-color: #F6F7F9;
+    --element-background-color: #FFFFFF;
     --section-border: #ECEFF2;
     --button-color: #1976D2;
     --text-color: #3E5462;
@@ -11,7 +12,7 @@
 }
 
 html {
-    background: #F6F7F9;
+    background: var(--background-color);
 }
 
 body {
@@ -30,7 +31,7 @@ button {
     flex-direction: column;
     border: .0625rem solid #ECEEEF;
     border-radius: .625rem;
-    background: var(--background-color);
+    background: var(--element-background-color);
     height: calc(100vh - 5rem);
     margin: 1.5rem;
     padding-bottom: .625rem;
@@ -41,7 +42,8 @@ button {
     align-items: center;
     padding: 0 1.5rem;
     margin: 0;
-    min-height: 4.5rem; /**/
+    min-height: 4.5rem;
+    /**/
     color: #43525C;
     font-family: sans-serif;
     font-size: 1.5rem;
@@ -98,7 +100,7 @@ button {
 }
 
 .search-icon:hover {
-    background-color: #F6F7F9;
+    background-color: var(--background-color);
     color: var(--hover-color);
 }
 
@@ -111,7 +113,7 @@ button {
     background-color: var(--button-color);
     border-radius: .375rem;
     padding: .625rem;
-    color: var(--background-color);
+    color: var(--element-background-color);
     height: 2.625rem;
     transition: 0.3s;
 }
@@ -131,7 +133,7 @@ button {
 
 .add-new {
     font-size: .875rem;
-    color: var(--background-color);
+    color: var(--element-background-color);
 }
 
 .table-container {
@@ -150,7 +152,7 @@ thead {
     z-index: 1;
     position: sticky;
     top: 0;
-    background-color: var(--background-color);
+    background-color: var(--element-background-color);
 }
 
 tr {
@@ -216,7 +218,7 @@ tr {
 
 .table-row:hover {
     cursor: pointer;
-    background-color: #F6F7F9;
+    background-color: var(--background-color);
 }
 
 .action-td {
@@ -254,7 +256,7 @@ tr {
     margin: 0;
     height: fit-content;
     width: 9.5rem;
-    background-color: var(--background-color);
+    background-color: var(--element-background-color);
     border: 1px solid #BAC5CD;
     border-radius: .5rem;
     box-shadow: 0 .25rem .625rem #0000000d;
@@ -267,7 +269,7 @@ tr {
 
 .dropdown-container li :active {
     background-color: var(--button-color);
-    color: var(--background-color);
+    color: var(--element-background-color);
 }
 
 .dropdown-content {
@@ -303,7 +305,7 @@ ul li {
     width: 1.5rem;
     height: 1.5rem;
     gap: .25rem;
-}   
+}
 
 .page-number {
     display: flex;
@@ -313,19 +315,19 @@ ul li {
     margin: 0 .75rem;
 }
 
-.left-forward::before{
+.left-forward::before {
     content: url("assets/left_forward.svg");
 }
 
-.left-arrow::before{
+.left-arrow::before {
     content: url("assets/left_arrow.svg");
 }
 
-.right-arrow::before{
+.right-arrow::before {
     content: url("assets/right_arrow.svg");
 }
 
-.right-forward::before{
+.right-forward::before {
     content: url("assets/right_forward.svg");
 }
 
