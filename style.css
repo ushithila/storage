@@ -303,6 +303,10 @@ ul li {
     margin: 0 .75rem;
 }
 
+.btn-pagination::before{
+    content: url("assets/left_forward.svg");
+}
+
 .btn-pagination {
     padding: 0;
     border-radius: .25rem;
