@@ -9,6 +9,7 @@
     --hover-color: #004FAA;
     --active-color: #003B71;
     --shadow-color: #D9EBFF;
+    --border-color: #DBE1E5;
 }
 
 html {
@@ -29,12 +30,12 @@ button {
 .storage-container {
     display: flex;
     flex-direction: column;
-    border: .0625rem solid #ECEEEF;
-    border-radius: .625rem;
+    border: 1px solid #ECEEEF;
+    border-radius: 10px;
     background: var(--element-background-color);
     height: calc(100vh - 5rem);
     margin: 1.5rem;
-    padding-bottom: .625rem;
+    padding-bottom: 0.5rem;
 }
 
 .storage-header {
@@ -43,26 +44,24 @@ button {
     padding: 0 1.5rem;
     margin: 0;
     min-height: 4.5rem;
-    /**/
     color: #43525C;
     font-family: sans-serif;
-    font-size: 1.5rem;
+    font-size: 24px;
 }
 
-.file-header {
-    display: flex;
+.file-container {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
     padding: 1rem 1.5rem;
-    border-top: .0625rem solid var(--section-border);
-    border-bottom: .0625rem solid var(--section-border);
+    border-top: 1px solid var(--section-border);
+    border-bottom: 1px solid var(--section-border);
 }
 
-
-.file-title {
+.my-file {
     display: flex;
     font-size: 1.25rem;
     align-items: center;
     color: var(--text-color);
-    margin-right: auto;
 }
 
 .search-container {
@@ -71,9 +70,9 @@ button {
     width: 14rem;
     height: 2.5rem;
     padding: 0 .5rem;
-    margin: 0 1rem 0 0;
+    gap: 1rem;
     border-radius: .5rem;
-    border: .0625rem solid #DBE1E5;
+    border: 1px solid var(--border-color);
 }
 
 .search-container:hover {
@@ -89,7 +88,7 @@ button {
     width: 100%;
     border: none;
     outline: none;
-    font-size: .875rem;
+    font-size: 14px;
     color: var(--text-color);
 }
 
@@ -111,10 +110,10 @@ button {
 
 .add-button {
     background-color: var(--button-color);
-    border-radius: .375rem;
+    border-radius: 6px;
     padding: .625rem;
     color: var(--element-background-color);
-    height: 2.625rem;
+    height: 2.5rem;
     transition: 0.3s;
 }
 
@@ -161,11 +160,11 @@ tr {
     text-align: left;
     align-items: center;
     height: 3rem;
-    border-bottom: .0625rem solid var(--section-border);
+    border-bottom: 1px solid var(--section-border);
 }
 
 .action-header {
-    padding: 0 1.875rem;
+    padding: 0 2rem;
 }
 
 .checkbox-th {
@@ -181,7 +180,7 @@ tr {
     border-radius: .25rem;
     height: 1rem;
     width: 1rem;
-    border: .0625rem solid var(--text-color);
+    border: 1px solid var(--text-color);
     cursor: pointer;
 }
 
@@ -200,11 +199,11 @@ tr {
 
 .checkbox:checked {
     background-color: var(--button-color);
-    border: .0625rem solid var(--button-color);
+    border: 1px solid var(--button-color);
 }
 
 .checkbox:checked::after {
-    content: url('assets/check.svg');
+    content: url('../assets/check.svg');
 }
 
 .table-row:has(.checkbox:checked) {
@@ -213,7 +212,7 @@ tr {
 
 .checkbox:checked:active {
     background-color: var(--active-color);
-    border: .0625rem solid var(--active-color);
+    border: 1px solid var(--active-color);
 }
 
 .table-row:hover {
@@ -235,7 +234,7 @@ tr {
 }
 
 .action-button:hover {
-    background-color: #DBE1E5;
+    background-color: var(--border-color);
 }
 
 /* .dropdown-btn {
@@ -252,7 +251,7 @@ tr {
     top: 0;
     left: -154px;
     flex-direction: column;
-    padding: 8px 0;
+    padding: .5rem 0;
     margin: 0;
     height: fit-content;
     width: 9.5rem;
@@ -279,7 +278,7 @@ tr {
     font-size: .875rem;
     font-family: 'Open Sans', sans-serif;
     color: var(--text-color);
-    padding: 8px 16px 8px 8px;
+    padding: 0.5rem 1rem 0.5rem 0.5rem;
     width: 100%;
 } */
 
@@ -287,7 +286,7 @@ tr {
     display: flex;
     justify-content: right;
     padding: 1rem 1.5rem;
-    border-top: .0625rem solid var(--section-border);
+    border-top: 1px solid var(--section-border);
     margin-top: auto;
 }
 
@@ -315,19 +314,19 @@ ul li {
 }
 
 .left-forward::before {
-    content: url("assets/left_forward.svg");
+    content: url("../assets/left_forward.svg");
 }
 
 .left-arrow::before {
-    content: url("assets/left_arrow.svg");
+    content: url("../assets/left_arrow.svg");
 }
 
 .right-arrow::before {
-    content: url("assets/right_arrow.svg");
+    content: url("../assets/right_arrow.svg");
 }
 
 .right-forward::before {
-    content: url("assets/right_forward.svg");
+    content: url("../assets/right_forward.svg");
 }
 
 .btn-pagination {
@@ -341,5 +340,5 @@ ul li {
 }
 
 .btn-pagination:active {
-    background-color: #DBE1E5;
+    background-color: var(--border-color);
 }
