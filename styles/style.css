@@ -99,14 +99,13 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    height: 2.5rem;
+    padding: .625rem;
     background-color: var(--button-color);
     border-radius: 6px;
-    padding: .625rem;
     color: var(--element-background-color);
-    height: 2.5rem;
     transition: 0.3s;
     font-size: 14px;
-    color: var(--element-background-color);
 }
 
 .add-button:hover {
