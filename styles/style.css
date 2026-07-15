@@ -274,7 +274,7 @@ tr {
 ul {
     display: flex;
     margin: 0;
-    font-size: .875rem;
+    font-size: 14px;
     list-style: none;
 }
 
