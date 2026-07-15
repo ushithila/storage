@@ -105,6 +105,9 @@
     color: var(--element-background-color);
     height: 2.5rem;
     transition: 0.3s;
+
+        font-size: 14px;
+    color: var(--element-background-color);
 }
 
 .add-button:hover {
@@ -115,10 +118,6 @@
     background-color: var(--search-active-color);
 }
 
-.add-new {
-    font-size: 14px;
-    color: var(--element-background-color);
-}
 
 .table-container {
     display: flex;
