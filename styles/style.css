@@ -1,3 +1,4 @@
+@import url("reset.css");
 @import url('https://fonts.googleapis.com/css?family=Open Sans');
 
 :root {
@@ -10,22 +11,6 @@
     --active-color: #003B71;
     --shadow-color: #D9EBFF;
     --border-color: #DBE1E5;
-}
-
-html {
-    background: var(--background-color);
-}
-
-body {
-    font-family: 'Open Sans', sans-serif;
-    color: var(--text-color);
-    margin: 0;
-}
-
-button {
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
 }
 
 .storage-container {
@@ -129,7 +114,7 @@ button {
 }
 
 .add-new {
-    font-size: .875rem;
+    font-size: 14px;
     color: var(--element-background-color);
 }
 
@@ -139,7 +124,7 @@ button {
 }
 
 .file-table {
-    font-size: 1rem;
+    font-size: 16px;
     border-spacing: 0;
     width: 100%;
 }
@@ -272,7 +257,7 @@ tr {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: .875rem;
+    font-size: 14px;
     font-family: 'Open Sans', sans-serif;
     padding: 0.5rem 1rem 0.5rem 0.5rem;
     width: 100%;

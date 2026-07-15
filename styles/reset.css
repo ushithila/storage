@@ -1,0 +1,15 @@
+html {
+    background: var(--background-color);
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: var(--text-color);
+    margin: 0;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
