@@ -241,7 +241,6 @@ tr {
     border: 1px solid #BAC5CD;
     border-radius: .5rem;
     box-shadow: 0 .25rem .625rem #0000000d;
-    list-style: none;
 }
 
 .dropdown-container li :hover {
@@ -275,7 +274,6 @@ ul {
     display: flex;
     margin: 0;
     font-size: 14px;
-    list-style: none;
 }
 
 ul li {
