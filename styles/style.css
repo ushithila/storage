@@ -16,11 +16,6 @@
     --container-color: #ECEEEF;
 }
 
-button{
-    display: flex;
-    align-items: center;
-}
-
 .storage-container {
     display: flex;
     flex-direction: column;
