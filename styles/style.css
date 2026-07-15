@@ -40,7 +40,7 @@
 
 .file-container {
     display: grid;
-    grid-template-columns: 1fr auto auto;
+    grid-template-columns: 1fr 0.25fr auto;
     padding: 1rem 1.5rem;
     border-top: 1px solid var(--section-border);
     border-bottom: 1px solid var(--section-border);
@@ -95,6 +95,9 @@
 }
 
 .add-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     background-color: var(--button-color);
     border-radius: 6px;
     padding: .625rem;
@@ -109,11 +112,6 @@
 
 .add-button:active {
     background-color: var(--search-active-color);
-}
-
-.add-button-content {
-    display: flex;
-    gap: .5rem;
 }
 
 .add-new {
