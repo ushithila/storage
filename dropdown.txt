@@ -1,0 +1,70 @@
+                                <!-- <ol class="dropdown-container">
+                                    <li>
+                                        <button class="dropdown-content" type="button">
+                                            <i class="fa-solid fa-pen"></i>
+                                            Rename
+                                        </button>
+                                    <li>
+                                        <button class="dropdown-content" type="button">
+                                            <i class="fa-solid fa-folder"></i>
+                                            Move to
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button class="dropdown-content" type="button">
+                                            <i class="fa-solid fa-circle-info"></i>
+                                            Details
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button class="dropdown-content" type="button">
+                                            <i class="fa-solid fa-trash"></i>
+                                            Delete
+                                        </button>
+                                    </li>
+                                </ol> -->
+
+
+/* .dropdown-btn {
+    position: relative;
+}
+
+.dropdown-btn:hover .dropdown-container {
+    display: flex;
+}
+
+.dropdown-container {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: -154px;
+    flex-direction: column;
+    padding: .5rem 0;
+    margin: 0;
+    height: fit-content;
+    width: 9.5rem;
+    background-color: var(--element-background-color);
+    border: 1px solid #BAC5CD;
+    border-radius: .5rem;
+    box-shadow: 0 .25rem .625rem #0000000d;
+}
+
+.dropdown-container li :hover {
+    background-color: var(--section-border);
+}
+
+.dropdown-container li :active {
+    background-color: var(--button-color);
+    color: var(--element-background-color);
+}
+
+.dropdown-content {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    padding: 0.5rem 1rem 0.5rem 0.5rem;
+    width: 100%;
+} */
+
