@@ -8,7 +8,7 @@
     --button-color: #1976D2;
     --text-color: #3E5462;
     --hover-color: #004FAA;
-    --active-color: #003B71;
+    --search-active-color: #003B71;
     --shadow-color: #D9EBFF;
     --border-color: #DBE1E5;
     --header-color: #43525C;
@@ -91,7 +91,7 @@
 
 .search-icon:active {
     background-color: var(--shadow-color);
-    color: var(--active-color);
+    color: var(--search-active-color);
 }
 
 .add-button {
@@ -108,7 +108,7 @@
 }
 
 .add-button:active {
-    background-color: var(--active-color);
+    background-color: var(--search-active-color);
 }
 
 .add-button-content {
@@ -195,8 +195,8 @@ tr {
 }
 
 .checkbox:checked:active {
-    background-color: var(--active-color);
-    border: 1px solid var(--active-color);
+    background-color: var(--search-active-color);
+    border: 1px solid var(--search-active-color);
 }
 
 .table-row:hover {
