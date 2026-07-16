@@ -88,7 +88,7 @@ button{
 }
 
 .search-icon:hover {
-    background-color: var(--background-color);
+    background-color: var(--primary-background-color);
     color: var(--hover-color);
 }
 
@@ -194,7 +194,7 @@ tr {
 
 .table-row:hover {
     cursor: pointer;
-    background-color: var(--background-color);
+    background-color: var(--primary-background-color);
 }
 
 .action-th {
