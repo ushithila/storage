@@ -132,7 +132,7 @@ thead {
     z-index: 1;
     position: sticky;
     top: 0;
-    background-color: var(--element-background-color);
+    background-color: var(--secondary-background-color);
 }
 
 tr {
