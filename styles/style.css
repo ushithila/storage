@@ -9,7 +9,7 @@
     --text-color: #3E5462;
     --button-hover-color: #004FAA;
     --search-active-color: #003B71;
-    --shadow-color: #D9EBFF;
+    --button-shadow-color: #D9EBFF;
     --border-color: #DBE1E5;
     --header-color: #43525C;
     --row-checked-color: #ECF5FF;
@@ -70,7 +70,7 @@ button{
 }
 
 .search-container:active {
-    box-shadow: 0 0 0 .25rem var(--shadow-color);
+    box-shadow: 0 0 0 .25rem var(--button-shadow-color);
 }
 
 .search-input {
@@ -93,7 +93,7 @@ button{
 }
 
 .search-icon:active {
-    background-color: var(--shadow-color);
+    background-color: var(--button-shadow-color);
     color: var(--search-active-color);
 }
 
@@ -165,13 +165,13 @@ tr {
     border-color: var(--button-color);
     outline-style: solid;
     outline-width: 2px;
-    outline-color: var(--shadow-color);
+    outline-color: var(--button-shadow-color);
 }
 
 .checkbox:active {
     border-color: var(--button-color);
     outline-width: .25rem;
-    outline-color: var(--shadow-color);
+    outline-color: var(--button-shadow-color);
 }
 
 .checkbox:checked {
