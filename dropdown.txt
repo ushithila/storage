@@ -70,7 +70,7 @@
 
                   
 
-                                        <tr class="table-row">
+                    <tr class="table-row">
                         <td class="checkbox-tr">
                             <input class="checkbox" type="checkbox">
                         </td>
