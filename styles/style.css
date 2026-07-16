@@ -14,6 +14,7 @@
     --header-color: #43525C;
     --row-checked-color: #ECF5FF;
     --container-color: #ECEEEF;
+    --pagination-disabled-color: #BAC5CD;
 }
 
 button{
@@ -228,18 +229,25 @@ tr {
 
 ul {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
     font-size: 14px;
 }
 
 ul li {
-    display: flex;
     width: 1.5rem;
     height: 1.5rem;
-    gap: .25rem;
+    gap: 4px;
+    margin-right: 4px;
 }
+
 
 .btn-pagination {
     padding: 0;
+    height: 24px;
+    width: 24px;
     border-radius: .25rem;
     transition: .3s;
 }
@@ -252,14 +260,13 @@ ul li {
     background-color: var(--border-color);
 }
 
+.btn-pagination svg:disabled{
+    fill: none;
+    cursor: default;
+}
+
 .page-number {
     display: flex;
     align-items: center;
-    justify-content: center;
     width: 100%;
-    margin: 0 .75rem;
-}
-
-.svg {
-
 }
