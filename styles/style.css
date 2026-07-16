@@ -2,12 +2,12 @@
 @import url('https://fonts.googleapis.com/css?family=Open Sans');
 
 :root {
-    --background-color: #F6F7F9;
-    --element-background-color: #FFFFFF;
+    --primary-background-color: #F6F7F9;
+    --secondary-background-color: #FFFFFF;
     --section-border: #ECEFF2;
     --button-color: #1976D2;
     --text-color: #3E5462;
-    --hover-color: #004FAA;
+    --button-hover-color: #004FAA;
     --search-active-color: #003B71;
     --shadow-color: #D9EBFF;
     --border-color: #DBE1E5;
@@ -16,12 +16,18 @@
     --container-color: #ECEEEF;
 }
 
+button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .storage-container {
     display: flex;
     flex-direction: column;
     border: 1px solid var(--container-color);
     border-radius: 10px;
-    background: var(--element-background-color);
+    background: var(--secondary-background-color);
     height: calc(100vh - 5rem);
     margin: 1.5rem;
     padding-bottom: 0.5rem;
@@ -99,7 +105,7 @@
     padding: .625rem;
     background-color: var(--button-color);
     border-radius: 6px;
-    color: var(--element-background-color);
+    color: var(--secondary-background-color);
     transition: 0.3s;
     font-size: 14px;
 }
@@ -254,18 +260,6 @@ ul li {
     margin: 0 .75rem;
 }
 
-.left-forward::before {
-    content: url("../assets/left_forward.svg");
-}
+.svg {
 
-.left-arrow::before {
-    content: url("../assets/left_arrow.svg");
-}
-
-.right-arrow::before {
-    content: url("../assets/right_arrow.svg");
-}
-
-.right-forward::before {
-    content: url("../assets/right_forward.svg");
 }
