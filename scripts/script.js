@@ -9,7 +9,7 @@ const table_entries = document.getElementById('table-body');
 
 entries.forEach(element => {
     const newRow = document.createElement('tr');
-    newRow.setAttribute();
+    newRow.setAttribute('class', 'tr');
 
     const checkBox = document.createElement('td');
     checkBox.setAttribute('class', 'checkbox');
@@ -25,4 +25,13 @@ entries.forEach(element => {
 
     const actionDropdown = document.createElement('td');
     actionDropdown.setAttribute('class', 'action-td');
+
+    newRow.appendChild(checkBox);
+    newRow.appendChild(uploadDate);
+    newRow.appendChild(folderName);
+    newRow.appendChild(uploadDate);
+    newRow.appendChild(folderSize);
+    newRow.appendChild(actionDropdown);
+
+    // table_entries.append(newRow);
 });
