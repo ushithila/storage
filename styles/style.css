@@ -231,15 +231,12 @@ ul {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0;
-    padding: 0;
     font-size: 14px;
 }
 
 ul li {
     width: 1.5rem;
     height: 1.5rem;
-    gap: .25rem;
     padding-right: .25rem;
 }
 
@@ -270,4 +267,5 @@ ul li {
     align-items: center;
     width: 100%;
     padding: 0 .75rem;
+    gap: .25rem;
 }
