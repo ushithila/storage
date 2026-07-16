@@ -239,8 +239,8 @@ ul {
 ul li {
     width: 1.5rem;
     height: 1.5rem;
-    gap: 4px;
-    margin-right: 4px;
+    gap: .25rem;
+    padding-right: .25rem;
 }
 
 
@@ -269,4 +269,5 @@ ul li {
     display: flex;
     align-items: center;
     width: 100%;
+    padding: 0 .75rem;
 }
