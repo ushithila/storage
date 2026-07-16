@@ -131,7 +131,7 @@ thead {
 
 tr {
     display: grid;
-    grid-template-columns: auto 1fr 12.5rem 11rem 8rem 7rem;
+    grid-template-columns: auto 1fr 12.5rem 8rem 7rem;
     text-align: left;
     align-items: center;
     height: 3rem;

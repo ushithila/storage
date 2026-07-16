@@ -68,3 +68,18 @@
     width: 100%;
 } */
 
+                    <tr class="table-row">
+                        <td class="checkbox-tr">
+                            <input class="checkbox" type="checkbox">
+                        </td>
+                        <td>Folder name</td>
+                        <td>Jun 19, 2026</td>
+                        <td>--</td>
+                        <td class="action-td">
+                            <div class="dropdown-btn">
+                                <button class="action-button" type="button">
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
