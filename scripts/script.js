@@ -24,7 +24,7 @@ entries.forEach(element => {
     folderSize.setAttribute('class', 'td');
 
     const actionDropdown = document.createElement('td');
-    actionDropdown.setAttribute('class', 'action-td');
+    actionDropdown.setAttribute('button', 'action-button');
 
     newRow.append(checkBox);    
     newRow.append(folderName);
