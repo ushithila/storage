@@ -14,7 +14,8 @@
     --header-color: #43525C;
     --row-checked-color: #ECF5FF;
     --container-color: #ECEEEF;
-    --pagination-disabled-color: #BAC5CD;
+    --primary-pagination-button-color: #3E5462;
+    --secondary-pagination-button-color: #BAC5CD;
 }
 
 button{
@@ -247,9 +248,10 @@ ul li {
     width: 24px;
     border-radius: .25rem;
     transition: .3s;
+    fill: var(--primary-pagination-button-color);
 }
 
-.btn-pagination:hover {
+.btn-pagination:hover{
     background-color: var(--container-color);
 }
 
@@ -257,11 +259,11 @@ ul li {
     background-color: var(--border-color);
 }
 
-.btn-pagination svg:disabled{
-    fill: none;
+.btn-pagination:disabled svg{
+    background-color: transparent;
+    fill: var(--secondary-pagination-button-color);
     cursor: default;
 }
-
 .page-number {
     display: flex;
     align-items: center;
