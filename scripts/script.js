@@ -11,6 +11,7 @@ function loadData(data){
     const newRow = document.createElement('tr');
     const checkboxCol = document.createElement('td');
     const checkbox = document.createElement('input');
+    const rowIcon = document.createElement('i');
     const folderName = document.createElement('td');
     const uploadDate = document.createElement('td');
     const folderSize = document.createElement('td');
@@ -20,6 +21,8 @@ function loadData(data){
 
     checkbox.type = 'checkbox';
     checkbox.className = 'checkbox';
+
+    rowIcon.className = data.type === 'directory' ? 'fa-regular fa-folder directory' : 'fa-regular fa-file file';
     actionButton.type = 'button';
     actionButton.className = 'action-button';
     actionIcon.className = "fa-solid fa-ellipsis-vertical";
@@ -29,6 +32,7 @@ function loadData(data){
     actionColumn.setAttribute( 'class', 'action-td');
     
     checkboxCol.append(checkbox);
+    folderName.append(rowIcon);
     folderName.append(data.name);
     uploadDate.append(data.createdAt);
     folderSize.append(data.size);
