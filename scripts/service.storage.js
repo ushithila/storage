@@ -4,7 +4,7 @@ const knownPaths = new Set(entries.map((entry) => entry.path))
 const knownIds = new Set(entries.map((entry) => entry.id))
 
 function delay() {
-  return new Promise((resolve) => setTimeout(resolve, Math.random() * 500))
+  return new Promise((resolve) => setTimeout(resolve, Math.random() * 50))
 }
 
 function paginate(items, page, pageSize) {

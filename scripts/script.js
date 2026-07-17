@@ -2,35 +2,26 @@
 // function  for date 
 // function for html 
 
-import entries from './test.js';
-
+import entries from './directory-data.js';
 
 const table_entries = document.getElementById('table-body');
 
 entries.forEach(element => {    
     const newRow = document.createElement('tr');
-    newRow.setAttribute('class', 'table-row');
-
-    const checkBox = document.createElement('td');
-    checkBox.setAttribute('class', 'checkbox-tr');
-
+    const checkboxCol = document.createElement('td');
+    const checkbox = document.createElement('input');
     const folderName = document.createElement('td');
-    folderName.setAttribute('class', 'td');
-
     const uploadDate = document.createElement('td');
-    uploadDate.setAttribute('class', 'td');
-
     const folderSize = document.createElement('td');
-    folderSize.setAttribute('class', 'td');
-
     const actionDropdown = document.createElement('td');
-    actionDropdown.setAttribute('button', 'action-button');
 
-    newRow.append(checkBox);    
-    newRow.append(folderName);
-    newRow.append(uploadDate);
-    newRow.append(folderSize);
-    newRow.append(actionDropdown);
-
+    checkbox.type = 'checkbox';
+    checkbox.className = 'checkbox';
+    checkbox.append(checkboxCol);
+    
+    newRow.setAttribute('class', 'table-row');
+    
     table_entries.append(newRow);
 });
+
+
