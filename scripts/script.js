@@ -22,13 +22,14 @@ function loadData(data){
     checkbox.type = 'checkbox';
     checkbox.className = 'checkbox';
 
-    rowIcon.className = data.type === 'directory' ? 'fa-regular fa-folder directory' : 'fa-regular fa-file file';
+    rowIcon.className = data.type === 'directory' ? 'fa-regular fa-folder directory fa-lg' : 'fa-regular fa-file file fa-lg';
     actionButton.type = 'button';
     actionButton.className = 'action-button';
     actionIcon.className = "fa-solid fa-ellipsis-vertical";
     
     newRow.setAttribute('class', 'table-row');
-    checkboxCol.setAttribute( 'class', 'checkbox-tr');
+    checkboxCol.setAttribute( 'class', 'checkbox-tr');    
+    folderName.setAttribute('class', 'name-td');
     actionColumn.setAttribute( 'class', 'action-td');
     
     checkboxCol.append(checkbox);

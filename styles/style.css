@@ -192,6 +192,13 @@ tr {
     border: 1px solid var(--search-active-color);
 }
 
+.name-td{
+}
+
+.directory .file{
+    font-size: 32px;
+}
+
 .directory{
     color: var(--directory-icon-color);
 }
