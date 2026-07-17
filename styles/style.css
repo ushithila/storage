@@ -16,6 +16,8 @@
     --container-color: #ECEEEF;
     --primary-pagination-button-color: #3E5462;
     --secondary-pagination-button-color: #BAC5CD;
+    --file-icon-color: #5FBCC3;
+    --folder-icon-color: #55A4FF;
 }
 
 button{
@@ -188,6 +190,14 @@ tr {
 .checkbox:checked:active {
     background-color: var(--search-active-color);
     border: 1px solid var(--search-active-color);
+}
+
+.folder{
+    color: var(--folder-icon-color);
+}
+
+.file{
+    color: var(--file-icon-color);
 }
 
 .table-row:has(.checkbox:checked) {
