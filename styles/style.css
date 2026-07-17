@@ -17,7 +17,7 @@
     --primary-pagination-button-color: #3E5462;
     --secondary-pagination-button-color: #BAC5CD;
     --file-icon-color: #5FBCC3;
-    --folder-icon-color: #55A4FF;
+    --directory-icon-color: #55A4FF;
 }
 
 button{
@@ -192,7 +192,7 @@ tr {
     border: 1px solid var(--search-active-color);
 }
 
-.folder{
+.directory{
     color: var(--folder-icon-color);
 }
 
