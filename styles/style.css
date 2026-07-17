@@ -192,7 +192,9 @@ tr {
     border: 1px solid var(--search-active-color);
 }
 
-.name-td{
+td{
+    display: flex;
+    gap: 0.5rem;
 }
 
 .directory .file{

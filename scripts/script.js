@@ -36,7 +36,7 @@ function loadData(data){
     folderName.append(rowIcon);
     folderName.append(data.name);
     uploadDate.append(data.createdAt);
-    folderSize.append(data.size);
+    folderSize.append(data.size === 0 ? data.size = '--' : data.size);
     actionButton.append(actionIcon);
     actionColumn.append(actionButton);
     newRow.append(checkboxCol);
