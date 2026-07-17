@@ -193,7 +193,7 @@ tr {
 }
 
 .directory{
-    color: var(--folder-icon-color);
+    color: var(--directory-icon-color);
 }
 
 .file{
