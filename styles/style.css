@@ -14,10 +14,13 @@
     --header-color: #43525C;
     --row-checked-color: #ECF5FF;
     --container-color: #ECEEEF;
-    --primary-pagination-button-color: #3E5462;
-    --secondary-pagination-button-color: #BAC5CD;
+    --primary-button-color: #3E5462;
+    --secondary-button-color: #BAC5CD;
     --file-icon-color: #5FBCC3;
     --directory-icon-color: #55A4FF;
+    --modal-background: #FFFFFF;
+    --model-border-color: #ECEEEF;
+    --exit-button-hover-color: #ECEFF2;
 }
 
 button{
@@ -267,7 +270,7 @@ ul li {
     width: 24px;
     border-radius: .25rem;
     transition: .3s;
-    fill: var(--primary-pagination-button-color);
+    fill: var(--primary-button-color);
 }
 
 .btn-pagination:hover{
@@ -280,7 +283,7 @@ ul li {
 
 .btn-pagination:disabled{
     background-color: transparent;
-    fill: var(--secondary-pagination-button-color);
+    fill: var(--secondary-button-color);
     cursor: default;
 }
 .page-number {
@@ -289,4 +292,35 @@ ul li {
     width: 100%;
     padding: 0 .75rem;
     gap: .25rem;
+}
+
+.modal-container{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    background-color: var(--modal-background);
+}
+
+.modal-header{
+    display: flex;
+    height: 4rem;
+    padding: 1rem 1rem .5rem 1.5rem;
+    align-items: center;
+    border-bottom: 1px solid var(--model-border-color);
+    font-size: 1.25rem;
+}
+
+.exit-button{
+    margin-left: auto;
+    padding: .625rem;
+    color: var(--primary-button-color);
+    font-size: 1.25rem;
+}
+
+.exit-button:hover{
+    background-color: var(--exit-button-hover-color);
 }
