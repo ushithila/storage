@@ -1,59 +1,52 @@
 import { getDirectory  } from './service.storage.js';
 
-const table_entries = document.getElementById('table-body');
+function convertDateFormat(date){
+    date = new Date(date).toLocaleDateString("en-US", {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric'
+    })
 
-const loadData = async () => {
-    try{
-    const entries = await getDirectory('/');
-    entries.data.forEach(element => {
-        table_entries.append(createRows(element));
-    });
-    }catch(error){
-        console.log(error);
-    }
+    return date;
 }
-loadData();
 
-function createRows(data){
-    const newRow = document.createElement('tr');
-    newRow.className = 'table-row';
-    newRow.id = 'table-row';
-
+function createRow(data) {
     const checkboxCol = document.createElement('td');
-    checkboxCol.className = 'checkbox-tr';    
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    checkbox.className = 'checkbox';
+    checkboxCol.className = 'checkbox-tr'; 
     
+    const checkbox = document.createElement('input');
+    checkbox.className = 'checkbox';
+    checkbox.type = 'checkbox';
+    checkboxCol.append(checkbox);
+
     const rowIcon = document.createElement('i');
     rowIcon.className = data.type === 'directory' ? 'fa-regular fa-folder directory fa-lg' : 'fa-regular fa-file file fa-lg';
+    
     const folderName = document.createElement('td');
     folderName.className = 'name-td';
-    const uploadDate = document.createElement('td');
-    const folderSize = document.createElement('td');
-    const actionColumn = document.createElement('td');
-    const actionButton = document.createElement('button');
-    const actionIcon = document.createElement('i');
-
-
-    actionButton.type = 'button';
-    actionButton.className = 'action-button';
-    actionIcon.className = "fa-solid fa-ellipsis-vertical";
-    
-
-    actionColumn.className ='action-td';
-    
-    checkboxCol.append(checkbox);
     folderName.append(rowIcon);
     folderName.append(data.name);
-    uploadDate.append(new Date(data.createdAt).toLocaleDateString("en-US", {
-  month: 'short',
-  day: 'numeric',
-  year: 'numeric'
-}));
+    
+    const uploadDate = document.createElement('td');
+    uploadDate.append(convertDateFormat(data.createdAt));
+    
+    const folderSize = document.createElement('td');
     folderSize.append(data.size === 0 ? '--' : data.size);
+    
+    const actionColumn = document.createElement('td');
+    actionColumn.className ='action-td';
+
+    const actionButton = document.createElement('button');
+    actionButton.className = 'action-button';
+    actionButton.type = 'button';
+    
+    const actionIcon = document.createElement('i');
+    actionIcon.className = "fa-solid fa-ellipsis-vertical";
     actionButton.append(actionIcon);
     actionColumn.append(actionButton);
+
+    const newRow = document.createElement('tr');
+    newRow.className = 'table-row';
     newRow.append(checkboxCol);
     newRow.append(folderName);
     newRow.append(uploadDate);
@@ -63,6 +56,21 @@ function createRows(data){
     return newRow;
 }
 
+async function loadData() {
+    try {
+        const entries = await getDirectory('/');
+        entries.data.forEach(item => {
+            document.getElementById('table-body').append(createRow(item));
+        });
+    } catch(error) {
+        console.warn(error);
+    }
+}
 
+loadData();
 
+const add_button = document.getElementById('add-button');
 
+add_button.addEventListener("click", function (e) {
+  console.log('test')
+});
