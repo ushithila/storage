@@ -19,12 +19,11 @@ function createRow(data) {
     checkbox.type = 'checkbox';
     checkboxCol.append(checkbox);
 
-    const rowIcon = document.createElement('i');
-    rowIcon.className = data.type === 'directory' ? 'fa-regular fa-folder directory fa-lg' : 'fa-regular fa-file file fa-lg';
+    const folderIcon = document.createElement('i');
+    folderIcon.className = data.type === 'directory' ? 'fa-regular fa-folder directory fa-lg' : 'fa-regular fa-file file fa-lg';
     
-    const folderName = document.createElement('td');
-    folderName.append(rowIcon);
-    folderName.append(data.name);
+    const rowName = document.createElement('td');
+    rowName.append(folderIcon, data.name);
     
     const uploadDate = document.createElement('td');
     uploadDate.append(convertDateFormat(data.createdAt));
@@ -41,13 +40,13 @@ function createRow(data) {
     
     const actionIcon = document.createElement('i');
     actionIcon.className = "fa-solid fa-ellipsis-vertical";
-    actionButton.append(actionIcon);
-    actionColumn.append(actionButton);
+    actionButton.appendChild(actionIcon);
+    actionColumn.appendChild(actionButton);
 
     const newRow = document.createElement('tr');
     newRow.className = 'table-row';
 
-    newRow.append(checkboxCol, folderName, uploadDate, folderSize, actionColumn);
+    newRow.append(checkboxCol, rowName, uploadDate, folderSize, actionColumn);
     return newRow;
 }
 
