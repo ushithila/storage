@@ -53,8 +53,9 @@ function createRow(data) {
 async function loadData() {
     try {
         const entries = await getDirectory('/');
+        const table_body = document.getElementById('table-body');
         entries.data.forEach(item => {
-            document.getElementById('table-body').append(createRow(item));
+            table_body.append(createRow(item));
         });
     } catch(error) {
         console.warn(error);
