@@ -21,6 +21,8 @@
     --modal-background: #FFFFFF;
     --model-border-color: #ECEEEF;
     --exit-button-hover-color: #ECEFF2;
+    --modal-shadow-color: #00000026;
+    --modal-text-color: #43525C;
 }
 
 button{
@@ -300,9 +302,12 @@ ul li {
     position: fixed;
     top: 50%;
     left: 50%;
+    width: 31.5rem;
     transform: translate(-50%, -50%);
     border-radius: 10px;
     background-color: var(--modal-background);
+    box-shadow: 0 0 1.5rem var(--modal-shadow-color);
+    color: var(--modal-text-color);
 }
 
 .modal-header{
