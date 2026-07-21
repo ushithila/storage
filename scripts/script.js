@@ -28,8 +28,8 @@ function createRow(data) {
     const uploadDate = document.createElement('td');
     uploadDate.append(convertDateFormat(data.createdAt));
     
-    const folderSize = document.createElement('td');
-    folderSize.append(data.size === 0 ? '--' : data.size);
+    const contentSize = document.createElement('td');
+    contentSize.append(data.size === 0 ? '--' : data.size);
     
     const actionColumn = document.createElement('td');
     actionColumn.className ='action-td';
@@ -46,7 +46,7 @@ function createRow(data) {
     const newRow = document.createElement('tr');
     newRow.className = 'table-row';
 
-    newRow.append(checkboxCol, rowName, uploadDate, folderSize, actionColumn);
+    newRow.append(checkboxCol, rowName, uploadDate, contentSize, actionColumn);
     return newRow;
 }
 
