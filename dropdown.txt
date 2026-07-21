@@ -84,3 +84,88 @@
                             </div>
                         </td>
                     </tr>
+
+                                <div class="modal-container">
+                <div class="modal-header">
+                    <b>New folder</b>
+                    <button class="exit-button" type="button">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                    <form class="content" id="createFolderForm">
+                            Name
+                            <input class='modal-folder-name' type="text" placeholder="Enter your folder name">
+                    </form>
+                <div class="modal-buttons">
+                    <button class='cancel-button' type="button">
+                        Cancel
+                    </button>
+                    <button class='create-button' type="button">
+                        Create
+                    </button>                
+                </div>
+            </div>
+        </div>
+
+        .modal-container{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 31.5rem;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    background-color: var(--modal-background);
+    box-shadow: 0 0 1.5rem var(--modal-shadow-color);
+    color: var(--modal-text-color);
+}
+
+.modal-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1rem .5rem 1.5rem;
+    border-bottom: 1px solid var(--model-border-color);
+}
+
+.exit-button{
+    padding: 10px;
+    color: var(--primary-button-color);
+    border-radius: 6px;
+    font-size: 1rem;
+    height: 40px;
+    width: 40px;
+    transition: .3s;
+}
+
+.exit-button:hover{
+    background-color: var(--exit-button-hover-color);
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    font-size: 16px;
+    gap: .5rem;
+}
+
+.modal-folder-name{
+    border: 1px solid var(--border-color);
+    border-radius: .5rem;  
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    padding: 0 .75rem 0 .5rem;  
+    min-height: 3rem;
+}
+
+.modal-folder-name:hover{
+    border-color: var(--input-hover-color);
+}
+
+.modal-folder-name:focus-visible{
+    outline-style: solid;
+    outline-color: var(--button-shadow-color);
+    border: 1px solid var(--input-hover-color);
+}

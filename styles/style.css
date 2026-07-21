@@ -23,6 +23,7 @@
     --exit-button-hover-color: #ECEFF2;
     --modal-shadow-color: #00000026;
     --modal-text-color: #43525C;
+    --input-hover-color: #1976D2;
 }
 
 button{
@@ -288,42 +289,11 @@ ul li {
     fill: var(--secondary-button-color);
     cursor: default;
 }
+
 .page-number {
     display: flex;
     align-items: center;
     width: 100%;
     padding: 0 .75rem;
     gap: .25rem;
-}
-
-.modal-container{
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 31.5rem;
-    transform: translate(-50%, -50%);
-    border-radius: 10px;
-    background-color: var(--modal-background);
-    box-shadow: 0 0 1.5rem var(--modal-shadow-color);
-    color: var(--modal-text-color);
-}
-
-.modal-title{
-    display: flex;
-    align-items: center;
-    padding: 1rem 1rem .5rem 1.5rem;
-    border-bottom: 1px solid var(--model-border-color);
-}
-
-.exit-button{
-    margin-left: auto;
-    padding: .625rem;
-    color: var(--primary-button-color);
-    font-size: 1.25rem;
-}
-
-.exit-button:hover{
-    background-color: var(--exit-button-hover-color);
 }
