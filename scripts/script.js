@@ -56,11 +56,11 @@ async function loadData() {
         const fragment = document.createDocumentFragment();
         const table_body = document.getElementById('table-body');
         if(Array.isArray(entries.data)){
-        entries.data.forEach(item => {
-            console.log(typeof item);
-            fragment.appendChild(createRow(item));
-        });
-        table_body.append(fragment);
+            entries.data.forEach(item => {
+                console.log(typeof item);
+                fragment.appendChild(createRow(item));
+            });
+            table_body.append(fragment);
     }else{
         console.warn(error);
     }
