@@ -23,7 +23,6 @@ function createRow(data) {
     rowIcon.className = data.type === 'directory' ? 'fa-regular fa-folder directory fa-lg' : 'fa-regular fa-file file fa-lg';
     
     const folderName = document.createElement('td');
-    folderName.className = 'name-td';
     folderName.append(rowIcon);
     folderName.append(data.name);
     
@@ -59,10 +58,8 @@ function createRow(data) {
 async function loadData() {
     try {
         const entries = await getDirectory('/');
-        const childEntries = await getDirectory('/data');
         entries.data.forEach(item => {
             document.getElementById('table-body').append(createRow(item));
-            document.getElementById('child-table-body').append(createRow(item))
         });
     } catch(error) {
         console.warn(error);
