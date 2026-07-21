@@ -55,10 +55,15 @@ async function loadData() {
         const entries = await getDirectory('/');
         const fragment = document.createDocumentFragment();
         const table_body = document.getElementById('table-body');
+        if(Array.isArray(entries.data)){
         entries.data.forEach(item => {
+            console.log(typeof item);
             fragment.appendChild(createRow(item));
         });
         table_body.append(fragment);
+    }else{
+        console.warn(error);
+    }
     } catch(error) {
         console.warn(error);
     }
