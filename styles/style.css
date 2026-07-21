@@ -310,13 +310,11 @@ ul li {
     color: var(--modal-text-color);
 }
 
-.modal-header{
+.modal-title{
     display: flex;
-    height: 4rem;
-    padding: 1rem 1rem .5rem 1.5rem;
     align-items: center;
+    padding: 1rem 1rem .5rem 1.5rem;
     border-bottom: 1px solid var(--model-border-color);
-    font-size: 1.25rem;
 }
 
 .exit-button{
