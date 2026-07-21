@@ -53,10 +53,12 @@ function createRow(data) {
 async function loadData() {
     try {
         const entries = await getDirectory('/');
+        const fragment = document.createDocumentFragment();
         const table_body = document.getElementById('table-body');
         entries.data.forEach(item => {
-            table_body.append(createRow(item));
+            fragment.appendChild(createRow(item));
         });
+        table_body.append(fragment);
     } catch(error) {
         console.warn(error);
     }
