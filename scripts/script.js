@@ -1,4 +1,4 @@
-import { getDirectory  } from './service.storage.js';
+import { getDirectory } from './service.storage.js';
 
 function convertDateFormat(date){
     date = new Date(date).toLocaleDateString("en-US", {
@@ -59,8 +59,10 @@ function createRow(data) {
 async function loadData() {
     try {
         const entries = await getDirectory('/');
+        const childEntries = await getDirectory('/data');
         entries.data.forEach(item => {
             document.getElementById('table-body').append(createRow(item));
+            document.getElementById('child-table-body').append(createRow(item))
         });
     } catch(error) {
         console.warn(error);
@@ -71,8 +73,6 @@ async function loadData() {
 document.addEventListener("dblclick", function(e) {
     if(e.target.matches(".table-row")){
         window.location.href = 'folder.html';
-
-        const folder_name = document.;
     }
 });
 
