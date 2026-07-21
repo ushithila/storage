@@ -67,10 +67,15 @@ async function loadData() {
     }
 }
 
+//will put into functions later
+document.addEventListener("dblclick", function(e) {
+    if(e.target.matches(".table-row")){
+        window.location.href = 'folder.html';
+
+        const folder_name = document.;
+    }
+});
+
 loadData();
 
-const add_button = document.getElementById('add-button');
 
-add_button.addEventListener("click", function (e) {
-  console.log('test')
-});
