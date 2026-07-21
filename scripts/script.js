@@ -1,13 +1,13 @@
 import { getDirectory } from './service.storage.js';
 
 function convertDateFormat(date){
-    date = new Date(date).toLocaleDateString("en-US", {
+    const formattedDate = new Date(date).toLocaleDateString("en-US", {
         month: 'short',
         day: 'numeric',
         year: 'numeric'
     })
 
-    return date;
+    return formattedDate;
 }
 
 function createRow(data) {
@@ -46,12 +46,8 @@ function createRow(data) {
 
     const newRow = document.createElement('tr');
     newRow.className = 'table-row';
-    newRow.append(checkboxCol);
-    newRow.append(folderName);
-    newRow.append(uploadDate);
-    newRow.append(folderSize);
-    newRow.append(actionColumn);
 
+    newRow.append(checkboxCol, folderName, uploadDate, folderSize, actionColumn);
     return newRow;
 }
 
