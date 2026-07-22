@@ -19,17 +19,17 @@ function createRow(data) {
     checkbox.type = 'checkbox';
     checkboxCol.append(checkbox);
 
-    const nameIcon = document.createElement('i');
-    nameIcon.className = data.type === 'directory' ? 'fa-regular fa-folder directory fa-lg' : 'fa-regular fa-file file fa-lg';
+    const entryIcon = document.createElement('i');
+    entryIcon.className = data.type === 'directory' ? 'fa-regular fa-folder directory fa-lg' : 'fa-regular fa-file file fa-lg';
     
-    const rowName = document.createElement('td');
-    rowName.append(nameIcon, data.name);
+    const entryName = document.createElement('td');
+    entryName.append(entryIcon, data.name);
     
     const uploadDate = document.createElement('td');
     uploadDate.append(convertDateFormat(data.createdAt));
     
-    const contentSize = document.createElement('td');
-    contentSize.append(data.size === 0 ? '--' : data.size);
+    const size = document.createElement('td');
+    size.append(data.size === 0 ? '--' : data.size);
     
     const actionColumn = document.createElement('td');
     actionColumn.className ='action-td';
@@ -43,34 +43,38 @@ function createRow(data) {
     actionButton.append(actionIcon);
     actionColumn.append(actionButton);
 
-    const newRow = document.createElement('tr');
-    newRow.className = 'table-row';
+    const row = document.createElement('tr');
+    row.className = 'table-row';
+    // `${data.id}-row`
 
-    newRow.append(checkboxCol, rowName, uploadDate, contentSize, actionColumn);
-    return newRow;
+    row.type = data.type;
+    console.log(row.type);
+
+    row.append(checkboxCol, entryName, uploadDate, size, actionColumn);
+    return row;
 }
 
-async function renderRows() {
+async function getTable(path) {
+    const tableBody = document.getElementById('table-body');
     try {
-        const entries = await getDirectory('/');
+        const entries = await getDirectory(path);
         const fragment = document.createDocumentFragment();
-        const table_body = document.getElementById('table-body');
-        if(Array.isArray(entries.data)){
-            entries.data.forEach(item => {
-                fragment.appendChild(createRow(item));
-            });
-            table_body.append(fragment);
-        }else{
-            console.warn(error);
+        if(!Array.isArray(entries.data)) {
+            console.warn('Table data not found');
+            return;
         }
+        entries.data.forEach((item) => fragment.appendChild(createRow(item)));
+        tableBody.append(fragment);
     } catch(error) {
         console.warn(error);
     }
 }
 
 document.addEventListener('dblclick', e => {
+    if(e.target.matches('.table-row')){
+        // window.location.href = 'folder.html';
+        console.log(e.target.matches('.table-row'));
+    }
 });
 
-renderRows();
-
-
+getTable('/');
