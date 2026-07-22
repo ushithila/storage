@@ -40,8 +40,8 @@ function createRow(data) {
     
     const actionIcon = document.createElement('i');
     actionIcon.className = "fa-solid fa-ellipsis-vertical";
-    actionButton.appendChild(actionIcon);
-    actionColumn.appendChild(actionButton);
+    actionButton.append(actionIcon);
+    actionColumn.append(actionButton);
 
     const newRow = document.createElement('tr');
     newRow.className = 'table-row';
@@ -67,6 +67,9 @@ async function renderRows() {
         console.warn(error);
     }
 }
+
+document.addEventListener('dblclick', e => {
+});
 
 renderRows();
 
