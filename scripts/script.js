@@ -19,11 +19,11 @@ function createRow(data) {
     checkbox.type = 'checkbox';
     checkboxCol.append(checkbox);
 
-    const icon = document.createElement('i');
-    icon.className = data.type === 'directory' ? 'fa-regular fa-folder directory fa-lg' : 'fa-regular fa-file file fa-lg';
+    const nameIcon = document.createElement('i');
+    nameIcon.className = data.type === 'directory' ? 'fa-regular fa-folder directory fa-lg' : 'fa-regular fa-file file fa-lg';
     
     const rowName = document.createElement('td');
-    rowName.append(icon, data.name);
+    rowName.append(nameIcon, data.name);
     
     const uploadDate = document.createElement('td');
     uploadDate.append(convertDateFormat(data.createdAt));
