@@ -50,32 +50,24 @@ function createRow(data) {
     return newRow;
 }
 
-async function loadData() {
+async function renderRows() {
     try {
         const entries = await getDirectory('/');
         const fragment = document.createDocumentFragment();
         const table_body = document.getElementById('table-body');
         if(Array.isArray(entries.data)){
             entries.data.forEach(item => {
-                console.log(typeof item);
                 fragment.appendChild(createRow(item));
             });
             table_body.append(fragment);
-    }else{
-        console.warn(error);
-    }
+        }else{
+            console.warn(error);
+        }
     } catch(error) {
         console.warn(error);
     }
 }
 
-//will put into functions later
-document.addEventListener("dblclick", function(e) {
-    if(e.target.matches(".table-row")){
-        window.location.href = 'folder.html';
-    }
-});
-
-loadData();
+renderRows();
 
 
