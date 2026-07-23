@@ -12,14 +12,6 @@ function convertDateFormat(date){
     return formattedDate;
 }
 
-function setHeaderName(name){
-    const headerName = document.createElement('li');
-    headerName.textContent = name;
-
-    const fileHeader = document.getElementById('file-header');
-    fileHeader.append(headerName);
-}
-
 function createRow(data) {
     const checkboxCol = document.createElement('td');
     checkboxCol.className = 'checkbox-tr'; 
@@ -87,11 +79,3 @@ async function getTable(path) {
 }
 
 getTable('/');
-
-// tableBody.addEventListener("click", function(e){
-//     const clickedRow = e.target.closest(".table-row");
-//     if(clickedRow.type === 'directory'){
-//         getTable(clickedRow.path);
-//         setHeaderName(clickedRow.name);
-//     }
-// });

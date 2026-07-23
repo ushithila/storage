@@ -171,3 +171,11 @@ form{
 }
 
     // `${data.id}-row`
+
+// function setHeaderName(name){
+//     const headerName = document.createElement('li');
+//     headerName.textContent = name + " / ";
+
+//     const fileHeader = document.getElementById('file-header');
+//     fileHeader.append(headerName);
+// }

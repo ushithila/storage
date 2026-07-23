@@ -69,13 +69,14 @@ button{
 .file-header{
     display: flex;
     align-items: center;
+    gap: 1rem;
 }
 
-.file-header li:not(:last-child)::after{
+/* .file-header li:not(:last-child)::after{
     content: "/";
     left: 0.5rem;
     color: var(--text-color);
-}
+} */
 
 .search-container {
     display: flex;
