@@ -13,7 +13,11 @@ function convertDateFormat(date){
 }
 
 function setHeaderName(name){
-    
+    const headerName = document.createElement('li');
+    headerName.textContent = name;
+
+    const fileHeader = document.getElementById('file-header');
+    fileHeader.append(headerName);
 }
 
 function createRow(data) {
@@ -51,11 +55,14 @@ function createRow(data) {
     
     const row = document.createElement('tr');
     row.className = 'table-row';
-
-    row.id = data.id;
-    row.path = data.path;
-    row.type = data.type;
     // `${data.id}-row`
+    
+    row.addEventListener("dblclick", function(e){
+        if(data.type === 'directory'){
+            getTable(data.path);
+            setHeaderName(data.name);
+        }
+    });
     
     row.append(checkboxCol, entryName, uploadDate, size, actionColumn);
     return row;
@@ -63,6 +70,7 @@ function createRow(data) {
 
 
 async function getTable(path) {
+    const tableBody = document.getElementById('table-body');
     tableBody.innerHTML = '';
     try {
         const entries = await getDirectory(path);
@@ -80,10 +88,10 @@ async function getTable(path) {
 
 getTable('/');
 
-tableBody.addEventListener("click", function(e){
-    const clickedRow = e.target.closest(".table-row");
-    if(clickedRow.type === 'directory'){
-        getTable(clickedRow.path);
-        setFileName(clickedRow.name);
-    }
-});
+// tableBody.addEventListener("click", function(e){
+//     const clickedRow = e.target.closest(".table-row");
+//     if(clickedRow.type === 'directory'){
+//         getTable(clickedRow.path);
+//         setHeaderName(clickedRow.name);
+//     }
+// });
