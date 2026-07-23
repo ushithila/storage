@@ -1,4 +1,4 @@
-import { getDirectory } from './service.storage.js';
+import { getDirectory , getDirectoryByParentId} from './service.storage.js';
 
 function convertDateFormat(date){
     const formattedDate = new Date(date).toLocaleDateString("en-US", {
@@ -17,8 +17,8 @@ function createRow(data) {
     const checkbox = document.createElement('input');
     checkbox.className = 'checkbox';
     checkbox.type = 'checkbox';
-    checkboxCol.append(checkbox);
-
+    checkboxCol.appendChild(checkbox);
+    
     const entryIcon = document.createElement('i');
     entryIcon.className = data.type === 'directory' ? 'fa-regular fa-folder directory fa-lg' : 'fa-regular fa-file file fa-lg';
     
@@ -33,48 +33,39 @@ function createRow(data) {
     
     const actionColumn = document.createElement('td');
     actionColumn.className ='action-td';
-
+    
     const actionButton = document.createElement('button');
     actionButton.className = 'action-button';
     actionButton.type = 'button';
     
     const actionIcon = document.createElement('i');
     actionIcon.className = "fa-solid fa-ellipsis-vertical";
-    actionButton.append(actionIcon);
-    actionColumn.append(actionButton);
-
+    actionButton.appendChild(actionIcon);
+    actionColumn.appendChild(actionButton);
+    
     const row = document.createElement('tr');
     row.className = 'table-row';
     // `${data.id}-row`
-
-    row.type = data.type;
-    console.log(row.type);
-
+    
     row.append(checkboxCol, entryName, uploadDate, size, actionColumn);
     return row;
 }
 
 async function getTable(path) {
     const tableBody = document.getElementById('table-body');
+    tableBody.innerHTML = '';
     try {
         const entries = await getDirectory(path);
-        const fragment = document.createDocumentFragment();
         if(!Array.isArray(entries.data)) {
             console.warn('Table data not found');
             return;
         }
+        const fragment = document.createDocumentFragment();
         entries.data.forEach((item) => fragment.appendChild(createRow(item)));
         tableBody.append(fragment);
     } catch(error) {
         console.warn(error);
     }
 }
-
-document.addEventListener('dblclick', e => {
-    if(e.target.matches('.table-row')){
-        // window.location.href = 'folder.html';
-        console.log(e.target.matches('.table-row'));
-    }
-});
 
 getTable('/');
