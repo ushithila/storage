@@ -1,13 +1,19 @@
 import { getDirectory , getDirectoryByParentId} from './service.storage.js';
 
+const tableBody = document.getElementById('table-body');
+
 function convertDateFormat(date){
     const formattedDate = new Date(date).toLocaleDateString("en-US", {
         month: 'short',
         day: 'numeric',
         year: 'numeric'
     })
-
+    
     return formattedDate;
+}
+
+function setHeaderName(name){
+    
 }
 
 function createRow(data) {
@@ -45,14 +51,18 @@ function createRow(data) {
     
     const row = document.createElement('tr');
     row.className = 'table-row';
+
+    row.id = data.id;
+    row.path = data.path;
+    row.type = data.type;
     // `${data.id}-row`
     
     row.append(checkboxCol, entryName, uploadDate, size, actionColumn);
     return row;
 }
 
+
 async function getTable(path) {
-    const tableBody = document.getElementById('table-body');
     tableBody.innerHTML = '';
     try {
         const entries = await getDirectory(path);
@@ -69,3 +79,11 @@ async function getTable(path) {
 }
 
 getTable('/');
+
+tableBody.addEventListener("click", function(e){
+    const clickedRow = e.target.closest(".table-row");
+    if(clickedRow.type === 'directory'){
+        getTable(clickedRow.path);
+        setFileName(clickedRow.name);
+    }
+});
