@@ -52,7 +52,6 @@ function createRow(data) {
     row.addEventListener("dblclick", function(e){
         if(data.type === 'directory'){
             getTable(data.path);
-            setHeaderName(data.name);
         }
     });
     
