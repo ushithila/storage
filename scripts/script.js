@@ -1,6 +1,11 @@
 import { getDirectory } from './service.storage.js';
 
 const tableBody = document.getElementById('table-body');
+const pageNum = document.getElementById('page-number');
+const firstBtn = document.getElementById('first-btn');
+const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
+const lastBtn = document.getElementById('last-btn');
 
 function convertDateFormat(date){
     const formattedDate = new Date(date).toLocaleDateString("en-US", {
@@ -83,9 +88,6 @@ async function getTable(path) {
 
         const currentPage = (await getDirectory(path)).pagination.page;
         const totalPage = (await getDirectory(path)).pagination.totalPages;
-        const pageNum = document.getElementById('page-number');
-        pageNum.appendChild(pageNumber(currentPage, totalPage));
-
     } catch(error) {
         console.warn(error);
     }
