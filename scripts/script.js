@@ -77,4 +77,12 @@ async function getTable(path) {
     }
 }
 
+const fastBwdButton = document.getElementById('fast-bwd-btn');
+const bwdButton = document.getElementById('bwd-btn');
+const fwdButton = document.getElementById('fwd-btn');
+const fastFwdButton = document.getElementById('fast-fwd-btn');
+bwdButton.disabled = true;
+fwdButton.disabled = true;
+fastBwdButton.disabled = true;
+fastFwdButton.disabled = true;
 getTable('/');
