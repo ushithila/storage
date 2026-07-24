@@ -7,6 +7,11 @@ const prevBtn = document.getElementById('prev-btn');
 const nextBtn = document.getElementById('next-btn');
 const lastBtn = document.getElementById('last-btn')
 
+
+let currentPath = '/';
+let currentPage = 1;
+const pageSize = 8;
+
 function convertDateFormat(date){
     const formattedDate = new Date(date).toLocaleDateString("en-US", {
         month: 'short',
@@ -97,15 +102,14 @@ async function getTable(path, page) {
         updatePageNumber(entries.pagination.page, entries.pagination.totalPages);
         updateArrowState(entries.pagination.page, entries.pagination.totalPages);
 
+        currentPath = path;
+        currentPage = page;
+
     } catch(error) {
         console.warn(error);
     }
 }
 
-
-let currentPath = '/';
-let currentPage = 1;
-const pageSize = 8;
 getTable(currentPath, currentPage);
 
 firstBtn.addEventListener('click', function(e){
@@ -116,6 +120,10 @@ prevBtn.addEventListener('click', function(e){
     getTable(currentPath, currentPage - 1);
 });
 
-prevBtn.addEventListener('click', function(e){
-    getTable(currentPath, currentPage - 1);
+nextBtn.addEventListener('click', function(e){
+    getTable(currentPath, currentPage + 1);
 });
+
+// lastBtn.addEventListener('click', function(e){
+//     getTable(currentPath, totalPages);
+// });
