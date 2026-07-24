@@ -61,8 +61,7 @@ function createRow(data) {
 
 function pageNumber(current, total){
     const pageNum = document.getElementById("page-number");
-    const currPage = document.createElement('b');
-    currPage.appendChild(current);
+    currPage.textContent = '<b>current<\b>';
 
     pageNum.textContent = currPage + "of " + total;
 
