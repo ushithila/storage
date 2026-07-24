@@ -71,6 +71,16 @@ function updatePageNumber(page, totalPage){
     pageNum.append(current, ` of ${totalPage}`);
 }
 
+function updateArrowState(page, totalPage){
+    const start = page == 1;
+    const end = page == totalPage;
+
+    firstBtn.disabled = start;
+    prevBtn.disabled = start;
+    nextBtn.disabled = end;
+    lastBtn.disabled = end;
+}
+
 async function getTable(path) {
     const tableBody = document.getElementById('table-body');
     tableBody.innerHTML = '';
@@ -85,6 +95,7 @@ async function getTable(path) {
         tableBody.append(fragment);
 
         updatePageNumber(entries.pagination.page, entries.pagination.totalPages);
+        updateArrowState(entries.pagination.page, entries.pagination.totalPages);
 
     } catch(error) {
         console.warn(error);
