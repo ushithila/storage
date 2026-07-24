@@ -10,7 +10,7 @@ function delay() {
 function paginate(items, page, pageSize) {
   const totalItems = items.length
   const totalPages = Math.ceil(totalItems / pageSize)
-  const offset = (page - 1) * pageSize
+  const offset = (page - 1) * pageSize //skip
 
   return {
     data: items.slice(offset, offset + pageSize),

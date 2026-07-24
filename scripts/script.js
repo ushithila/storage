@@ -1,4 +1,4 @@
-import { getDirectory , getDirectoryByParentId} from './service.storage.js';
+import { getDirectory } from './service.storage.js';
 
 const tableBody = document.getElementById('table-body');
 

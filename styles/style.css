@@ -36,10 +36,10 @@ button{
 .storage-container {
     display: flex;
     flex-direction: column;
+    height: calc(100vh - 5rem);
     border: 1px solid var(--container-color);
     border-radius: 10px;
     background: var(--secondary-background-color);
-    height: calc(100vh - 5rem);
     margin: 1.5rem;
     padding-bottom: 0.5rem;
 }
@@ -65,18 +65,6 @@ button{
     border-bottom: 1px solid var(--section-border);
     font-size: 20px;
 }
-
-.file-header{
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-/* .file-header li:not(:last-child)::after{
-    content: "/";
-    left: 0.5rem;
-    color: var(--text-color);
-} */
 
 .search-container {
     display: flex;
@@ -161,8 +149,8 @@ thead {
 tr {
     display: grid;
     grid-template-columns: auto 1fr 12.5rem 8rem 7rem;
-    text-align: left;
     align-items: center;
+    text-align: left;
     height: 3rem;
     border-bottom: 1px solid var(--section-border);
 }
