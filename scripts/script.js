@@ -54,9 +54,19 @@ function createRow(data) {
             getTable(data.path);
         }
     });
-    
+
     row.append(checkboxCol, entryName, uploadDate, size, actionColumn);
     return row;
+}
+
+function pageNumber(current, total){
+    const pageNum = document.getElementById("page-number");
+    const currPage = document.createElement('b');
+    currPage.appendChild(current);
+
+    pageNum.textContent = currPage + "of " + total;
+
+    return pageNum;
 }
 
 
@@ -72,17 +82,12 @@ async function getTable(path) {
         const fragment = document.createDocumentFragment();
         entries.data.forEach((item) => fragment.appendChild(createRow(item)));
         tableBody.append(fragment);
+        const currentPage = (await getDirectory(path)).pagination.page;
+        const totalPage = (await getDirectory(path)).pagination.totalPages;
+        pageNumber(currentPage, totalPage);
     } catch(error) {
         console.warn(error);
     }
 }
 
-const fastBwdButton = document.getElementById('fast-bwd-btn');
-const bwdButton = document.getElementById('bwd-btn');
-const fwdButton = document.getElementById('fwd-btn');
-const fastFwdButton = document.getElementById('fast-fwd-btn');
-bwdButton.disabled = true;
-fwdButton.disabled = true;
-fastBwdButton.disabled = true;
-fastFwdButton.disabled = true;
 getTable('/');
