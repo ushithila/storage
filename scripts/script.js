@@ -64,13 +64,11 @@ function createRow(data) {
     return row;
 }
 
-function pageNumber(current, total){
-    const pageNum = document.createElement('span');
-    const curr = document.createElement('b');
-    curr.textContent = current;
-    pageNum.appendChild(curr);
-    pageNum.append( " of " + total);
-    return pageNum;
+function updatePageNumber(page, totalPage){
+    pageNum.innerHTML = '';
+    const current = document.createElement('b');
+    current.textContent = page;
+    pageNum.append(current, ` of ${totalPage}`);
 }
 
 async function getTable(path) {
@@ -86,8 +84,8 @@ async function getTable(path) {
         entries.data.forEach((item) => fragment.appendChild(createRow(item)));
         tableBody.append(fragment);
 
-        const currentPage = (await getDirectory(path)).pagination.page;
-        const totalPage = (await getDirectory(path)).pagination.totalPages;
+        updatePageNumber(entries.pagination.page, entries.pagination.totalPages);
+
     } catch(error) {
         console.warn(error);
     }
