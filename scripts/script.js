@@ -5,7 +5,7 @@ const pageNum = document.getElementById('page-number');
 const firstBtn = document.getElementById('first-btn');
 const prevBtn = document.getElementById('prev-btn');
 const nextBtn = document.getElementById('next-btn');
-const lastBtn = document.getElementById('last-btn');
+const lastBtn = document.getElementById('last-btn')
 
 function convertDateFormat(date){
     const formattedDate = new Date(date).toLocaleDateString("en-US", {
@@ -81,11 +81,11 @@ function updateArrowState(page, totalPage){
     lastBtn.disabled = end;
 }
 
-async function getTable(path) {
+async function getTable(path, page) {
     const tableBody = document.getElementById('table-body');
     tableBody.innerHTML = '';
     try {
-        const entries = await getDirectory(path);
+        const entries = await getDirectory(path, {page, pageSize});
         if(!Array.isArray(entries.data)) {
             console.warn('Table data not found');
             return;
@@ -102,4 +102,20 @@ async function getTable(path) {
     }
 }
 
-getTable('/');
+
+let currentPath = '/';
+let currentPage = 1;
+const pageSize = 8;
+getTable(currentPath, currentPage);
+
+firstBtn.addEventListener('click', function(e){
+    getTable(currentPath, 1);
+});
+
+prevBtn.addEventListener('click', function(e){
+    getTable(currentPath, currentPage - 1);
+});
+
+prevBtn.addEventListener('click', function(e){
+    getTable(currentPath, currentPage - 1);
+});
