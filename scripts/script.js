@@ -57,13 +57,6 @@ function createRow(data) {
     
     const row = document.createElement('tr');
     row.className = 'table-row';
-        
-    row.addEventListener('click', function(e){
-        if(checkbox.checked){
-            checkbox.checked = false;
-        }
-            checkbox.checked = true;
-    });
 
     row.addEventListener('dblclick', function(e){
         if(data.type === 'directory'){
