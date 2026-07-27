@@ -9,7 +9,7 @@ const lastBtn = document.getElementById('last-btn')
 
 let currentPath = '/';
 let currentPage = 1;
-const pageSize = 8;
+const pageSize = 9;
 
 function convertDateFormat(date){
     const formattedDate = new Date(date).toLocaleDateString("en-US", {
@@ -37,10 +37,10 @@ function createRow(data) {
     entryName.append(entryIcon, data.name);
     
     const uploadDate = document.createElement('td');
-    uploadDate.append(convertDateFormat(data.createdAt));
+    uploadDate.textContent = (convertDateFormat(data.createdAt));
     
     const size = document.createElement('td');
-    size.append(data.size === 0 ? '--' : data.size);
+    size.textContent = data.size === 0 ? '--' : data.size;
     
     const actionColumn = document.createElement('td');
     actionColumn.className ='action-td';
@@ -102,7 +102,6 @@ async function getTable(path, page) {
 
         currentPath = path;
         currentPage = page;
-
     } catch(error) {
         console.warn(error);
     }
