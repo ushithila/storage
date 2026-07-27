@@ -9,10 +9,10 @@ const lastBtn = document.getElementById('last-btn')
 
 let currentPath = '/';
 let currentPage = 1;
-const pageSize = 9;
+const pageSize = 50;
 
 function convertDateFormat(date){
-    const formattedDate = new Date(date).toLocaleDateString("en-US", {
+    const formattedDate = new Date(date).toLocaleDateString('en-US', {
         month: 'short',
         day: 'numeric',
         year: 'numeric'
@@ -37,7 +37,7 @@ function createRow(data) {
     entryName.append(entryIcon, data.name);
     
     const uploadDate = document.createElement('td');
-    uploadDate.textContent = (convertDateFormat(data.createdAt));
+    uploadDate.textContent = convertDateFormat(data.createdAt);
     
     const size = document.createElement('td');
     size.textContent = data.size === 0 ? '--' : data.size;
@@ -50,14 +50,22 @@ function createRow(data) {
     actionButton.type = 'button';
     
     const actionIcon = document.createElement('i');
-    actionIcon.className = "fa-solid fa-ellipsis-vertical";
+    actionIcon.className = 'fa-solid fa-ellipsis-vertical';
     actionButton.appendChild(actionIcon);
     actionColumn.appendChild(actionButton);
     
     const row = document.createElement('tr');
     row.className = 'table-row';
         
-    row.addEventListener("dblclick", function(e){
+    row.addEventListener('click', function(e){
+        if(checkbox.checked){
+            checkbox.checked = false;
+        }else{
+            checkbox.checked = true;
+        }
+    });
+
+    row.addEventListener('dblclick', function(e){
         if(data.type === 'directory'){
             getTable(data.path);
         }
