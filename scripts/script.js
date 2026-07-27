@@ -1,7 +1,7 @@
 import { getDirectory } from './service.storage.js';
 
 const tableBody = document.getElementById('table-body');
-const pageNum = document.getElementById('page-number');
+const pageNumber = document.getElementById('page-number');
 const firstBtn = document.getElementById('first-btn');
 const prevBtn = document.getElementById('prev-btn');
 const nextBtn = document.getElementById('next-btn');
@@ -9,7 +9,8 @@ const lastBtn = document.getElementById('last-btn')
 
 let currentPath = '/';
 let currentPage = 1;
-const pageSize = 50;
+let totalPages = null;
+const pageSize = 9;
 
 function convertDateFormat(date){
     const formattedDate = new Date(date).toLocaleDateString('en-US', {
@@ -60,9 +61,8 @@ function createRow(data) {
     row.addEventListener('click', function(e){
         if(checkbox.checked){
             checkbox.checked = false;
-        }else{
-            checkbox.checked = true;
         }
+            checkbox.checked = true;
     });
 
     row.addEventListener('dblclick', function(e){
@@ -75,16 +75,16 @@ function createRow(data) {
     return row;
 }
 
-function updatePageNumber(page, totalPage){
-    pageNum.innerHTML = '';
+function updatePageNumber(currentPage, totalPages){
+    pageNumber.innerHTML = '';
     const current = document.createElement('b');
-    current.textContent = page;
-    pageNum.append(current, ` of ${totalPage}`);
+    current.textContent = currentPage;
+    pageNumber.append(current, ` of ${totalPages}`);
 }
 
-function updateArrowState(page, totalPage){
-    const start = page == 1;
-    const end = page == totalPage;
+function updateArrowState(currentPage, totalPages){
+    const start = currentPage == 1;
+    const end = currentPage == totalPages;
 
     firstBtn.disabled = start;
     prevBtn.disabled = start;
@@ -110,6 +110,7 @@ async function getTable(path, page) {
 
         currentPath = path;
         currentPage = page;
+        totalPages = entries.pagination.totalPages;
     } catch(error) {
         console.warn(error);
     }
@@ -129,6 +130,6 @@ nextBtn.addEventListener('click', function(e){
     getTable(currentPath, currentPage + 1);
 });
 
-// lastBtn.addEventListener('click', function(e){
-//     getTable(currentPath, totalPages);
-// });
+lastBtn.addEventListener('click', function(e){
+    getTable(currentPath, totalPages);
+});
