@@ -7,7 +7,6 @@ const prevBtn = document.getElementById('prev-btn');
 const nextBtn = document.getElementById('next-btn');
 const lastBtn = document.getElementById('last-btn')
 
-
 let currentPath = '/';
 let currentPage = 1;
 const pageSize = 8;
@@ -57,8 +56,7 @@ function createRow(data) {
     
     const row = document.createElement('tr');
     row.className = 'table-row';
-    // `${data.id}-row`
-    
+        
     row.addEventListener("dblclick", function(e){
         if(data.type === 'directory'){
             getTable(data.path);
