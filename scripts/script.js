@@ -9,8 +9,8 @@ const lastBtn = document.getElementById('last-btn')
 
 let currentPath = '/';
 let currentPage = 1;
-let totalPages = null;
-const pageSize = 9;
+let totalPages = currentPage;
+const pageSize = 50;
 
 function convertDateFormat(date){
     const formattedDate = new Date(date).toLocaleDateString('en-US', {
@@ -97,6 +97,8 @@ async function getTable(path, page) {
         const fragment = document.createDocumentFragment();
         entries.data.forEach((item) => fragment.appendChild(createRow(item)));
         tableBody.append(fragment);
+        
+        console.log(entries.data);
 
         updatePageNumber(entries.pagination.page, entries.pagination.totalPages);
         updateArrowState(entries.pagination.page, entries.pagination.totalPages);
@@ -110,7 +112,6 @@ async function getTable(path, page) {
 }
 
 getTable(currentPath, currentPage);
-
 firstBtn.addEventListener('click', function(e){
     getTable(currentPath, 1);
 });
