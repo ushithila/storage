@@ -10,7 +10,7 @@ const lastBtn = document.getElementById('last-btn')
 let currentPath = '/';
 let currentPage = 1;
 let totalPages = currentPage;
-const pageSize = 50;
+const pageSize = 15;
 
 function convertDateFormat(date){
     const formattedDate = new Date(date).toLocaleDateString('en-US', {
