@@ -6,6 +6,7 @@ const firstBtn = document.getElementById('first-btn');
 const prevBtn = document.getElementById('prev-btn');
 const nextBtn = document.getElementById('next-btn');
 const lastBtn = document.getElementById('last-btn');
+const selectAll = document.getElementById('select-all');
 
 let currentPath = '/';
 let currentPage = 1;
@@ -22,8 +23,8 @@ function convertDateFormat(date){
     return formattedDate;
 }
 
-function getCheckbox(checkbox){
-    checkbox.checked = !checkbox.checked;
+function getCheckbox(box){
+    box.checked = !box.checked;
 }
 
 function createRow(data) {
@@ -80,6 +81,7 @@ function createRow(data) {
     return row;
 }
 
+
 function updatePageNumber(currentPage, totalPages){
     pageNumber.innerHTML = '';
     const current = document.createElement('b');
@@ -116,6 +118,7 @@ async function getTable(path, page) {
         currentPath = path;
         currentPage = page;
         totalPages = entries.pagination.totalPages;
+        selectAll.checked = false;
     } catch(error) {
         console.warn(error);
     }
@@ -136,4 +139,11 @@ nextBtn.addEventListener('click', function(){
 
 lastBtn.addEventListener('click', function(){
     getTable(currentPath, totalPages);
+});
+
+selectAll.addEventListener('click', function(){
+    getCheckbox(selectAll);
+    console.log(selectAll);
+    const allCheckboxes = document.querySelectorAll('.checkbox');
+    allCheckboxes.forEach((box) => getCheckbox(box));
 });
