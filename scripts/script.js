@@ -22,6 +22,10 @@ function convertDateFormat(date){
     return formattedDate;
 }
 
+function getCheckbox(checkbox){
+    checkbox.checked = !checkbox.checked;
+}
+
 function createRow(data) {
     const checkboxCol = document.createElement('td');
     checkboxCol.className = 'checkbox-tr'; 
@@ -57,6 +61,14 @@ function createRow(data) {
     
     const row = document.createElement('tr');
     row.className = 'table-row';
+
+    checkbox.addEventListener('click', function(e){
+        getCheckbox(checkbox);
+    });
+
+    row.addEventListener('click', function(e){
+        getCheckbox(checkbox);
+    });
 
     row.addEventListener('dblclick', function(e){
         if(data.type === 'directory'){
