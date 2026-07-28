@@ -65,13 +65,6 @@ function createRow(data) {
     checkbox.addEventListener('click', function(){
         getCheckbox(checkbox);
     });
-
-    const selectAllCheckbox = document.getElementById('select-all');
-    selectAllCheckbox.addEventListener('click', function() {
-        allCheckboxes.forEach(checkbox => {
-            getCheckbox(checkbox);
-        });
-    });
   
     row.addEventListener('click', function(){
         getCheckbox(checkbox);
@@ -82,6 +75,7 @@ function createRow(data) {
             getTable(data.path);
         }
     });
+
     row.append(checkboxCol, entryName, uploadDate, size, actionColumn);
     return row;
 }
