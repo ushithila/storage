@@ -63,7 +63,9 @@ function createRow(data) {
     row.className = 'table-row';
 
     checkbox.addEventListener('click', function(e){
+        const checkboxTh = document.getElementsByClassName("checkbox-th");
         getCheckbox(checkbox);
+        getCheckbox(checkboxTh);
     });
 
     row.addEventListener('click', function(e){
@@ -75,7 +77,6 @@ function createRow(data) {
             getTable(data.path);
         }
     });
-
     row.append(checkboxCol, entryName, uploadDate, size, actionColumn);
     return row;
 }
@@ -110,8 +111,6 @@ async function getTable(path, page) {
         entries.data.forEach((item) => fragment.appendChild(createRow(item)));
         tableBody.append(fragment);
         
-        console.log(entries.data);
-
         updatePageNumber(entries.pagination.page, entries.pagination.totalPages);
         updateArrowState(entries.pagination.page, entries.pagination.totalPages);
 

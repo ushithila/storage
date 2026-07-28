@@ -20,7 +20,7 @@
     --directory-icon-color: #55A4FF;
     --modal-background: #FFFFFF;
     --model-border-color: #ECEEEF;
-    --exit-button-hover-color: #ECEFF2;
+    --multi-button-hover-color: #DBE1E5;
     --modal-shadow-color: #00000026;
     --modal-text-color: #43525C;
     --input-hover-color: #1976D2;
@@ -65,6 +65,38 @@ button{
     border-bottom: 1px solid var(--section-border);
     font-size: 20px;
 }
+
+/* .multi-select-container{
+    display: flex;
+    align-items: center;
+    color: var(--text-color);
+    font-size: 14px;
+    background-color: var(--primary-background-color);
+    height: 2.5rem;
+    width: 100%;
+    gap: .25rem;
+    padding: 0 .25rem;
+    border: 1px solid var(--border-color);
+    border-radius: .375rem;
+}
+
+.select-text{
+    padding-right: 1.25rem;
+}
+
+.multi-button{
+    font-size: .75rem;
+    color: var(--primary-button-color);
+    border-radius: .25rem;
+    padding: 7px;
+    height: 30px;
+    width: 30px;
+    transition: .3s;
+}
+
+.multi-button:hover{
+    background-color: var(--multi-button-hover-color);
+} */
 
 .search-container {
     display: flex;

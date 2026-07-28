@@ -13,24 +13,39 @@
     <main class="storage-container">
         <h1 class="storage-header">Storage</h1>
         <div class="storage-grid-header">
-            <b>My files</b>
+            <ol class="breadcrumbs">
+                <li><b>My files</b></li>
+            </ol>
             <div class="search-container">
                 <input class="search-input" placeholder="Filter by name">
                 <button class="search-icon" type="button">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
             </div>
-            <button class="add-button" id="add-button">
-                    <i class="fa-solid fa-plus plus-sign"></i>
-                    Add new
+            <button class="add-button">
+                <i class="fa-solid fa-plus plus-sign"></i>
+                Add new
+                <div class="">
             </button>
+            <!-- <div class="multi-select-container">
+                <button class="multi-button" type="button">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <span class="select-text">1 selected</span>
+                <button class="multi-button" type="button">
+                    <i class="fa-solid fa-download"></i>
+                </button>
+                <button class="multi-button" type="button">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </div> -->
         </div>
         <div class="table-container">
             <table>
                 <thead>
                     <tr>
                         <th class="checkbox-tr">
-                            <input class="checkbox" type="checkbox">
+                            <input class="checkbox checkbox-th" type="checkbox">
                         </th>
                         <th>Name</th>
                         <th>Uploaded Date</th>
