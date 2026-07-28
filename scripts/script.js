@@ -5,7 +5,7 @@ const pageNumber = document.getElementById('page-number');
 const firstBtn = document.getElementById('first-btn');
 const prevBtn = document.getElementById('prev-btn');
 const nextBtn = document.getElementById('next-btn');
-const lastBtn = document.getElementById('last-btn')
+const lastBtn = document.getElementById('last-btn');
 
 let currentPath = '/';
 let currentPage = 1;
@@ -62,17 +62,22 @@ function createRow(data) {
     const row = document.createElement('tr');
     row.className = 'table-row';
 
-    checkbox.addEventListener('click', function(e){
-        const checkboxTh = document.getElementsByClassName("checkbox-th");
-        getCheckbox(checkbox);
-        getCheckbox(checkboxTh);
-    });
-
-    row.addEventListener('click', function(e){
+    checkbox.addEventListener('click', function(){
         getCheckbox(checkbox);
     });
 
-    row.addEventListener('dblclick', function(e){
+    const selectAllCheckbox = document.getElementById('select-all');
+    selectAllCheckbox.addEventListener('click', function() {
+        allCheckboxes.forEach(checkbox => {
+            getCheckbox(checkbox);
+        });
+    });
+  
+    row.addEventListener('click', function(){
+        getCheckbox(checkbox);
+    });
+
+    row.addEventListener('dblclick', function(){
         if(data.type === 'directory'){
             getTable(data.path);
         }
@@ -123,18 +128,18 @@ async function getTable(path, page) {
 }
 
 getTable(currentPath, currentPage);
-firstBtn.addEventListener('click', function(e){
+firstBtn.addEventListener('click', function(){
     getTable(currentPath, 1);
 });
 
-prevBtn.addEventListener('click', function(e){
+prevBtn.addEventListener('click', function(){
     getTable(currentPath, currentPage - 1);
 });
 
-nextBtn.addEventListener('click', function(e){
+nextBtn.addEventListener('click', function(){
     getTable(currentPath, currentPage + 1);
 });
 
-lastBtn.addEventListener('click', function(e){
+lastBtn.addEventListener('click', function(){
     getTable(currentPath, totalPages);
 });
