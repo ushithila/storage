@@ -36,6 +36,9 @@ function getMultiSelect(selected){
     add.style.display = 'none';
     const multiSelectContainer = document.getElementById('multi-select-container');
     multiSelectContainer.style.display = 'flex';
+    const rowSelected = document.getElementById('select-text');
+    rowSelected.innerHTML = '';
+    rowSelected.textContent = `${selected} selected`;
 }
 
 function createRow(data) {
@@ -76,10 +79,12 @@ function createRow(data) {
 
     checkbox.addEventListener('click', function(){
         getCheckbox(checkbox);
+        getMultiSelect(selected);
     });
   
     row.addEventListener('click', function(){
         getCheckbox(checkbox);
+        getMultiSelect(selected);
     });
 
     row.addEventListener('dblclick', function(){

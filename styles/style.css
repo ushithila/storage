@@ -67,7 +67,7 @@ button{
 }
 
 .multi-select-container{
-    display: flex;
+    display: none;
     align-items: center;
     color: var(--text-color);
     font-size: 14px;
