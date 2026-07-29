@@ -23,12 +23,12 @@ function convertDateFormat(date){
     return formattedDate;
 }
 
-function getCheckbox(box){
+function updateCheckbox(box){
     box.checked = !box.checked;
 }
 
-function getDefaultHeader(){
-    const title = document.getElementById('breadcrumbs');
+function toggleDefaultHeader(){
+    const title = document.getElementById('breadcrumb');
     const search = document.getElementById('search-container');
     const add = document.getElementById('add-button');
     title.style.display = 'flex';
@@ -38,7 +38,7 @@ function getDefaultHeader(){
     multiSelectContainer.style.display = 'none';
 }
 
-function getMultiSelect(selected){
+function toggleMultiSelect(selected){
     const title = document.getElementById('breadcrumbs');
     const search = document.getElementById('search-container');
     const add = document.getElementById('add-button');
@@ -87,20 +87,21 @@ function createRow(data) {
     
     const row = document.createElement('tr');
     row.className = 'table-row';
-
+    
     checkbox.addEventListener('click', function(){
         let count = document.querySelectorAll('.checkbox:checked').length;
         getCheckbox(checkbox);
-        if(count > 0){
-            getMultiSelect(count);
-        }else{
-            getDefaultHeader();
-        }
+        // if(count > 0){
+        //     getMultiSelect(count);
+        // }else{
+        //     getDefaultHeader();
+        // }
     });
   
     row.addEventListener('click', function(){
         let count = document.querySelectorAll('.checkbox:checked').length;
         getCheckbox(checkbox);
+        console.log();
     });
 
     row.addEventListener('dblclick', function(){
@@ -131,7 +132,6 @@ function updateArrowState(currentPage, totalPages){
 }
 
 async function getTable(path, page) {
-    const tableBody = document.getElementById('table-body');
     tableBody.innerHTML = '';
     try {
         const entries = await getDirectory(path, {page, pageSize});
@@ -149,8 +149,6 @@ async function getTable(path, page) {
         currentPath = path;
         currentPage = page;
         totalPages = entries.pagination.totalPages;
-        selectAll.checked = false;
-        getDefaultHeader();
     } catch(error) {
         console.warn(error);
     }
@@ -180,6 +178,6 @@ selectAll.addEventListener('click', function(){
     if(selectAll.checked == true){
         getMultiSelect(allCheckboxes.length - 1);
     }else{
-        getDefaultHeader();
+        toggleDefaultHeader();
     }
 });
