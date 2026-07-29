@@ -12,33 +12,33 @@
 <body>
     <main class="storage-container">
         <h1 class="storage-header">Storage</h1>
-        <div class="storage-grid-header">
-            <ol class="breadcrumbs">
-                <li><b>My files</b></li>
-            </ol>
-            <div class="search-container">
-                <input class="search-input" placeholder="Filter by name">
-                <button class="search-icon" type="button">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+        <div class="grid-header">
+                <ol id="breadcrumbs" class="breadcrumbs">
+                    <li><b>My files</b></li>
+                </ol>
+                <div id="multi-select-container" class="multi-select-container" style="display: none;">
+                    <button class="multi-button" type="button">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <span class="select-text">1 selected</span>
+                    <button class="multi-button" type="button">
+                        <i class="fa-solid fa-download"></i>
+                    </button>
+                    <button class="multi-button" type="button">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+                <div id="search-container" class="search-container">
+                    <input class="search-input" placeholder="Filter by name">
+                    <button class="search-icon" type="button">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+                <button id="add-button" class="add-button">
+                    <i class="fa-solid fa-plus plus-sign"></i>
+                    Add new
+                    <div class="">
                 </button>
-            </div>
-            <button class="add-button">
-                <i class="fa-solid fa-plus plus-sign"></i>
-                Add new
-                <div class="">
-            </button>
-            <!-- <div class="multi-select-container">
-                <button class="multi-button" type="button">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-                <span class="select-text">1 selected</span>
-                <button class="multi-button" type="button">
-                    <i class="fa-solid fa-download"></i>
-                </button>
-                <button class="multi-button" type="button">
-                    <i class="fa-solid fa-trash"></i>
-                </button>
-            </div> -->
         </div>
         <div class="table-container">
             <table id="storage-table">

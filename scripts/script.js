@@ -27,6 +27,17 @@ function getCheckbox(box){
     box.checked = !box.checked;
 }
 
+function getMultiSelect(selected){
+    const title = document.getElementById('breadcrumbs');
+    const search = document.getElementById('search-container');
+    const add = document.getElementById('add-button');
+    title.style.display = 'none';
+    search.style.display = 'none';
+    add.style.display = 'none';
+    const multiSelectContainer = document.getElementById('multi-select-container');
+    multiSelectContainer.style.display = 'flex';
+}
+
 function createRow(data) {
     const checkboxCol = document.createElement('td');
     checkboxCol.className = 'checkbox-tr'; 
@@ -143,7 +154,7 @@ lastBtn.addEventListener('click', function(){
 
 selectAll.addEventListener('click', function(){
     getCheckbox(selectAll);
-    console.log(selectAll);
     const allCheckboxes = document.querySelectorAll('.checkbox');
     allCheckboxes.forEach((box) => getCheckbox(box));
+    getMultiSelect(allCheckboxes.length - 1);
 });
