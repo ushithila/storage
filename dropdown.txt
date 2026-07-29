@@ -179,3 +179,43 @@ form{
 //     const fileHeader = document.getElementById('file-header');
 //     fileHeader.append(headerName);
 // }
+
+function showDefaultHeader(){
+    const title = document.getElementById('breadcrumb');
+    title.style.display = 'flex';
+    const search = document.getElementById('search-container');
+    search.style.display = 'flex';
+    const add = document.getElementById('add-button');
+    add.style.display = 'flex';
+
+    const multiSelectContainer = document.getElementById('multi-select-container');
+    multiSelectContainer.style.display = 'none';
+}
+
+function showMultiSelect(selected){
+    const title = document.getElementById('breadcrumb');
+    title.style.display = 'none';
+    const search = document.getElementById('search-container');
+    search.style.display = 'none';
+    const add = document.getElementById('add-button');
+    add.style.display = 'none';
+
+    const multiSelectContainer = document.getElementById('multi-select-container');
+    multiSelectContainer.style.display = 'flex';
+    const rowSelected = document.getElementById('select-text');
+    rowSelected.innerHTML = '';
+    rowSelected.textContent = `${selected} selected`;
+}
+
+<div id="multi-select-container" class="multi-select-container">
+                    <button class="multi-button" type="button">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <span id="select-text" class="select-text"></span>
+                    <button class="multi-button" type="button">
+                        <i class="fa-solid fa-download"></i>
+                    </button>
+                    <button class="multi-button" type="button">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
