@@ -39,7 +39,7 @@ function showDefaultHeader(){
 }
 
 function showMultiSelect(selected){
-    const title = document.getElementById('breadcrumbs');
+    const title = document.getElementById('breadcrumb');
     const search = document.getElementById('search-container');
     const add = document.getElementById('add-button');
     title.style.display = 'none';
@@ -92,6 +92,12 @@ function createRow(data) {
         if(e.target !== checkbox){
             toggleCheckbox(checkbox);
         }
+        const count = document.querySelectorAll('.checkbox:checked:not(#select-all)').length;
+        if(count > 0){
+            showMultiSelect(count);
+        }else{
+            showDefaultHeader();
+        }        
     });
 
     row.addEventListener('dblclick', function(e){
@@ -166,14 +172,3 @@ nextBtn.addEventListener('click', function(){
 lastBtn.addEventListener('click', function(){
     getTable(currentPath, totalPages);
 });
-
-// selectAll.addEventListener('click', function(){
-//     getCheckbox(selectAll);
-//     const allCheckboxes = document.querySelectorAll('.checkbox');
-//     allCheckboxes.forEach((box) => toggleCheckbox(box));
-//     if(selectAll.checked == true){
-//         getMultiSelect(allCheckboxes.length - 1);
-//     }else{
-//         toggleDefaultHeader();
-//     }
-// });
