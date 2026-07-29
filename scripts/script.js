@@ -10,7 +10,7 @@ const selectAll = document.getElementById('select-all');
 
 let currentPath = '/';
 let currentPage = 1;
-let totalPages = currentPage;
+let totalPages = 1;
 const pageSize = 15;
 
 function convertDateFormat(date){
@@ -23,11 +23,11 @@ function convertDateFormat(date){
     return formattedDate;
 }
 
-function updateCheckbox(box){
+function toggleCheckbox(box){
     box.checked = !box.checked;
 }
 
-function toggleDefaultHeader(){
+function showDefaultHeader(){
     const title = document.getElementById('breadcrumb');
     const search = document.getElementById('search-container');
     const add = document.getElementById('add-button');
@@ -38,7 +38,7 @@ function toggleDefaultHeader(){
     multiSelectContainer.style.display = 'none';
 }
 
-function toggleMultiSelect(selected){
+function showMultiSelect(selected){
     const title = document.getElementById('breadcrumbs');
     const search = document.getElementById('search-container');
     const add = document.getElementById('add-button');
@@ -87,21 +87,10 @@ function createRow(data) {
     
     const row = document.createElement('tr');
     row.className = 'table-row';
-    
-    checkbox.addEventListener('click', function(){
-        let count = document.querySelectorAll('.checkbox:checked').length;
-        getCheckbox(checkbox);
-        // if(count > 0){
-        //     getMultiSelect(count);
-        // }else{
-        //     getDefaultHeader();
-        // }
-    });
   
     row.addEventListener('click', function(){
         let count = document.querySelectorAll('.checkbox:checked').length;
-        getCheckbox(checkbox);
-        console.log();
+
     });
 
     row.addEventListener('dblclick', function(){
@@ -131,8 +120,14 @@ function updateArrowState(currentPage, totalPages){
     lastBtn.disabled = end;
 }
 
-async function getTable(path, page) {
+function resetTable(){
     tableBody.innerHTML = '';
+    selectAll.checked = false;
+    showDefaultHeader();
+}
+
+async function getTable(path, page) {
+    resetTable();
     try {
         const entries = await getDirectory(path, {page, pageSize});
         if(!Array.isArray(entries.data)) {
@@ -174,7 +169,7 @@ lastBtn.addEventListener('click', function(){
 selectAll.addEventListener('click', function(){
     getCheckbox(selectAll);
     const allCheckboxes = document.querySelectorAll('.checkbox');
-    allCheckboxes.forEach((box) => getCheckbox(box));
+    allCheckboxes.forEach((box) => toggleCheckbox(box));
     if(selectAll.checked == true){
         getMultiSelect(allCheckboxes.length - 1);
     }else{
