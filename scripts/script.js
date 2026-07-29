@@ -27,6 +27,17 @@ function getCheckbox(box){
     box.checked = !box.checked;
 }
 
+function getDefaultHeader(){
+    const title = document.getElementById('breadcrumbs');
+    const search = document.getElementById('search-container');
+    const add = document.getElementById('add-button');
+    title.style.display = 'flex';
+    search.style.display = 'flex';
+    add.style.display = 'flex';
+    const multiSelectContainer = document.getElementById('multi-select-container');
+    multiSelectContainer.style.display = 'none';
+}
+
 function getMultiSelect(selected){
     const title = document.getElementById('breadcrumbs');
     const search = document.getElementById('search-container');
@@ -97,7 +108,6 @@ function createRow(data) {
     return row;
 }
 
-
 function updatePageNumber(currentPage, totalPages){
     pageNumber.innerHTML = '';
     const current = document.createElement('b');
@@ -161,5 +171,9 @@ selectAll.addEventListener('click', function(){
     getCheckbox(selectAll);
     const allCheckboxes = document.querySelectorAll('.checkbox');
     allCheckboxes.forEach((box) => getCheckbox(box));
-    getMultiSelect(allCheckboxes.length - 1);
+    if(selectAll.checked == true){
+        getMultiSelect(allCheckboxes.length - 1);
+    }else{
+        getDefaultHeader();
+    }
 });
