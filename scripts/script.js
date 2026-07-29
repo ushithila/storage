@@ -89,13 +89,18 @@ function createRow(data) {
     row.className = 'table-row';
 
     checkbox.addEventListener('click', function(){
+        let count = document.querySelectorAll('.checkbox:checked').length;
         getCheckbox(checkbox);
-        getMultiSelect(selected);
+        if(count > 0){
+            getMultiSelect(count);
+        }else{
+            getDefaultHeader();
+        }
     });
   
     row.addEventListener('click', function(){
+        let count = document.querySelectorAll('.checkbox:checked').length;
         getCheckbox(checkbox);
-        getMultiSelect(selected);
     });
 
     row.addEventListener('dblclick', function(){
