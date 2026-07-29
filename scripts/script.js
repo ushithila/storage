@@ -88,13 +88,14 @@ function createRow(data) {
     const row = document.createElement('tr');
     row.className = 'table-row';
   
-    row.addEventListener('click', function(){
-        let count = document.querySelectorAll('.checkbox:checked').length;
-
+    row.addEventListener('click', function(e){
+        if(e.target !== checkbox){
+            toggleCheckbox(checkbox);
+        }
     });
 
-    row.addEventListener('dblclick', function(){
-        if(data.type === 'directory'){
+    row.addEventListener('dblclick', function(e){
+        if(data.type === 'directory' && e.target !== checkbox){
             getTable(data.path);
         }
     });
@@ -166,13 +167,13 @@ lastBtn.addEventListener('click', function(){
     getTable(currentPath, totalPages);
 });
 
-selectAll.addEventListener('click', function(){
-    getCheckbox(selectAll);
-    const allCheckboxes = document.querySelectorAll('.checkbox');
-    allCheckboxes.forEach((box) => toggleCheckbox(box));
-    if(selectAll.checked == true){
-        getMultiSelect(allCheckboxes.length - 1);
-    }else{
-        toggleDefaultHeader();
-    }
-});
+// selectAll.addEventListener('click', function(){
+//     getCheckbox(selectAll);
+//     const allCheckboxes = document.querySelectorAll('.checkbox');
+//     allCheckboxes.forEach((box) => toggleCheckbox(box));
+//     if(selectAll.checked == true){
+//         getMultiSelect(allCheckboxes.length - 1);
+//     }else{
+//         toggleDefaultHeader();
+//     }
+// });
