@@ -145,6 +145,7 @@ async function getTable(path, page) {
         currentPage = page;
         totalPages = entries.pagination.totalPages;
         selectAll.checked = false;
+        getDefaultHeader();
     } catch(error) {
         console.warn(error);
     }
