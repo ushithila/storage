@@ -29,22 +29,24 @@ function toggleCheckbox(box){
 
 function showDefaultHeader(){
     const title = document.getElementById('breadcrumb');
-    const search = document.getElementById('search-container');
-    const add = document.getElementById('add-button');
     title.style.display = 'flex';
+    const search = document.getElementById('search-container');
     search.style.display = 'flex';
+    const add = document.getElementById('add-button');
     add.style.display = 'flex';
+    
     const multiSelectContainer = document.getElementById('multi-select-container');
     multiSelectContainer.style.display = 'none';
 }
 
 function showMultiSelect(selected){
     const title = document.getElementById('breadcrumb');
-    const search = document.getElementById('search-container');
-    const add = document.getElementById('add-button');
     title.style.display = 'none';
+    const search = document.getElementById('search-container');
     search.style.display = 'none';
+    const add = document.getElementById('add-button');
     add.style.display = 'none';
+
     const multiSelectContainer = document.getElementById('multi-select-container');
     multiSelectContainer.style.display = 'flex';
     const rowSelected = document.getElementById('select-text');
