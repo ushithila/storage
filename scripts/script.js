@@ -72,17 +72,11 @@ function createRow(data) {
 
     row.addEventListener('dblclick', function(e){
         if(data.type === 'directory' && e.target !== checkbox){
+            let id = data.id;
+            history.pushState({id}, `Entry: ${id}`, `./entry=${id}`);
             getTable(data.path);
         }
     });
-
-    row.forEach(function(r){
-        let id = data.id;
-        r.addEventListener('click', function(e){
-            history.pushState({id}, `Selected: ${id}`, `./entry=${id}`)
-        })
-    });
-
     row.append(checkboxCol, entryName, uploadDate, size, actionColumn);
     return row;
 }
