@@ -67,7 +67,20 @@ function createRow(data) {
         if(e.target !== checkbox){
             toggleCheckbox(checkbox);
         }
-        const count = document.querySelectorAll('.checkbox:checked:not(#select-all)').length;   
+        let rowCount = document.querySelectorAll('.checkbox:not(#select-all)').length;
+        const count = document.querySelectorAll('.checkbox:checked:not(#select-all)').length;
+        if(count === rowCount){
+            selectAll.checked = true;
+        }else{
+            selectAll.checked = false;
+        }
+    });
+
+    selectAll.addEventListener('change', function(e){
+        let rowCheckbox = document.querySelectorAll('.checkbox:not(#select-all)');
+        rowCheckbox.forEach( (box) => {
+            box.checked = selectAll.checked;
+        });
     });
 
     row.addEventListener('dblclick', function(e){
