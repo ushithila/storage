@@ -74,6 +74,9 @@ function createRow(data) {
             selectAll.classList.remove('minus');
             selectAll.checked = true;
         }
+        else if(count === 0){
+            selectAll.checked = false;
+        }
     });
 
     selectAll.addEventListener('change', function(e){
@@ -91,6 +94,7 @@ function createRow(data) {
             getTable(data.path);
         }
     });
+
     row.append(checkboxCol, entryName, uploadDate, size, actionColumn);
     return row;
 }
@@ -141,6 +145,14 @@ async function getTable(path, page) {
 }
 
 getTable(currentPath, currentPage);
+
+window.addEventListener('popstate', function(e){
+        console.log(e.state);
+});
+
+his
+
+history.replaceState({id:null}, `Default ID`, './');
 
 firstBtn.addEventListener('click', function(){
     getTable(currentPath, 1);
