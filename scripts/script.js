@@ -63,19 +63,21 @@ function createRow(data) {
     row.className = 'table-row';
   
     row.addEventListener('click', function(e){
+        selectAll.classList.add('minus');
+        selectAll.checked = true;
         if(e.target !== checkbox){
             toggleCheckbox(checkbox);
         }
         let rowCount = document.querySelectorAll('.checkbox:not(#select-all)').length;
         const count = document.querySelectorAll('.checkbox:checked:not(#select-all)').length;
         if(count === rowCount){
+            selectAll.classList.remove('minus');
             selectAll.checked = true;
-        }else{
-            selectAll.checked = false;
         }
     });
 
     selectAll.addEventListener('change', function(e){
+        selectAll.classList.remove('minus');
         let rowCheckbox = document.querySelectorAll('.checkbox:not(#select-all)');
         rowCheckbox.forEach( (box) => {
             box.checked = selectAll.checked;
@@ -85,7 +87,7 @@ function createRow(data) {
     row.addEventListener('dblclick', function(e){
         if(data.type === 'directory' && e.target !== checkbox){
             let id = data.id;
-            history.pushState({id}, `Entry: ${id}`, `./entry=${id}`);
+            history.pushState({id}, `Entry: ${id}`, `?entry=${id}`);
             getTable(data.path);
         }
     });
@@ -139,6 +141,7 @@ async function getTable(path, page) {
 }
 
 getTable(currentPath, currentPage);
+
 firstBtn.addEventListener('click', function(){
     getTable(currentPath, 1);
 });

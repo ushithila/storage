@@ -226,6 +226,10 @@ tr {
     content: url('../assets/check.svg');
 }
 
+.minus:checked::after {
+    content: url('../assets/minus.svg');
+}
+
 .checkbox:checked:active {
     background-color: var(--search-active-color);
     border: 1px solid var(--search-active-color);
