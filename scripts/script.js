@@ -19,7 +19,6 @@ function convertDateFormat(date){
         day: 'numeric',
         year: 'numeric'
     })
-    
     return formattedDate;
 }
 
