@@ -76,6 +76,13 @@ function createRow(data) {
         }
     });
 
+    row.forEach(function(r){
+        let id = data.id;
+        r.addEventListener('click', function(e){
+            history.pushState({id}, `Selected: ${id}`, `./entry=${id}`)
+        })
+    });
+
     row.append(checkboxCol, entryName, uploadDate, size, actionColumn);
     return row;
 }
