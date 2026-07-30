@@ -63,11 +63,12 @@ function createRow(data) {
     row.className = 'table-row';
 
     row.addEventListener('click', function(e){
-        selectAll.classList.add('minus');
-        selectAll.checked = true;
         if(e.target !== checkbox){
             toggleCheckbox(checkbox);
         }
+        
+        selectAll.classList.add('minus');
+        selectAll.checked = true;
         let rowCount = document.querySelectorAll('.checkbox:not(#select-all)').length;
         const count = document.querySelectorAll('.checkbox:checked:not(#select-all)').length;
         if(count === rowCount){
@@ -77,14 +78,6 @@ function createRow(data) {
         else if(count === 0){
             selectAll.checked = false;
         }
-    });
-
-    selectAll.addEventListener('change', function(e){
-        selectAll.classList.remove('minus');
-        let rowCheckbox = document.querySelectorAll('.checkbox:not(#select-all)');
-        rowCheckbox.forEach( (box) => {
-            box.checked = selectAll.checked;
-        });
     });
 
     row.addEventListener('dblclick', function(e){
@@ -155,7 +148,6 @@ async function getTable(id, page) {
 }
 
 getTable(currentId, currentPage);
-
 firstBtn.addEventListener('click', function(){
     getTable(currentId, 1);
 });
@@ -170,4 +162,12 @@ nextBtn.addEventListener('click', function(){
 
 lastBtn.addEventListener('click', function(){
     getTable(currentId, totalPages);
+});
+
+selectAll.addEventListener('change', function(e){
+    selectAll.classList.remove('minus');
+    let rowCheckbox = document.querySelectorAll('.checkbox:not(#select-all)');
+    rowCheckbox.forEach( (box) => {
+        box.checked = selectAll.checked;
+    });
 });
