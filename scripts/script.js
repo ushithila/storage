@@ -8,7 +8,7 @@ const nextBtn = document.getElementById('next-btn');
 const lastBtn = document.getElementById('last-btn');
 const selectAll = document.getElementById('select-all');
 
-let currentId = '347fc4be-5ced-4369-a08c-ddb9c171bc71';
+let currentParentID = null;
 let currentPage = 1;
 let totalPages = 1;
 const pageSize = 15;
@@ -127,12 +127,12 @@ window.addEventListener('popstate', function(e){
     getTable(id, 1);
 });
 
-history.replaceState({id: '347fc4be-5ced-4369-a08c-ddb9c171bc71'}, `ID: ${currentId}`, 'storage');
+history.replaceState({id: null}, `ID: ${currentParentID}`, '');
 
-async function getTable(id, page) {
+async function getTable(parentID, page) {
     resetTable();
     try {
-        const entries = await getDirectoryByParentId(id, {page, pageSize});
+        const entries = parentID === null ? await getDirectory('/', {page, pageSize}) : await getDirectoryByParentId(parentID, {page, pageSize});
         if(!Array.isArray(entries.data)) {
             console.warn('Table data not found');
             return;
@@ -144,7 +144,7 @@ async function getTable(id, page) {
         updatePageNumber(entries.pagination.page, entries.pagination.totalPages);
         updateArrowState(entries.pagination.page, entries.pagination.totalPages);
 
-        currentId = id;
+        currentParentID = parentID;
         currentPage = page;
         totalPages = entries.pagination.totalPages;
     } catch(error) {
@@ -152,21 +152,21 @@ async function getTable(id, page) {
     }
 }
 
-getTable(currentId, currentPage);
+getTable(currentParentID, currentPage);
 firstBtn.addEventListener('click', function(){
-    getTable(currentId, 1);
+    getTable(currentParentID, 1);
 });
 
 prevBtn.addEventListener('click', function(){
-    getTable(currentId, currentPage - 1);
+    getTable(currentParentID, currentPage - 1);
 });
 
 nextBtn.addEventListener('click', function(){
-    getTable(currentId, currentPage + 1);
+    getTable(currentParentID, currentPage + 1);
 });
 
 lastBtn.addEventListener('click', function(){
-    getTable(currentId, totalPages);
+    getTable(currentParentID, totalPages);
 });
 
 selectAll.addEventListener('change', function(e){
