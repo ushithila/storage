@@ -63,16 +63,20 @@ function createRow(data) {
     row.className = 'table-row';
 
     row.addEventListener('click', function(e){
+        let allRows = document.querySelectorAll('.checkbox:not(#select-all)');
         if(e.target !== checkbox){
             toggleCheckbox(checkbox);
+
+            allRows.forEach((box) => {
+                box.checked = box === checkbox;
+            });
         }
-        
+
         selectAll.classList.add('minus');
         selectAll.checked = true;
 
-        let rowCount = document.querySelectorAll('.checkbox:not(#select-all)').length;
         const count = document.querySelectorAll('.checkbox:checked:not(#select-all)').length;
-        if(count === rowCount){
+        if(count === allRows.length){
             selectAll.classList.remove('minus');
             selectAll.checked = true;
         }
@@ -123,7 +127,7 @@ window.addEventListener('popstate', function(e){
     getTable(id, 1);
 });
 
-history.replaceState({id: '347fc4be-5ced-4369-a08c-ddb9c171bc71'}, `ID: ${currentId}`, '');
+history.replaceState({id: '347fc4be-5ced-4369-a08c-ddb9c171bc71'}, `ID: ${currentId}`, 'storage');
 
 async function getTable(id, page) {
     resetTable();
