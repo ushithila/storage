@@ -114,7 +114,7 @@ function resetTable(){
 }
 
 function navigateTable(id){
-    history.pushState({id}, `ID: ${id}` ,`./entry=${id}`);
+    history.pushState({id}, `ID: ${id}` ,`?entry=${id}`);
     getTable(id, 1);
 }
 
@@ -123,7 +123,7 @@ window.addEventListener('popstate', function(e){
     getTable(id, 1);
 });
 
-history.replaceState({id: '347fc4be-5ced-4369-a08c-ddb9c171bc71'}, `ID: ${id}`, './');
+history.replaceState({id: '347fc4be-5ced-4369-a08c-ddb9c171bc71'}, `ID: ${currentId}`, '');
 
 async function getTable(id, page) {
     resetTable();
