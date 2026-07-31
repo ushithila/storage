@@ -69,6 +69,7 @@ function createRow(data) {
         
         selectAll.classList.add('minus');
         selectAll.checked = true;
+
         let rowCount = document.querySelectorAll('.checkbox:not(#select-all)').length;
         const count = document.querySelectorAll('.checkbox:checked:not(#select-all)').length;
         if(count === rowCount){
@@ -122,7 +123,7 @@ window.addEventListener('popstate', function(e){
     getTable(id, 1);
 });
 
-history.replaceState({id: '347fc4be-5ced-4369-a08c-ddb9c171bc71'}, '', './');
+history.replaceState({id: '347fc4be-5ced-4369-a08c-ddb9c171bc71'}, `ID: ${id}`, './');
 
 async function getTable(id, page) {
     resetTable();
