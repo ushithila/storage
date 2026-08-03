@@ -129,7 +129,6 @@ window.addEventListener('popstate', function(e){
 
 history.replaceState({id: null}, '', '');
 
-
 function resetTable(){
     tableBody.innerHTML = '';
     selectAll.checked = false;
