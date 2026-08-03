@@ -112,10 +112,9 @@ function updateArrowState(currentPage, totalPages){
     lastBtn.disabled = end;
 }
 
-function resetTable(){
-    tableBody.innerHTML = '';
-    selectAll.checked = false;
-}
+const params = new URLSearchParams(window.location.search);
+const initId = params.get('entry');
+console.log(initId);
 
 function navigateTable(id){
     history.pushState({id}, '',`?entry=${id}`);
@@ -130,7 +129,11 @@ window.addEventListener('popstate', function(e){
 
 history.replaceState({id: null}, '', '');
 
-const params = new URLSearchParams(window.location.search);
+
+function resetTable(){
+    tableBody.innerHTML = '';
+    selectAll.checked = false;
+}
 
 async function getTable(parentID, page) {
     resetTable();
