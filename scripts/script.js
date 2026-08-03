@@ -8,7 +8,6 @@ const nextBtn = document.getElementById('next-btn');
 const lastBtn = document.getElementById('last-btn');
 const selectAll = document.getElementById('select-all');
 
-let currentParentID = null;
 let currentPage = 1;
 let totalPages = 1;
 const pageSize = 15;
@@ -113,8 +112,7 @@ function updateArrowState(currentPage, totalPages){
 }
 
 const params = new URLSearchParams(window.location.search);
-const initId = params.get('entry');
-console.log(initId);
+let initId = params.get('entry');
 
 function navigateTable(id){
     history.pushState({id}, '',`?entry=${id}`);
@@ -127,7 +125,7 @@ window.addEventListener('popstate', function(e){
     getTable(id, 1);
 });
 
-history.replaceState({id: null}, '', '');
+history.replaceState({id: initId}, '', '');
 
 function resetTable(){
     tableBody.innerHTML = '';
@@ -149,7 +147,7 @@ async function getTable(parentID, page) {
         updatePageNumber(entries.pagination.page, entries.pagination.totalPages);
         updateArrowState(entries.pagination.page, entries.pagination.totalPages);
 
-        currentParentID = parentID;
+        initId = parentID;
         currentPage = page;
         totalPages = entries.pagination.totalPages;
     } catch(error) {
@@ -157,22 +155,21 @@ async function getTable(parentID, page) {
     }
 }
 
-
-getTable(currentParentID, currentPage);
+getTable(initId, currentPage);
 firstBtn.addEventListener('click', function(){
-    getTable(currentParentID, 1);
+    getTable(initId, 1);
 });
 
 prevBtn.addEventListener('click', function(){
-    getTable(currentParentID, currentPage - 1);
+    getTable(initId, currentPage - 1);
 });
 
 nextBtn.addEventListener('click', function(){
-    getTable(currentParentID, currentPage + 1);
+    getTable(initId, currentPage + 1);
 });
 
 lastBtn.addEventListener('click', function(){
-    getTable(currentParentID, totalPages);
+    getTable(initId, totalPages);
 });
 
 selectAll.addEventListener('change', function(e){
