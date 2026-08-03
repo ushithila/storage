@@ -7,6 +7,8 @@ const prevBtn = document.getElementById('prev-btn');
 const nextBtn = document.getElementById('next-btn');
 const lastBtn = document.getElementById('last-btn');
 const selectAll = document.getElementById('select-all');
+const params = new URLSearchParams(window.location.search);
+let initId = params.get('entry');
 
 let currentPage = 1;
 let totalPages = 1;
@@ -111,21 +113,10 @@ function updateArrowState(currentPage, totalPages){
     lastBtn.disabled = end;
 }
 
-const params = new URLSearchParams(window.location.search);
-let initId = params.get('entry');
-
 function navigateTable(id){
     history.pushState({id}, '',`?entry=${id}`);
     getTable(id, 1);
 }
-
-window.addEventListener('popstate', function(e){
-    let id = e.state ? null : e.state.id;
-    console.log(e.state);
-    getTable(id, 1);
-});
-
-history.replaceState({id: initId}, '', '');
 
 function resetTable(){
     tableBody.innerHTML = '';
@@ -143,10 +134,10 @@ async function getTable(parentID, page) {
         const fragment = document.createDocumentFragment();
         entries.data.forEach((item) => fragment.appendChild(createRow(item)));
         tableBody.append(fragment);
-
+        
         updatePageNumber(entries.pagination.page, entries.pagination.totalPages);
         updateArrowState(entries.pagination.page, entries.pagination.totalPages);
-
+        
         initId = parentID;
         currentPage = page;
         totalPages = entries.pagination.totalPages;
@@ -179,3 +170,11 @@ selectAll.addEventListener('change', function(e){
         box.checked = selectAll.checked;
     });
 });
+
+window.addEventListener('popstate', function(e){
+    let id = e.state ? null : e.state.id;
+    console.log(e.state);
+    getTable(id, 1);
+});
+
+history.replaceState({id: initId}, `storage`, 'storage');
