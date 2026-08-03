@@ -118,20 +118,23 @@ function resetTable(){
 }
 
 function navigateTable(id){
-    history.pushState({id}, `ID: ${id}` ,`?entry=${id}`);
+    history.pushState({id}, '',`?entry=${id}`);
     getTable(id, 1);
 }
 
 window.addEventListener('popstate', function(e){
-    let id = e.state.id;
+    let id = e.state ? null : e.state.id;
+    console.log(e.state);
     getTable(id, 1);
 });
 
-history.replaceState({id: null}, `ID: ${currentParentID}`, '');
+history.replaceState({id: null}, '', '');
+
+const params = new URLSearchParams(window.location.search);
 
 async function getTable(parentID, page) {
     resetTable();
-    try {
+    try {        
         const entries = parentID === null ? await getDirectory('/', {page, pageSize}) : await getDirectoryByParentId(parentID, {page, pageSize});
         if(!Array.isArray(entries.data)) {
             console.warn('Table data not found');
@@ -151,6 +154,7 @@ async function getTable(parentID, page) {
         console.warn(error);
     }
 }
+
 
 getTable(currentParentID, currentPage);
 firstBtn.addEventListener('click', function(){
