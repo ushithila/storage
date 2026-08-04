@@ -177,4 +177,4 @@ window.addEventListener('popstate', function(e){
     getTable(id, 1);
 });
 
-history.replaceState({id: initId}, `storage`, 'storage');
+history.replaceState({id: initId}, '', '');
