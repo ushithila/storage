@@ -11,7 +11,6 @@ const selectAll = document.getElementById('select-all');
 const param = new URLSearchParams(window.location.search);
 let initId = param.get('entry');
 let currentPage = 1;
-let currentNavPage = 1; 
 let totalPages = 1;
 const pageSize = 15;
 
@@ -150,23 +149,18 @@ async function getTable(parentID, page) {
 getTable(initId, currentPage);
 firstBtn.addEventListener('click', function(){
     getTable(initId, 1);
-    currentNavPage = 1;
 });
 
 prevBtn.addEventListener('click', function(){
     getTable(initId, currentPage - 1);
-    currentNavPage = currentPage - 1;
-
 });
 
 nextBtn.addEventListener('click', function(){
     getTable(initId, currentPage + 1);
-    currentNavPage = currentPage + 1;
 });
 
 lastBtn.addEventListener('click', function(){
     getTable(initId, totalPages);
-    currentNavPage = totalPages;
 });
 
 selectAll.addEventListener('change', function(e){
@@ -178,5 +172,5 @@ selectAll.addEventListener('change', function(e){
 });
 
 window.addEventListener('popstate', function(e){
-    getTable(e.state.id, currentNavPage);
+    getTable(e.state.id, 1);
 });
