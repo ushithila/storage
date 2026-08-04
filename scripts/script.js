@@ -173,7 +173,6 @@ selectAll.addEventListener('change', function(e){
 
 window.addEventListener('popstate', function(e){
     let id = e.state ? null : e.state.id;
-    console.log(e.state);
     getTable(id, 1);
 });
 
