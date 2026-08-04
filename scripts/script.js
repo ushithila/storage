@@ -174,5 +174,3 @@ selectAll.addEventListener('change', function(e){
 window.addEventListener('popstate', function(e){
     getTable(e.state.id, 1);
 });
-
-history.replaceState({id: initId}, '', '');
