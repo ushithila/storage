@@ -7,9 +7,9 @@ const prevBtn = document.getElementById('prev-btn');
 const nextBtn = document.getElementById('next-btn');
 const lastBtn = document.getElementById('last-btn');
 const selectAll = document.getElementById('select-all');
-const params = new URLSearchParams(window.location.search);
-let initId = params.get('entry');
 
+const param = new URLSearchParams(window.location.search);
+let initId = param.get('entry');
 let currentPage = 1;
 let totalPages = 1;
 const pageSize = 15;
@@ -172,8 +172,7 @@ selectAll.addEventListener('change', function(e){
 });
 
 window.addEventListener('popstate', function(e){
-    let id = e.state ? null : e.state.id;
-    getTable(id, 1);
+    getTable(e.state.id, 1);
 });
 
 history.replaceState({id: initId}, '', '');
