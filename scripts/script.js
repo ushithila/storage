@@ -172,5 +172,9 @@ selectAll.addEventListener('change', function(e){
 });
 
 window.addEventListener('popstate', function(e){
+    if(e.state === null){
+        getTable(null, 1);
+        return;
+    }
     getTable(e.state.id, 1);
 });
