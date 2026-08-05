@@ -16,33 +16,41 @@
                 <ol id="breadcrumb" class="breadcrumb">
                     <li><b>My files</b></li>
                 </ol>
-                <div id="search-container" class="search-container">
-                    <input class="search-input" placeholder="Filter by name">
-                    <button class="search-icon" type="button">
+                <form
+                    id="search-container"
+                    class="search-container">
+                    <input
+                        class="search-input"
+                        type="search"
+                        placeholder="Filter by name">
+                    <button
+                        class="search-icon"
+                        type="submit">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
-                </div>
+                </form>
                 <button id="add-button" class="add-button">
                     <i class="fa-solid fa-plus plus-sign"></i>
                     Add new
-                    <div class="">
                 </button>
         </div>
         <div class="table-container">
             <table id="storage-table">
                 <thead>
                     <tr>
-                        <th class="checkbox-tr">
-                            <input id="select-all" class="checkbox" type="checkbox">
+                        <th>
+                            <input
+                                id="select-all"
+                                class="checkbox"
+                                type="checkbox">
                         </th>
                         <th>Name</th>
                         <th>Uploaded Date</th>
                         <th>Size</th>
-                        <th class="action-th">Actions</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody id="table-body">
-                </tbody>
+                <tbody id="table-body"></tbody>
             </table>
         </div>
         <div class="pagination-container">
@@ -79,7 +87,24 @@
                 </li>
             </ul>
         </div>
-    </main>
+    </main> 
+    <template id="table-row-template">
+        <tr id="table-row" class="table-row">
+            <td class="checkbox-tr">
+                <input class="checkbox" type="checkbox">
+            </td>
+            <td><i class="fa-regular fa-lg"></i></td>
+            <td></td>
+            <td></td>
+            <td class="action-td">
+                <div class="dropdown-btn">
+                    <button class="action-button" type="button">
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </button>
+                </div>
+            </td>
+        </tr>
+    </template>
     <script type='module' src="scripts/script.js"></script>
 </body>
 </html>

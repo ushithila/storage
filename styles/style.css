@@ -187,7 +187,8 @@ tr {
     border-bottom: 1px solid var(--section-border);
 }
 
-.checkbox-tr {
+.checkbox-tr,
+#storage-table th:has(input[type="checkbox"]) {
     padding: 0 1rem 0 1.5rem;
 }
 
@@ -261,7 +262,8 @@ td{
     background-color: var(--primary-background-color);
 }
 
-.action-th {
+.action-th,
+#storage-table>thead>tr>th:last-child {
     padding: 0 2rem;
 }
 

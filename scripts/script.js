@@ -1,6 +1,7 @@
 import { getDirectory, getDirectoryByParentId } from './service.storage.js';
 
 const tableBody = document.getElementById('table-body');
+const tableRowTemplate = document.getElementById('table-row-template');
 const pageNumber = document.getElementById('page-number');
 const firstBtn = document.getElementById('first-btn');
 const prevBtn = document.getElementById('prev-btn');
@@ -27,74 +28,63 @@ function toggleCheckbox(box){
     box.checked = !box.checked;
 }
 
-function createRow(data) {
-    const checkboxCol = document.createElement('td');
-    checkboxCol.className = 'checkbox-tr';
+function createRow({
+    name,
+    createdAt,
+    size,
+    type,
+    id,
+}) {
+    const row = tableRowTemplate
+        .content
+        .cloneNode(true);
+    const cells = row.querySelectorAll('td');
+    const checkbox = row.querySelector('input[type="checkbox"]');
 
-    const checkbox = document.createElement('input');
-    checkbox.className = 'checkbox';
-    checkbox.type = 'checkbox';
-    checkboxCol.appendChild(checkbox);
+    const icon = cells[1].querySelector('i');
+    if (type === 'directory') {
+        icon.classList.add('directory', 'fa-folder');
+    } else {
+        icon.classList.add('file', 'fa-file');
+    }
+    
+    cells[1].append(name);
+    cells[2].textContent = convertDateFormat(createdAt);
+    cells[3].textContent = size || '--';
 
-    const entryIcon = document.createElement('i');
-    entryIcon.className = data.type === 'directory' ? 'fa-regular fa-folder directory fa-lg' : 'fa-regular fa-file file fa-lg';
+    // row.addEventListener('click', function(e){
+    //     let allRows = document.querySelectorAll('.checkbox:not(#select-all)');
+    //     if(e.target !== checkbox){
+    //         toggleCheckbox(checkbox);
 
-    const entryName = document.createElement('td');
-    entryName.append(entryIcon, data.name);
+    //         allRows.forEach((box) => {
+    //             box.checked = box === checkbox;
+    //         });
+    //     }
 
-    const uploadDate = document.createElement('td');
-    uploadDate.textContent = convertDateFormat(data.createdAt);
+    //     selectAll.classList.add('minus');
+    //     selectAll.checked = true;
 
-    const size = document.createElement('td');
-    size.textContent = data.size === 0 ? '--' : data.size;
+    //     const count = document.querySelectorAll('.checkbox:checked:not(#select-all)').length;
+    //     if(count === allRows.length){
+    //         selectAll.classList.remove('minus');
+    //         selectAll.checked = true;
+    //     }
+    //     else if(count === 0){
+    //         selectAll.checked = false;
+    //     }
+    // });
 
-    const actionColumn = document.createElement('td');
-    actionColumn.className ='action-td';
-
-    const actionButton = document.createElement('button');
-    actionButton.className = 'action-button';
-    actionButton.type = 'button';
-
-    const actionIcon = document.createElement('i');
-    actionIcon.className = 'fa-solid fa-ellipsis-vertical';
-    actionButton.appendChild(actionIcon);
-    actionColumn.appendChild(actionButton);
-
-    const row = document.createElement('tr');
-    row.className = 'table-row';
-
-    row.addEventListener('click', function(e){
-        let allRows = document.querySelectorAll('.checkbox:not(#select-all)');
-        if(e.target !== checkbox){
-            toggleCheckbox(checkbox);
-
-            allRows.forEach((box) => {
-                box.checked = box === checkbox;
-            });
-        }
-
-        selectAll.classList.add('minus');
-        selectAll.checked = true;
-
-        const count = document.querySelectorAll('.checkbox:checked:not(#select-all)').length;
-        if(count === allRows.length){
-            selectAll.classList.remove('minus');
-            selectAll.checked = true;
-        }
-        else if(count === 0){
-            selectAll.checked = false;
-        }
-    });
-
-    row.addEventListener('dblclick', function(e){
-        if(data.type === 'directory' && e.target !== checkbox){
-            navigateTable(data.id);
-        }
-    });
-
-    row.append(checkboxCol, entryName, uploadDate, size, actionColumn);
     return row;
 }
+
+document.addEventListener('dblclick', function(e){
+    const row = e.target.closest('tr');
+    console.log(row.cells[1].className);
+    if(row.type === 'directory' && e.target !== checkbox){
+        navigateTable(id);
+    }
+});
 
 function updatePageNumber(currentPage, totalPages){
     pageNumber.innerHTML = '';
@@ -137,7 +127,7 @@ async function getTable(parentID, page) {
         
         updatePageNumber(entries.pagination.page, entries.pagination.totalPages);
         updateArrowState(entries.pagination.page, entries.pagination.totalPages);
-        
+
         initId = parentID;
         currentPage = page;
         totalPages = entries.pagination.totalPages;
@@ -172,9 +162,6 @@ selectAll.addEventListener('change', function(e){
 });
 
 window.addEventListener('popstate', function(e){
-    if(e.state === null){
-        getTable(null, 1);
-        return;
-    }
-    getTable(e.state.id, 1);
+    const id = e.state ? e.state.id : null;
+    getTable(id, 1);
 });
