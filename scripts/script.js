@@ -75,11 +75,12 @@ function createRow({
     //     }
     // });
 
-    row.addEventListener('dblclick', function(e){
+    row.querySelector('tr').addEventListener('click', function(e){
         if(type === 'directory' && e.target !== checkbox){
                 navigateTable(id);
         }
     });
+    
     return row;
 }
 
