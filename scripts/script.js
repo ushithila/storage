@@ -52,35 +52,35 @@ function createRow({
     cells[2].textContent = convertDateFormat(createdAt);
     cells[3].textContent = size || '--';
 
-    // row.addEventListener('click', function(e){
-    //     let allRows = document.querySelectorAll('.checkbox:not(#select-all)');
-    //     if(e.target !== checkbox){
-    //         toggleCheckbox(checkbox);
-
-    //         allRows.forEach((box) => {
-    //             box.checked = box === checkbox;
-    //         });
-    //     }
-
-    //     selectAll.classList.add('minus');
-    //     selectAll.checked = true;
-
-    //     const count = document.querySelectorAll('.checkbox:checked:not(#select-all)').length;
-    //     if(count === allRows.length){
-    //         selectAll.classList.remove('minus');
-    //         selectAll.checked = true;
-    //     }
-    //     else if(count === 0){
-    //         selectAll.checked = false;
-    //     }
-    // });
-
     row.querySelector('tr').addEventListener('click', function(e){
+        let allRows = document.querySelectorAll('.checkbox:not(#select-all)');
+        if(e.target !== checkbox){
+            toggleCheckbox(checkbox);
+
+            allRows.forEach((box) => {
+                box.checked = box === checkbox;
+            });
+        }
+
+        selectAll.classList.add('minus');
+        selectAll.checked = true;
+
+        const count = document.querySelectorAll('.checkbox:checked:not(#select-all)').length;
+        if(count === allRows.length){
+            selectAll.classList.remove('minus');
+            selectAll.checked = true;
+        }
+        else if(count === 0){
+            selectAll.checked = false;
+        }
+    });
+
+    row.querySelector('tr').addEventListener('dblclick', function(e){
         if(type === 'directory' && e.target !== checkbox){
                 navigateTable(id);
         }
     });
-    
+
     return row;
 }
 
