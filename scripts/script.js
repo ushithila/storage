@@ -75,16 +75,13 @@ function createRow({
     //     }
     // });
 
+    row.addEventListener('dblclick', function(e){
+        if(type === 'directory' && e.target !== checkbox){
+                navigateTable(id);
+        }
+    });
     return row;
 }
-
-document.addEventListener('dblclick', function(e){
-    const row = e.target.closest('tr');
-    console.log(row.cells[1].className);
-    if(row.type === 'directory' && e.target !== checkbox){
-        navigateTable(id);
-    }
-});
 
 function updatePageNumber(currentPage, totalPages){
     pageNumber.innerHTML = '';
