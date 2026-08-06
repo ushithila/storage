@@ -10,10 +10,21 @@ const lastBtn = document.getElementById('last-btn');
 const selectAll = document.getElementById('select-all');
 
 const param = new URLSearchParams(window.location.search);
-let initId = param.get('entry');
+let currentPageId = param.get('entry');
 let currentPage = 1;
 let totalPages = 1;
 const pageSize = 5;
+
+/***
+ 1. cells to have class name instead of cells[1]
+ 2. urlsearchparam on navigate table
+ 3. Change variable names of initId, box, 
+ 4. Put events on the createRow to their own seperate functions 
+ 5. indeterminate on selectAll checkbox
+ 6. Figure out a way to put all the events of pagination in a function instead of root 
+ 7. spaces between {  
+ 8. Move variables above the functions where they are called first
+ ***/
 
 function convertDateFormat(date){
     const formattedDate = new Date(date).toLocaleDateString('en-US', {
@@ -26,6 +37,10 @@ function convertDateFormat(date){
 
 function toggleCheckbox(box){
     box.checked = !box.checked;
+}
+
+function gotoFolder(folder){
+
 }
 
 function createRow({
@@ -52,7 +67,9 @@ function createRow({
     cells[2].textContent = convertDateFormat(createdAt);
     cells[3].textContent = size || '--';
 
-    row.querySelector('tr').addEventListener('click', function(e) {
+    const clickedRow = row.querySelector('tr');
+
+    clickedRow.addEventListener('click', function(e) {
         let allRows = document.querySelectorAll('.checkbox:not(#select-all)');
         if(e.target !== checkbox) {
             toggleCheckbox(checkbox);
@@ -62,12 +79,11 @@ function createRow({
             });
         }
 
-        selectAll.classList.add('minus');
-        selectAll.checked = true;
+        selectAll.indeterminate = true;
 
         const count = document.querySelectorAll('.checkbox:checked:not(#select-all)').length;
         if(count === allRows.length){
-            selectAll.classList.remove('minus');
+        selectAll.indeterminate = false;
             selectAll.checked = true;
         }
         else if(count === 0){
@@ -75,7 +91,7 @@ function createRow({
         }
     });
 
-    row.querySelector('tr').addEventListener('dblclick', function(e) {
+    clickedRow.addEventListener('dblclick', function(e) {
         if(type === 'directory' && e.target !== checkbox){
                 navigateTable(id);
         }
@@ -102,9 +118,8 @@ function updateArrowState(currentPage, totalPages) {
 }
 
 function navigateTable(id){
-    // UrlSearchParameter
-    history.pushState({id}, '',`?entry=${id}`); // 
-    getTable(id, sessionStorage.getItem(''));
+    history.pushState({id}, '', `entry=${id}`); 
+    getTable(id);
 }
 
 function resetTable(){
@@ -116,8 +131,8 @@ async function getTable(parentID, page = 1) {
     resetTable();
     try {        
         const entries = parentID
-            ? await getDirectory('/', { page, pageSize })
-            : await getDirectoryByParentId(parentID, { page, pageSize });
+        ? await getDirectoryByParentId(parentID, { page, pageSize })
+        : await getDirectory('/', { page, pageSize });
         if(!Array.isArray(entries.data)) {
             console.warn('Table data not found');
             return;
@@ -129,7 +144,7 @@ async function getTable(parentID, page = 1) {
         updatePageNumber(entries.pagination.page, entries.pagination.totalPages);
         updateArrowState(entries.pagination.page, entries.pagination.totalPages);
 
-        initId = parentID;
+        currentPageId = parentID;
         currentPage = page;
         totalPages = entries.pagination.totalPages;
     } catch(error) {
@@ -137,21 +152,21 @@ async function getTable(parentID, page = 1) {
     }
 }
 
-getTable(initId, currentPage);
+getTable(currentPageId);
 firstBtn.addEventListener('click', function() {
-    getTable(initId, 1);
+    getTable(currentPageId);
 });
 
 prevBtn.addEventListener('click', function() {
-    getTable(initId, currentPage - 1);
+    getTable(currentPageId, currentPage - 1);
 });
 
 nextBtn.addEventListener('click', function(){
-    getTable(initId, currentPage + 1);
+    getTable(currentPageId, currentPage + 1);
 });
 
 lastBtn.addEventListener('click', function(){
-    getTable(initId, totalPages);
+    getTable(currentPageId, totalPages);
 });
 
 // indeterminate
@@ -165,5 +180,5 @@ selectAll.addEventListener('change', function(e){
 
 window.addEventListener('popstate', function(e) {
     const id = e.state ? e.state.id : null;
-    getTable(id, 1);
+    getTable(id);
 });

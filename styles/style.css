@@ -223,13 +223,11 @@ tr {
     border: 1px solid var(--button-color);
 }
 
-
-
 .checkbox:checked::after {
     content: url('../assets/check.svg');
 }
 
-.minus:checked::after {
+.checkbox:indeterminate {
     content: url('../assets/minus.svg');
 }
 
