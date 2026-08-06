@@ -5,7 +5,6 @@ import { getDirectory, getDirectoryByParentId } from './service.storage.js';
  2. urlsearchparam on navigate table
  3. Change variable names of initId, box, 
  4. Put events on the createRow to their own seperate functions 
- 5. indeterminate on selectAll checkbox
  6. Figure out a way to put all the events of pagination in a function instead of root 
  7. spaces between {  
  8. Move variables above the functions where they are called first
@@ -155,31 +154,27 @@ async function getTable(parentID, page = 1) {
 }
 
 getTable(currentPageId);
-firstBtn.addEventListener('click', function() {
+
+firstBtn.onclick = function() {
     getTable(currentPageId);
-});
+};
 
-prevBtn.addEventListener('click', function() {
+prevBtn.onclick = function() {
     getTable(currentPageId, currentPage - 1);
-});
+};
 
-nextBtn.addEventListener('click', function(){
+nextBtn.onclick = function(){
     getTable(currentPageId, currentPage + 1);
-});
+};
 
-lastBtn.addEventListener('click', function(){
+lastBtn.onclick = function(){
     getTable(currentPageId, totalPages);
-});
+};
 
-/*
-1. get all checkboxes (not including the 'select all' checbox)
-2. on any checkbox change - set 'select all' checkbox state
-*/
-
-selectAllCheckbox.addEventListener('change', function(e){
+selectAllCheckbox.onchange = function(e){
     selectAllCheckbox.indeterminate = false;
     let rowCheckbox = document.querySelectorAll('.checkbox:not(#select-all)');
     rowCheckbox.forEach( (box) => {
         box.checked = selectAllCheckbox.checked;
     });
-});
+};
