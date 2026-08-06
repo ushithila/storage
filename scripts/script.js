@@ -1,20 +1,5 @@
 import { getDirectory, getDirectoryByParentId } from './service.storage.js';
 
-const tableBody = document.getElementById('table-body');
-const tableRowTemplate = document.getElementById('table-row-template');
-const pageNumber = document.getElementById('page-number');
-const firstBtn = document.getElementById('first-btn');
-const prevBtn = document.getElementById('prev-btn');
-const nextBtn = document.getElementById('next-btn');
-const lastBtn = document.getElementById('last-btn');
-const selectAll = document.getElementById('select-all');
-
-const param = new URLSearchParams(window.location.search);
-let currentPageId = param.get('entry');
-let currentPage = 1;
-let totalPages = 1;
-const pageSize = 5;
-
 /***
  1. cells to have class name instead of cells[1]
  2. urlsearchparam on navigate table
@@ -24,9 +9,10 @@ const pageSize = 5;
  6. Figure out a way to put all the events of pagination in a function instead of root 
  7. spaces between {  
  8. Move variables above the functions where they are called first
+ 9. 
  ***/
 
-function convertDateFormat(date){
+function convertDateFormat(date) {
     const formattedDate = new Date(date).toLocaleDateString('en-US', {
         month: 'short',
         day: 'numeric',
@@ -35,21 +21,23 @@ function convertDateFormat(date){
     return formattedDate;
 }
 
-function toggleCheckbox(box){
+function toggleCheckbox(box) {
     box.checked = !box.checked;
 }
 
-function gotoFolder(folder){
+function gotoFolder(folder) {
 
 }
 
-function createRow({
+const tableRowTemplate = document.getElementById('table-row-template');
+const selectAll = document.getElementById('select-all');
+function createRow( {
     name,
     createdAt,
     size,
     type,
     id,
-}) {
+} ) {
     const row = tableRowTemplate
         .content
         .cloneNode(true);
@@ -79,11 +67,11 @@ function createRow({
             });
         }
 
-        selectAll.indeterminate = true;
+        selectAll.classList.add = '.minus';
 
         const count = document.querySelectorAll('.checkbox:checked:not(#select-all)').length;
         if(count === allRows.length){
-        selectAll.indeterminate = false;
+            selectAll.classList.add = '.minus';
             selectAll.checked = true;
         }
         else if(count === 0){
@@ -100,12 +88,18 @@ function createRow({
     return row;
 }
 
+const pageNumber = document.getElementById('page-number');
 function updatePageNumber(currentPage, totalPages) {
     pageNumber.innerHTML = '';
     const current = document.createElement('b');
     current.textContent = currentPage;
     pageNumber.append(current, ` of ${totalPages}`);
 }
+
+const firstBtn = document.getElementById('first-btn');
+const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
+const lastBtn = document.getElementById('last-btn');
 
 function updateArrowState(currentPage, totalPages) {
     const start = currentPage == 1;
@@ -121,6 +115,13 @@ function navigateTable(id){
     history.pushState({id}, '', `entry=${id}`); 
     getTable(id);
 }
+
+const tableBody = document.getElementById('table-body');
+const param = new URLSearchParams(window.location.search);
+let currentPageId = param.get('entry');
+let currentPage = 1;
+let totalPages = 1;
+const pageSize = 5;
 
 function resetTable(){
     tableBody.innerHTML = '';
@@ -178,7 +179,7 @@ selectAll.addEventListener('change', function(e){
     });
 });
 
-window.addEventListener('popstate', function(e) {
+window.addEventListener('popstate', () => {
     const id = e.state ? e.state.id : null;
     getTable(id);
 });
