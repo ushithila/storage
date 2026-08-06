@@ -223,6 +223,8 @@ tr {
     border: 1px solid var(--button-color);
 }
 
+
+
 .checkbox:checked::after {
     content: url('../assets/check.svg');
 }

@@ -13,7 +13,7 @@ const param = new URLSearchParams(window.location.search);
 let initId = param.get('entry');
 let currentPage = 1;
 let totalPages = 1;
-const pageSize = 15;
+const pageSize = 5;
 
 function convertDateFormat(date){
     const formattedDate = new Date(date).toLocaleDateString('en-US', {
@@ -52,9 +52,9 @@ function createRow({
     cells[2].textContent = convertDateFormat(createdAt);
     cells[3].textContent = size || '--';
 
-    row.querySelector('tr').addEventListener('click', function(e){
+    row.querySelector('tr').addEventListener('click', function(e) {
         let allRows = document.querySelectorAll('.checkbox:not(#select-all)');
-        if(e.target !== checkbox){
+        if(e.target !== checkbox) {
             toggleCheckbox(checkbox);
 
             allRows.forEach((box) => {
@@ -75,7 +75,7 @@ function createRow({
         }
     });
 
-    row.querySelector('tr').addEventListener('dblclick', function(e){
+    row.querySelector('tr').addEventListener('dblclick', function(e) {
         if(type === 'directory' && e.target !== checkbox){
                 navigateTable(id);
         }
@@ -84,14 +84,14 @@ function createRow({
     return row;
 }
 
-function updatePageNumber(currentPage, totalPages){
+function updatePageNumber(currentPage, totalPages) {
     pageNumber.innerHTML = '';
     const current = document.createElement('b');
     current.textContent = currentPage;
     pageNumber.append(current, ` of ${totalPages}`);
 }
 
-function updateArrowState(currentPage, totalPages){
+function updateArrowState(currentPage, totalPages) {
     const start = currentPage == 1;
     const end = currentPage == totalPages;
 
@@ -102,8 +102,9 @@ function updateArrowState(currentPage, totalPages){
 }
 
 function navigateTable(id){
-    history.pushState({id}, '',`?entry=${id}`);
-    getTable(id, 1);
+    // UrlSearchParameter
+    history.pushState({id}, '',`?entry=${id}`); // 
+    getTable(id, sessionStorage.getItem(''));
 }
 
 function resetTable(){
@@ -111,17 +112,19 @@ function resetTable(){
     selectAll.checked = false;
 }
 
-async function getTable(parentID, page) {
+async function getTable(parentID, page = 1) {
     resetTable();
     try {        
-        const entries = parentID === null ? await getDirectory('/', {page, pageSize}) : await getDirectoryByParentId(parentID, {page, pageSize});
+        const entries = parentID
+            ? await getDirectory('/', { page, pageSize })
+            : await getDirectoryByParentId(parentID, { page, pageSize });
         if(!Array.isArray(entries.data)) {
             console.warn('Table data not found');
             return;
         }
-        const fragment = document.createDocumentFragment();
-        entries.data.forEach((item) => fragment.appendChild(createRow(item)));
-        tableBody.append(fragment);
+
+        const rows = entries.data.map(createRow);
+        tableBody.append(...rows);
         
         updatePageNumber(entries.pagination.page, entries.pagination.totalPages);
         updateArrowState(entries.pagination.page, entries.pagination.totalPages);
@@ -135,11 +138,11 @@ async function getTable(parentID, page) {
 }
 
 getTable(initId, currentPage);
-firstBtn.addEventListener('click', function(){
+firstBtn.addEventListener('click', function() {
     getTable(initId, 1);
 });
 
-prevBtn.addEventListener('click', function(){
+prevBtn.addEventListener('click', function() {
     getTable(initId, currentPage - 1);
 });
 
@@ -151,6 +154,7 @@ lastBtn.addEventListener('click', function(){
     getTable(initId, totalPages);
 });
 
+// indeterminate
 selectAll.addEventListener('change', function(e){
     selectAll.classList.remove('minus');
     let rowCheckbox = document.querySelectorAll('.checkbox:not(#select-all)');
@@ -159,7 +163,7 @@ selectAll.addEventListener('change', function(e){
     });
 });
 
-window.addEventListener('popstate', function(e){
+window.addEventListener('popstate', function(e) {
     const id = e.state ? e.state.id : null;
     getTable(id, 1);
 });
