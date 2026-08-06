@@ -3,12 +3,8 @@ import { getDirectory, getDirectoryByParentId } from './service.storage.js';
 /***
  1. cells to have class name instead of cells[1]
  2. urlsearchparam on navigate table
- 3. Change variable names of initId, box, 
  4. Put events on the createRow to their own seperate functions 
  6. Figure out a way to put all the events of pagination in a function instead of root 
- 7. spaces between {  
- 8. Move variables above the functions where they are called first
- 9. 
  ***/
 
 function convertDateFormat(date) {
@@ -67,13 +63,13 @@ function createRow( {
         selectAllCheckbox.indeterminate = true;
 
         const count = document.querySelectorAll('.checkbox:checked:not(#select-all)').length;
-        if(count === 0){
+        if(count === 0) {
             selectAllCheckbox.checked = false;
         }
     });
 
     clickedRow.addEventListener('dblclick', function(e) {
-        if(type === 'directory' && e.target !== checkbox){
+        if(type === 'directory' && e.target !== checkbox) {
                 navigateTable(id);
         }
     });
@@ -105,13 +101,13 @@ function updateArrowState(currentPage, totalPages) {
 }
 
 function navigateTable(id){
-    const url = new URLSearchParams(window.location.href);
+    const url = new URLSearchParams(window.location.search);
     url.set('entry', id);
     history.pushState({id}, '', url); 
     getTable(id);
 }
 
-window.addEventListener('popstate', () => {
+window.addEventListener('popstate', (e) => {
     const id = e.state ? e.state.id : null;
     getTable(id);
 });
@@ -125,7 +121,7 @@ const pageSize = 15;
 
 function resetTable(){
     tableBody.innerHTML = '';
-    selectAllCheckbox.checked = false;
+    selectAllCheckbox.indeterminate = false;
 }
 
 async function getTable(parentID, page = 1) {
