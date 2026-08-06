@@ -109,7 +109,7 @@ function navigateTable(id){
 
 window.addEventListener('popstate', (e) => {
     const id = e.state ? e.state.id : null;
-    getTable(id);
+    getTable(id, currentPage);
 });
 
 const tableBody = document.getElementById('table-body');
