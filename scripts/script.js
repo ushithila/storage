@@ -21,8 +21,8 @@ function convertDateFormat(date) {
     return formattedDate;
 }
 
-function toggleCheckbox(box) {
-    box.checked = !box.checked;
+function toggleCheckbox(checkbox) {
+    checkbox.checked = !checkbox.checked;
 }
 
 function gotoFolder(folder) {
@@ -30,7 +30,7 @@ function gotoFolder(folder) {
 }
 
 const tableRowTemplate = document.getElementById('table-row-template');
-const selectAll = document.getElementById('select-all');
+const selectAllCheckbox = document.getElementById('select-all-checkbox');
 function createRow( {
     name,
     createdAt,
@@ -38,11 +38,11 @@ function createRow( {
     type,
     id,
 } ) {
-    const row = tableRowTemplate
+    const newRow = tableRowTemplate
         .content
         .cloneNode(true);
-    const cells = row.querySelectorAll('td');
-    const checkbox = row.querySelector('input[type="checkbox"]');
+    const cells = newRow.querySelectorAll('td');
+    const checkbox = newRow.querySelector('input[type="checkbox"]');
 
     const icon = cells[1].querySelector('i');
     if (type === 'directory') {
@@ -55,27 +55,21 @@ function createRow( {
     cells[2].textContent = convertDateFormat(createdAt);
     cells[3].textContent = size || '--';
 
-    const clickedRow = row.querySelector('tr');
+    const clickedRow = newRow.querySelector('tr');
 
     clickedRow.addEventListener('click', function(e) {
         let allRows = document.querySelectorAll('.checkbox:not(#select-all)');
         if(e.target !== checkbox) {
             toggleCheckbox(checkbox);
-
             allRows.forEach((box) => {
                 box.checked = box === checkbox;
             });
         }
-
-        selectAll.classList.add = '.minus';
+        selectAllCheckbox.indeterminate = true;
 
         const count = document.querySelectorAll('.checkbox:checked:not(#select-all)').length;
-        if(count === allRows.length){
-            selectAll.classList.add = '.minus';
-            selectAll.checked = true;
-        }
-        else if(count === 0){
-            selectAll.checked = false;
+        if(count === 0){
+            selectAllCheckbox.checked = false;
         }
     });
 
@@ -85,7 +79,7 @@ function createRow( {
         }
     });
 
-    return row;
+    return newRow;
 }
 
 const pageNumber = document.getElementById('page-number');
@@ -112,20 +106,27 @@ function updateArrowState(currentPage, totalPages) {
 }
 
 function navigateTable(id){
-    history.pushState({id}, '', `entry=${id}`); 
+    const url = new URLSearchParams(window.location.href);
+    url.set('entry', id);
+    history.pushState({id}, '', url); 
     getTable(id);
 }
+
+window.addEventListener('popstate', () => {
+    const id = e.state ? e.state.id : null;
+    getTable(id);
+});
 
 const tableBody = document.getElementById('table-body');
 const param = new URLSearchParams(window.location.search);
 let currentPageId = param.get('entry');
 let currentPage = 1;
 let totalPages = 1;
-const pageSize = 5;
+const pageSize = 15;
 
 function resetTable(){
     tableBody.innerHTML = '';
-    selectAll.checked = false;
+    selectAllCheckbox.checked = false;
 }
 
 async function getTable(parentID, page = 1) {
@@ -170,16 +171,15 @@ lastBtn.addEventListener('click', function(){
     getTable(currentPageId, totalPages);
 });
 
-// indeterminate
-selectAll.addEventListener('change', function(e){
-    selectAll.classList.remove('minus');
+/*
+1. get all checkboxes (not including the 'select all' checbox)
+2. on any checkbox change - set 'select all' checkbox state
+*/
+
+selectAllCheckbox.addEventListener('change', function(e){
+    selectAllCheckbox.indeterminate = false;
     let rowCheckbox = document.querySelectorAll('.checkbox:not(#select-all)');
     rowCheckbox.forEach( (box) => {
-        box.checked = selectAll.checked;
+        box.checked = selectAllCheckbox.checked;
     });
-});
-
-window.addEventListener('popstate', () => {
-    const id = e.state ? e.state.id : null;
-    getTable(id);
 });

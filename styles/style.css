@@ -228,6 +228,8 @@ tr {
 }
 
 .checkbox:indeterminate {
+    background-color: var(--button-color);
+    border: 1px solid var(--button-color);
     content: url('../assets/minus.svg');
 }
 
