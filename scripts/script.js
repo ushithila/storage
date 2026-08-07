@@ -2,8 +2,6 @@ import { getDirectory, getDirectoryByParentId } from './service.storage.js';
 
 /***
  1. cells to have class name instead of cells[1]
- 4. Put events on the createRow to their own seperate functions 
- 6. Figure out a way to put all the events of pagination in a function instead of root 
  ***/
 
 function convertDateFormat(date) {
@@ -35,7 +33,6 @@ function handleCheckbox(row, e, checkbox){
         }
 }
 
-
 function gotoFolder(folder, e, id, type, checkbox){
     if(type === 'directory' && e.target !== checkbox) {
             navigateTable(id);
@@ -63,7 +60,7 @@ function createRow( {
     } else {
         icon.classList.add('file', 'fa-file');
     }
-    
+
     cells[1].append(name);
     cells[2].textContent = convertDateFormat(createdAt);
     cells[3].textContent = size || '--';
@@ -167,13 +164,17 @@ function updatePagination(){
     };
 }
 
-getTable(currentPageId);
-updatePagination();
-
-selectAllCheckbox.onchange = function(e){
+function selectAllRows(e){
     selectAllCheckbox.indeterminate = false;
     let rowCheckbox = document.querySelectorAll('.checkbox:not(#select-all)');
     rowCheckbox.forEach( (box) => {
         box.checked = selectAllCheckbox.checked;
     });
+}
+
+getTable(currentPageId);
+updatePagination();
+
+selectAllCheckbox.onchange = function(e){
+    selectAllRows(e);
 };
