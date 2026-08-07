@@ -17,7 +17,7 @@ function toggleCheckbox(checkbox) {
     checkbox.checked = !checkbox.checked;
 }
 
-function handleCheckbox(row, e, checkbox){
+function setSingleRow(row, e, checkbox){
         let allRows = document.querySelectorAll('.checkbox:not(#select-all)');
         if(e.target !== checkbox) {
             toggleCheckbox(checkbox);
@@ -67,7 +67,7 @@ function createRow( {
 
     const clickedRow = newRow.querySelector('tr');
     clickedRow.onclick = function(e){ 
-        handleCheckbox(clickedRow, e, checkbox);
+        setSingleRow(clickedRow, e, checkbox);
     };
 
     clickedRow.ondblclick = function(e) {
