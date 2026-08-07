@@ -1,79 +1,9 @@
 import { getDirectory, getDirectoryByParentId } from './service.storage.js';
+import { createRow } from './row.js';
 
-/*
- 1. cells to have class name instead of cells[1]
-*/
-
-function convertDateFormat(date) {
-    const formattedDate = new Date(date).toLocaleDateString('en-US', {
-        month: 'short',
-        day: 'numeric',
-        year: 'numeric'
-    })
-    return formattedDate;
-}
-
-function toggleCheckbox(checkbox) {
-    checkbox.checked = !checkbox.checked;
-}
-
-function setSingleRow(row, e, checkbox){
-        let allRows = document.querySelectorAll('.checkbox:not(#select-all)');
-        if(e.target !== checkbox) {
-            toggleCheckbox(checkbox);
-            allRows.forEach((box) => {
-                box.checked = box === checkbox;
-            });
-        }
-        selectAllCheckbox.indeterminate = true;
-
-        const count = document.querySelectorAll('.checkbox:checked:not(#select-all)').length;
-        if(count === 0) {
-            selectAllCheckbox.checked = false;
-        }
-}
-
-const tableRowTemplate = document.getElementById('table-row-template');
 const selectAllCheckbox = document.getElementById('select-all-checkbox');
-function createRow({
-    name,
-    createdAt,
-    size,
-    type,
-    id,
-}) {
-    const newRow = tableRowTemplate
-        .content
-        .cloneNode(true);
-    const cells = newRow.querySelectorAll('td');
-    const checkbox = newRow.querySelector('input[type="checkbox"]');
-
-    const icon = cells[1].querySelector('i');
-    if (type === 'directory') {
-        icon.classList.add('directory', 'fa-folder');
-    } else {
-        icon.classList.add('file', 'fa-file');
-    }
-
-    cells[1].append(name);
-    cells[2].textContent = convertDateFormat(createdAt);
-    cells[3].textContent = size || '--';
-
-    const clickedRow = newRow.querySelector('tr');
-    clickedRow.onclick = function(e){ 
-        setSingleRow(clickedRow, e, checkbox);
-    };
-
-    clickedRow.ondblclick = function(e) {
-        if(type === 'directory' && e.target !== checkbox) {
-                navigateTable(id);
-        }    
-    };
-   
-    return newRow;
-}
-
 const pageNumber = document.getElementById('page-number');
+
 function updatePageNumber(currentPage, totalPages) {
     pageNumber.innerHTML = '';
     const current = document.createElement('b');
@@ -96,17 +26,28 @@ function updateArrowState(currentPage, totalPages) {
     lastBtn.disabled = end;
 }
 
+const paginationBtns = [
+    { el: firstBtn, getPage: () => 1  },
+    { el: lastBtn, getPage: () => totalPages  },
+    { el: prevBtn, getPage: () => currentPage - 1  },
+    { el: nextBtn, getPage: () => currentPage + 1  },
+];
+
+function updatePagination(){
+    paginationBtns.forEach(({ el,  getPage }) => el
+            .addEventListener('click', () => getTable(currentPageId, getPage())));
+}
+
 function navigateTable(id, page){
     const url = new URLSearchParams(window.location.search);
     url.set('entry', id);
-    url.set('page', page)
     history.pushState({id}, '', url); 
     getTable(id);
 }
 
 window.addEventListener('popstate', (e) => {
     const id = e.state ? e.state.id : null;
-    getTable(id, currentPage);
+    getTable(id, 1);
 });
 
 const tableBody = document.getElementById('table-body');
@@ -146,18 +87,6 @@ async function getTable(parentID, page = 1) {
     }
 }
 
-const paginationBtns = [
-    { el: firstBtn, getPage: () => 1  },
-    { el: lastBtn, getPage: () => totalPages  },
-    { el: prevBtn, getPage: () => currentPage - 1  },
-    { el: nextBtn, getPage: () => currentPage + 1  },
-];
-
-function updatePagination(){
-    paginationBtns.forEach(({ el,  getPage }) => el
-            .addEventListener('click', () => getTable(currentPageId, getPage())));
-}
-
 function selectAllRows(e){
     selectAllCheckbox.indeterminate = false;
     let rowCheckbox = document.querySelectorAll('.checkbox:not(#select-all)');
@@ -172,3 +101,18 @@ updatePagination();
 selectAllCheckbox.onchange = function(e){
     selectAllRows(e);
 };
+
+function setSingleRow(row, e, checkbox){
+        let allRows = document.querySelectorAll('.checkbox:not(#select-all)');
+        if(e.target !== checkbox) {
+            toggleCheckbox(checkbox);
+            allRows.forEach((box) => {
+                box.checked = box === checkbox;
+            });
+        }
+        selectAllCheckbox.indeterminate = true;
+        const count = document.querySelectorAll('.checkbox:checked:not(#select-all)').length;
+        if(count === 0) {
+            selectAllCheckbox.checked = false;
+        }
+}
