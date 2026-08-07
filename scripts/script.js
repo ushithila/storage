@@ -2,7 +2,6 @@ import { getDirectory, getDirectoryByParentId } from './service.storage.js';
 
 /***
  1. cells to have class name instead of cells[1]
- 2. urlsearchparam on navigate table
  4. Put events on the createRow to their own seperate functions 
  6. Figure out a way to put all the events of pagination in a function instead of root 
  ***/
@@ -18,10 +17,6 @@ function convertDateFormat(date) {
 
 function toggleCheckbox(checkbox) {
     checkbox.checked = !checkbox.checked;
-}
-
-function gotoFolder(folder) {
-
 }
 
 const tableRowTemplate = document.getElementById('table-row-template');
@@ -51,7 +46,6 @@ function createRow( {
     cells[3].textContent = size || '--';
 
     const clickedRow = newRow.querySelector('tr');
-
     clickedRow.addEventListener('click', function(e) {
         let allRows = document.querySelectorAll('.checkbox:not(#select-all)');
         if(e.target !== checkbox) {
@@ -73,7 +67,7 @@ function createRow( {
                 navigateTable(id);
         }
     });
-
+   
     return newRow;
 }
 
@@ -149,23 +143,23 @@ async function getTable(parentID, page = 1) {
     }
 }
 
+function updatePagination(){
+    firstBtn.onclick = function() {
+        getTable(currentPageId);
+    };
+    prevBtn.onclick = function() {
+        getTable(currentPageId, currentPage - 1);
+    };
+    nextBtn.onclick = function(){
+        getTable(currentPageId, currentPage + 1);
+    };
+    lastBtn.onclick = function(){
+        getTable(currentPageId, totalPages);
+    };
+}
+
 getTable(currentPageId);
-
-firstBtn.onclick = function() {
-    getTable(currentPageId);
-};
-
-prevBtn.onclick = function() {
-    getTable(currentPageId, currentPage - 1);
-};
-
-nextBtn.onclick = function(){
-    getTable(currentPageId, currentPage + 1);
-};
-
-lastBtn.onclick = function(){
-    getTable(currentPageId, totalPages);
-};
+updatePagination();
 
 selectAllCheckbox.onchange = function(e){
     selectAllCheckbox.indeterminate = false;
