@@ -1,8 +1,8 @@
 import { getDirectory, getDirectoryByParentId } from './service.storage.js';
 
-/***
+/*
  1. cells to have class name instead of cells[1]
- ***/
+*/
 
 function convertDateFormat(date) {
     const formattedDate = new Date(date).toLocaleDateString('en-US', {
@@ -33,21 +33,15 @@ function setSingleRow(row, e, checkbox){
         }
 }
 
-function gotoFolder(folder, e, id, type, checkbox){
-    if(type === 'directory' && e.target !== checkbox) {
-            navigateTable(id);
-    }
-}
-
 const tableRowTemplate = document.getElementById('table-row-template');
 const selectAllCheckbox = document.getElementById('select-all-checkbox');
-function createRow( {
+function createRow({
     name,
     createdAt,
     size,
     type,
     id,
-} ) {
+}) {
     const newRow = tableRowTemplate
         .content
         .cloneNode(true);
@@ -71,7 +65,9 @@ function createRow( {
     };
 
     clickedRow.ondblclick = function(e) {
-        gotoFolder(clickedRow, e, id, type, checkbox)
+        if(type === 'directory' && e.target !== checkbox) {
+                navigateTable(id);
+        }    
     };
    
     return newRow;
@@ -100,9 +96,10 @@ function updateArrowState(currentPage, totalPages) {
     lastBtn.disabled = end;
 }
 
-function navigateTable(id){
+function navigateTable(id, page){
     const url = new URLSearchParams(window.location.search);
     url.set('entry', id);
+    url.set('page', page)
     history.pushState({id}, '', url); 
     getTable(id);
 }
@@ -117,7 +114,7 @@ const param = new URLSearchParams(window.location.search);
 let currentPageId = param.get('entry');
 let currentPage = 1;
 let totalPages = 1;
-const pageSize = 15;
+const pageSize = 5;
 
 function resetTable(){
     tableBody.innerHTML = '';
@@ -149,19 +146,16 @@ async function getTable(parentID, page = 1) {
     }
 }
 
+const paginationBtns = [
+    { el: firstBtn, getPage: () => 1  },
+    { el: lastBtn, getPage: () => totalPages  },
+    { el: prevBtn, getPage: () => currentPage - 1  },
+    { el: nextBtn, getPage: () => currentPage + 1  },
+];
+
 function updatePagination(){
-    firstBtn.onclick = function() {
-        getTable(currentPageId);
-    };
-    prevBtn.onclick = function() {
-        getTable(currentPageId, currentPage - 1);
-    };
-    nextBtn.onclick = function(){
-        getTable(currentPageId, currentPage + 1);
-    };
-    lastBtn.onclick = function(){
-        getTable(currentPageId, totalPages);
-    };
+    paginationBtns.forEach(({ el,  getPage }) => el
+            .addEventListener('click', () => getTable(currentPageId, getPage())));
 }
 
 function selectAllRows(e){
