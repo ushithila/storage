@@ -19,6 +19,29 @@ function toggleCheckbox(checkbox) {
     checkbox.checked = !checkbox.checked;
 }
 
+function handleCheckbox(row, e, checkbox){
+        let allRows = document.querySelectorAll('.checkbox:not(#select-all)');
+        if(e.target !== checkbox) {
+            toggleCheckbox(checkbox);
+            allRows.forEach((box) => {
+                box.checked = box === checkbox;
+            });
+        }
+        selectAllCheckbox.indeterminate = true;
+
+        const count = document.querySelectorAll('.checkbox:checked:not(#select-all)').length;
+        if(count === 0) {
+            selectAllCheckbox.checked = false;
+        }
+}
+
+
+function gotoFolder(folder, e, id, type, checkbox){
+    if(type === 'directory' && e.target !== checkbox) {
+            navigateTable(id);
+    }
+}
+
 const tableRowTemplate = document.getElementById('table-row-template');
 const selectAllCheckbox = document.getElementById('select-all-checkbox');
 function createRow( {
@@ -46,27 +69,13 @@ function createRow( {
     cells[3].textContent = size || '--';
 
     const clickedRow = newRow.querySelector('tr');
-    clickedRow.addEventListener('click', function(e) {
-        let allRows = document.querySelectorAll('.checkbox:not(#select-all)');
-        if(e.target !== checkbox) {
-            toggleCheckbox(checkbox);
-            allRows.forEach((box) => {
-                box.checked = box === checkbox;
-            });
-        }
-        selectAllCheckbox.indeterminate = true;
+    clickedRow.onclick = function(e){ 
+        handleCheckbox(clickedRow, e, checkbox);
+    };
 
-        const count = document.querySelectorAll('.checkbox:checked:not(#select-all)').length;
-        if(count === 0) {
-            selectAllCheckbox.checked = false;
-        }
-    });
-
-    clickedRow.addEventListener('dblclick', function(e) {
-        if(type === 'directory' && e.target !== checkbox) {
-                navigateTable(id);
-        }
-    });
+    clickedRow.ondblclick = function(e) {
+        gotoFolder(clickedRow, e, id, type, checkbox)
+    };
    
     return newRow;
 }
