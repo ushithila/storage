@@ -2,20 +2,20 @@ import { getDirectory, getDirectoryByParentId } from './service.storage.js';
 import { convertDateFormat , toggleCheckbox } from './utils.js';
 
 const selectAllCheckbox = document.getElementById('select-all-checkbox');
+
 function setSingleRow(row, e, checkbox){
-        let allRows = document.querySelectorAll('.checkbox:not(#select-all)');
-        if(e.target !== checkbox) {
-            toggleCheckbox(checkbox);
-            allRows.forEach((box) => {
+    let allRows = document.querySelectorAll('.checkbox:not(#select-all)');
+    if(e.target !== checkbox) {
+        toggleCheckbox(checkbox);
+        allRows.forEach((box) => {
                 box.checked = box === checkbox;
-            });
-        }
-        selectAllCheckbox.indeterminate = true;
-        const count = document.querySelectorAll('.checkbox:checked:not(#select-all)').length;
-        if(count === 0) {
-            selectAllCheckbox.checked = false;
-            selectAllCheckbox.indeterminate = false;
-        }
+        });
+    }
+    selectAllCheckbox.indeterminate = true;
+    const count = document.querySelectorAll('.checkbox:checked:not(#select-all)').length;
+    if(count === 0) {
+        selectAllCheckbox.indeterminate = false;
+    }
 }
 
 const tableRowTemplate = document.getElementById('table-row-template');
@@ -48,7 +48,7 @@ function createRow( {
         setSingleRow(clickedRow, e, checkbox);
     };
 
-    clickedRow.ondblclick = function(e) {
+    clickedRow.ondblclick = function(e){
         if(type === 'directory' && e.target !== checkbox) {
                 navigateTable(id);
         }
@@ -80,9 +80,11 @@ function updateArrowState(currentPage, totalPages) {
     lastBtn.disabled = end;
 }
 
-function navigateTable(id = currentPageId, page = 1){
+function navigateTable(id = currentPageId){
     const url = new URLSearchParams(window.location.search);
-    getTable(id, page);
+    url.set('entry', id);
+    history.pushState({id}, '', url);
+    getTable(id);
 }
 
 window.addEventListener('popstate', (e) => {
@@ -98,7 +100,6 @@ let totalPages = 1;
 const pageSize = 15;
 
 function resetTable(){
-    tableBody.replaceChildren();
     selectAllCheckbox.checked = false;
     selectAllCheckbox.indeterminate = false;
 }
@@ -113,9 +114,8 @@ async function getTable(parentID, page = 1) {
             console.warn('Table data not found');
             return;
         }
-
         const rows = entries.data.map(createRow);
-        tableBody.append(...rows);
+        tableBody.replaceChildren(...rows);
         
         updatePageNumber(entries.pagination.page, entries.pagination.totalPages);
         updateArrowState(entries.pagination.page, entries.pagination.totalPages);
