@@ -128,19 +128,16 @@ async function getTable(parentID, page = 1) {
     }
 }
 
+const paginationBtns = [
+    { el: firstBtn, getPage: () => 1  },
+    { el: lastBtn, getPage: () => totalPages  },
+    { el: prevBtn, getPage: () => currentPage - 1  },
+    { el: nextBtn, getPage: () => currentPage + 1  },
+];
+
 function updatePagination(){
-    firstBtn.onclick = function() {
-        getTable(currentPageId);
-    };
-    prevBtn.onclick = function() {
-        getTable(currentPageId, currentPage - 1);
-    };
-    nextBtn.onclick = function(){
-        getTable(currentPageId, currentPage + 1);
-    };
-    lastBtn.onclick = function(){
-        getTable(currentPageId, totalPages);
-    };
+    paginationBtns.forEach(({ el,  getPage }) => el
+            .addEventListener('click', () => getTable(currentPageId, getPage())));
 }
 
 function selectAllRows(e){
