@@ -53,16 +53,14 @@ function createRow( {
                 navigateTable(id);
         }
     };
-   
     return newRow;
 }
 
 const pageNumber = document.getElementById('page-number');
 function updatePageNumber(currentPage, totalPages) {
-    pageNumber.innerHTML = '';
     const current = document.createElement('b');
     current.textContent = currentPage;
-    pageNumber.append(current, ` of ${totalPages}`);
+    pageNumber.replaceChildren(current, ` of ${totalPages}`);
 }
 
 const firstBtn = document.getElementById('first-btn');
@@ -126,8 +124,8 @@ async function getTable(parentID, page = 1) {
 }
 
 const paginationBtns = [
-    { el: firstBtn, getPage: () => 1  },
-    { el: lastBtn, getPage: () => totalPages  },
+    { el: firstBtn, getPage: () => 1 },
+    { el: lastBtn, getPage: () => totalPages },
     { el: prevBtn, getPage: () => currentPage - 1  },
     { el: nextBtn, getPage: () => currentPage + 1  },
 ];

@@ -27,7 +27,7 @@
     --file-title-color: #1976D2;
 }
 
-button{
+button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -66,7 +66,7 @@ button{
     font-size: 20px;
 }
 
-.multi-select-container{
+.multi-select-container {
     display: none;
     align-items: center;
     color: var(--text-color);
@@ -80,11 +80,11 @@ button{
     border-radius: .375rem;
 }
 
-.select-text{
+.select-text {
     padding-right: 1.25rem;
 }
 
-.multi-button{
+.multi-button {
     font-size: .75rem;
     color: var(--primary-button-color);
     border-radius: .25rem;
@@ -94,7 +94,7 @@ button{
     transition: .3s;
 }
 
-.multi-button:hover{
+.multi-button:hover {
     background-color: var(--multi-button-hover-color);
 }
 
@@ -238,20 +238,20 @@ tr {
     border: 1px solid var(--search-active-color);
 }
 
-td{
+td {
     display: flex;
     gap: 0.5rem;
 }
 
-.directory .file{
+.directory .file {
     font-size: 32px;
 }
 
-.directory{
+.directory {
     color: var(--directory-icon-color);
 }
 
-.file{
+.file {
     color: var(--file-icon-color);
 }
 
@@ -317,7 +317,7 @@ ul li {
     fill: var(--primary-button-color);
 }
 
-.btn-pagination:hover{
+.btn-pagination:hover {
     background-color: var(--container-color);
 }
 
@@ -325,7 +325,7 @@ ul li {
     background-color: var(--border-color);
 }
 
-.btn-pagination:disabled{
+.btn-pagination:disabled {
     background-color: transparent;
     fill: var(--secondary-button-color);
     cursor: default;
