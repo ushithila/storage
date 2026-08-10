@@ -80,9 +80,12 @@ function updateArrowState(currentPage, totalPages) {
     lastBtn.disabled = end;
 }
 
-function navigateTable(id = currentPageId){
-    const url = new URLSearchParams(window.location.search);
-    url.set('entry', id);
+const param = new URLSearchParams(window.location.search);
+let currentPageId = param.get('entry');
+
+function navigateTable(id){
+    const url = new URL(window.location);
+    url.searchParams.set('entry', id);
     history.pushState({id}, '', url);
     getTable(id);
 }
@@ -93,19 +96,13 @@ window.addEventListener('popstate', (e) => {
 });
 
 const tableBody = document.getElementById('table-body');
-const param = new URLSearchParams(window.location.search);
-let currentPageId = param.get('entry');
 let currentPage = 1;
 let totalPages = 1;
 const pageSize = 15;
 
-function resetTable(){
+async function getTable(parentID, page = 1) {
     selectAllCheckbox.checked = false;
     selectAllCheckbox.indeterminate = false;
-}
-
-async function getTable(parentID, page = 1) {
-    resetTable();
     try {        
         const entries = parentID
         ? await getDirectoryByParentId(parentID, { page, pageSize })
