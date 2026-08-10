@@ -14,6 +14,7 @@ function setSingleRow(row, e, checkbox){
         const count = document.querySelectorAll('.checkbox:checked:not(#select-all)').length;
         if(count === 0) {
             selectAllCheckbox.checked = false;
+            selectAllCheckbox.indeterminate = false;
         }
 }
 
@@ -79,11 +80,9 @@ function updateArrowState(currentPage, totalPages) {
     lastBtn.disabled = end;
 }
 
-function navigateTable(id){
+function navigateTable(id = currentPageId, page = 1){
     const url = new URLSearchParams(window.location.search);
-    url.set('entry', id);
-    history.pushState({id}, '', url); 
-    getTable(id);
+    getTable(id, page);
 }
 
 window.addEventListener('popstate', (e) => {
@@ -100,6 +99,7 @@ const pageSize = 15;
 
 function resetTable(){
     tableBody.replaceChildren();
+    selectAllCheckbox.checked = false;
     selectAllCheckbox.indeterminate = false;
 }
 
